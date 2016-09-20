@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += ventanaprincipal.h
 
 FORMS    += ventanaprincipal.ui
+
+RESOURCES += \
+    imagenes.qrc

@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/imagenes">
+        <file>Imagenes/iconoAlmacenE.png</file>
+        <file>Imagenes/iconoAlmacenS.png</file>
+        <file>Imagenes/iconoBanda.png</file>
+        <file>Imagenes/iconoCarritoE.png</file>
+        <file>Imagenes/iconoCarritoS.png</file>
+        <file>Imagenes/iconoEmpacadora.png</file>
+        <file>Imagenes/iconoEnsambladora.png</file>
+        <file>Imagenes/iconoEstadistica.png</file>
+        <file>Imagenes/iconoHorno.png</file>
+        <file>Imagenes/iconoInspector.png</file>
+        <file>Imagenes/iconoMezcladoraC.png</file>
+        <file>Imagenes/iconoMezcladoraM.jpg</file>
+        <file>Imagenes/iconoSupervisor.png</file>
+    </qresource>
+</RCC>
