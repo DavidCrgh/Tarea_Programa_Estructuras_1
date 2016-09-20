@@ -19,6 +19,7 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent) :
     QRegion* region = new QRegion(*rect,QRegion::Ellipse);
     qDebug() << region->boundingRect().size();
     ui->pushButton_2->setMask(*region);
+    //picha
 }
 
 VentanaPrincipal::~VentanaPrincipal()
