@@ -14,11 +14,23 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         ventanaprincipal.cpp \
-    threadmezcladora.cpp
+    threadMezcladora.cpp
 
 HEADERS  += ventanaprincipal.h \
-    mezcladora.h \
-    threadmezcladora.h
+    almacenprima.h \
+    planificador.h \
+    listagalletas.h \
+    mezcladorachocolate.h \
+    banda.h \
+    ensambladora.h \
+    threadmezcladoramasa1.h \
+    supervisor.h \
+    horno.h \
+    empacadora.h \
+    almacenterminal.h \
+    carritoentrega.h \
+    carritosalida.h \
+    mezcladoramasa.h
 
 FORMS    += ventanaprincipal.ui
 

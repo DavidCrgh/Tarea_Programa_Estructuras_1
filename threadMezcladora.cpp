@@ -1,6 +1,6 @@
-#include "threadmezcladora.h"
+#include "threadmezcladoramasa1.h"
 
-ThreadMezcladora::ThreadMezcladora(QObject *parent, Mezcladora *pMezcladora)
+ThreadMezcladora::ThreadMezcladora(QObject *parent, MezcladoraMasa *pMezcladora)
 {
     mezcladora=pMezcladora;
     bool pause=false;

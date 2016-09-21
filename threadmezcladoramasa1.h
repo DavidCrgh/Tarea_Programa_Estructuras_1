@@ -1,6 +1,6 @@
 #ifndef THREADMEZCLADORA_H
 #define THREADMEZCLADORA_H
-#include "mezcladora.h"
+#include "mezcladoramasa.h"
 #include <QMutex>
 #include <QObject>
 
@@ -8,11 +8,11 @@ class ThreadMezcladora : public QThread
 {
     Q_OBJECT
 public:
-    ThreadMezcladora(QObject* parent=0, Mezcladora* pMezcladora);
+    ThreadMezcladora(QObject* parent=0, MezcladoraMasa* pMezcladora);
     void run();
     bool pause;
     bool stop;
-    Mezcladora* mezcladora;
+    MezcladoraMasa* mezcladora;
     QMutex mute;
 };
 
