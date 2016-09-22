@@ -30,7 +30,8 @@ HEADERS  += ventanaprincipal.h \
     almacenterminal.h \
     carritoentrega.h \
     carritosalida.h \
-    mezcladoramasa.h
+    mezcladoramasa.h \
+    prototipos.h
 
 FORMS    += ventanaprincipal.ui
 

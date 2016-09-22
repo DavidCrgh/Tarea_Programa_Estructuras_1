@@ -1,9 +1,7 @@
-#ifndef MEZCLADORA_H
-#define MEZCLADORA_H
+#ifndef MEZCLADORAMASA_H
+#define MEZCLADORAMASA_H
 
-#include <QtCore>
-
-#include "almacenprima.h"
+#include "prototipos.h"
 
 struct MezcladoraMasa{
     float tiempo;
@@ -11,6 +9,7 @@ struct MezcladoraMasa{
     float masaMaxima;
     float masaActual;
 
+    Banda* banda;
     AlmacenPrima* almacen;
 };
 

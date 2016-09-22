@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -37,7 +37,7 @@
        </property>
        <property name="icon">
         <iconset resource="imagenes.qrc">
-         <normaloff>:/imagenes/Imagenes/iconoSupervisor.png</normaloff>:/imagenes/Imagenes/iconoSupervisor.png</iconset>
+         <normaloff>:/imagenes/Imagenes/iconoPlay.png</normaloff>:/imagenes/Imagenes/iconoPlay.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -57,7 +57,7 @@
        </property>
        <property name="icon">
         <iconset resource="imagenes.qrc">
-         <normaloff>:/imagenes/Imagenes/iconoSupervisor.png</normaloff>:/imagenes/Imagenes/iconoSupervisor.png</iconset>
+         <normaloff>:/imagenes/Imagenes/iconoPausa.png</normaloff>:/imagenes/Imagenes/iconoPausa.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -77,7 +77,7 @@
        </property>
        <property name="icon">
         <iconset resource="imagenes.qrc">
-         <normaloff>:/imagenes/Imagenes/iconoSupervisor.png</normaloff>:/imagenes/Imagenes/iconoSupervisor.png</iconset>
+         <normaloff>:/imagenes/Imagenes/iconoStop.png</normaloff>:/imagenes/Imagenes/iconoStop.png</iconset>
        </property>
        <property name="iconSize">
         <size>

@@ -1,11 +1,7 @@
 #ifndef CARRITOENTREGA_H
 #define CARRITOENTREGA_H
 
-#include <QtCore>
-
-#include "mezcladoramasa.h"
-#include "mezcladorachocolate.h"
-#include "almacenprima.h"
+#include "prototipos.h"
 
 struct CarritoEntrega{
 

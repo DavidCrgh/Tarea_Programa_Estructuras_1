@@ -1,20 +1,21 @@
 #ifndef ALMACENPRIMA_H
 #define ALMACENPRIMA_H
 
-#include <QtCore>
-
-#include "carritoentrega.h"
-#include "planificador.h"
+#include "prototipos.h"
 
 struct AlmacenPrima{
     CarritoEntrega* carritoPrincipal;
     NodoPeticion* peticiones;
     NodoPeticion* realizadas;
+
+    void encolar(NodoPeticion* nodo){
+
+    }
 };
 
 struct NodoPeticion{
-    String tipo;
-    String maquinaOrigen;
+    std::string tipo;
+    std::string maquinaOrigen;
     float cantidad;
 
     NodoPeticion* siguiente;

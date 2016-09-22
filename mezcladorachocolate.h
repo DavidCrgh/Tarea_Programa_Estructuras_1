@@ -1,7 +1,7 @@
 #ifndef MEZCLADORACHOCOLATE_H
 #define MEZCLADORACHOCOLATE_H
 
-#include <QtCore>
+#include "prototipos.h"
 
 struct MezcladoraChocolate{
     float tiempo;
@@ -9,6 +9,7 @@ struct MezcladoraChocolate{
     float masaMaxima;
     float masaActual;
 
+    Banda* banda;
     AlmacenPrima* almacen;
 };
 
