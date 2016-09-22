@@ -15,6 +15,13 @@ struct NodoPeticion{
     float cantidad;
 
     NodoPeticion* siguiente;
+
+    NodoPeticion(std::string pTipo, std::string pMaquinaOrigen, float pCantidad){
+        tipo = pTipo;
+        maquinaOrigen = pMaquinaOrigen;
+        cantidad = pCantidad;
+        siguiente = NULL;
+    }
 };
 
 #endif // ALMACENPRIMA_H
