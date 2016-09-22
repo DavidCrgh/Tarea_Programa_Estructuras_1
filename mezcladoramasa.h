@@ -3,8 +3,15 @@
 
 #include <QtCore>
 
-struct MezcladoraMasa{
+#include "almacenprima.h"
 
+struct MezcladoraMasa{
+    float tiempo;
+    float masaMinima;
+    float masaMaxima;
+    float masaActual;
+
+    AlmacenPrima* almacen;
 };
 
 #endif // MEZCLADORA_H

@@ -8,12 +8,16 @@
 
 struct AlmacenPrima{
     CarritoEntrega* carritoPrincipal;
-    //Planificador* planificador;
-    NodoPeticion* tope;
+    NodoPeticion* peticiones;
+    NodoPeticion* realizadas;
 };
 
 struct NodoPeticion{
+    String tipo;
+    String maquinaOrigen;
+    float cantidad;
 
+    NodoPeticion* siguiente;
 };
 
 #endif // ALMACENPRIMA_H

@@ -5,11 +5,12 @@
 
 #include "mezcladoramasa.h"
 #include "mezcladorachocolate.h"
+#include "almacenprima.h"
 
 struct CarritoEntrega{
-    float gramosMasa;
-    float gramosChocolate;
+
     float tiempo;
+    NodoPeticion* entrega;
 
     MezcladoraMasa* mezcladoraMasa1;
     MezcladoraMasa* mezcladoraMasa2;
