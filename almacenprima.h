@@ -7,10 +7,6 @@ struct AlmacenPrima{
     CarritoEntrega* carritoPrincipal;
     NodoPeticion* peticiones;
     NodoPeticion* realizadas;
-
-    void encolar(NodoPeticion* nodo){
-
-    }
 };
 
 struct NodoPeticion{

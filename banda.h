@@ -8,6 +8,7 @@ struct Banda{
 
     NodoContenido* frente;
     Ensambladora* ensambladora;
+    Horno* horno;
 };
 
 struct NodoContenido{

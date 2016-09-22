@@ -5,7 +5,7 @@
 
 struct CarritoEntrega{
 
-    float tiempo;
+    float tiempoViaje;
     NodoPeticion* entrega;
 
     MezcladoraMasa* mezcladoraMasa1;

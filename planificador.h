@@ -1,8 +1,10 @@
 #ifndef PLANIFICADOR_H
 #define PLANIFICADOR_H
 
-struct Planificador{
+#include "prototipos.h"
 
+struct Planificador{
+    ListaGalletas* listaGalletas;
 };
 
 #endif // PLANIFICADOR_H

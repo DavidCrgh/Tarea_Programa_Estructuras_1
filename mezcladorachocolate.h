@@ -5,9 +5,9 @@
 
 struct MezcladoraChocolate{
     float tiempo;
-    float masaMinima;
-    float masaMaxima;
-    float masaActual;
+    float mezclaMinima;
+    float mezclaMaxima;
+    float mezclaActual;
 
     Banda* banda;
     AlmacenPrima* almacen;

@@ -24,14 +24,15 @@ HEADERS  += ventanaprincipal.h \
     banda.h \
     ensambladora.h \
     threadmezcladoramasa1.h \
-    supervisor.h \
     horno.h \
     empacadora.h \
     almacenterminal.h \
     carritoentrega.h \
     carritosalida.h \
     mezcladoramasa.h \
-    prototipos.h
+    prototipos.h \
+    bandainspectores.h \
+    monticulosempacadora.h
 
 FORMS    += ventanaprincipal.ui
 
