@@ -5,10 +5,15 @@
 
 struct BandaInspectores{
 
-    int cantidadActual;
     Inspector* inspector1;
     Inspector* inspector2;
     NodoContenido* frente;
+
+    BandaInspectores(Inspector* pInspector1, Inpector* pInspector2){
+        inspector1 = pInspector1;
+        inspector2 = pInspector2;
+        frente = NULL;
+    }
 };
 
 struct Inspector{
@@ -16,7 +21,9 @@ struct Inspector{
     int aprobadas;
     Empacadora* empacadora;
 
-
+    Inspector(Empacadora* pEmpcadora){
+        empacadora = pEmpcadora;
+    }
 };
 
 #endif // BANDAINSPECTORES_H

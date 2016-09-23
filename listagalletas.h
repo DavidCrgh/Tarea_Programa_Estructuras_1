@@ -6,12 +6,27 @@
 
 struct ListaGalletas{
     NodoEmpaque* nodoInsercion;
+
+    ListaGalletas(){
+        nodoInsercion = NULL;
+    }
 };
 
 struct NodoEmpaque{
     std::string tipoEmpaque;
-    int cantidadxEmpaque;
-    int cantidadTiempo;
+    int galletasxEmpaque;
+    int cantidadxTiempo;
+
+    NodoEmpaque* siguiente;
+    NodoEmpaque* anterior;
+
+    NodoEmpaque(std::string pTipo, int pGalletasxEmpaque, int pCantidadxTiempo){
+        tipoEmpaque = pTipo;
+        galletasxEmpaque = pGalletasxEmpaque;
+        cantidadxTiempo = pCantidadxTiempo;
+        siguiente = NULL;
+        anterior = NULL;
+    }
 };
 
 #endif // LISTAGALLETAS_H

@@ -32,7 +32,7 @@ HEADERS  += ventanaprincipal.h \
     mezcladoramasa.h \
     prototipos.h \
     bandainspectores.h \
-    monticulosempacadora.h
+    monticulosempaques.h
 
 FORMS    += ventanaprincipal.ui
 

@@ -12,7 +12,16 @@ struct Ensambladora{
     float actualMasa;
     float actualChocolate;
 
-    Banda* banda;
+    Banda* bandaSalida;
+
+    Ensambladora(float pCantidadxTiempo, float pMinimoMasa, float pMinimoChocolate, Banda* pBanda){
+        cantidadxTiempo = pCantidadxTiempo;
+        minimoMasa = pMinimoMasa;
+        minimoChocolate = pMinimoChocolate;
+        actualMasa = 0;
+        actualChocolate = 0;
+        bandaSalida = pBanda;
+    }
 };
 
 #endif // ENSAMBLADORA_H

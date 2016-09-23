@@ -7,6 +7,12 @@ struct AlmacenPrima{
     CarritoEntrega* carritoPrincipal;
     NodoPeticion* peticiones;
     NodoPeticion* realizadas;
+
+    AlmacenPrima(CarritoEntrega* carrito){
+        carritoPrincipal = carrito;
+        peticiones = NULL;
+        realizadas = NULL;
+    }
 };
 
 struct NodoPeticion{

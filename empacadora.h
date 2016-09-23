@@ -7,5 +7,11 @@ struct Empacadora{
     ListaGalletas* listaGalletas;
 
     MonticulosEmpaques* monticulosEmpacadora;
+
+    Empacadora(ListaGalletas* pListaGalletas, MonticulosEmpaques* pMonticulo){
+        listaGalletas = pListaGalletas;
+        monticulosEmpacadora = pMonticulo;
+        galletasActuales = 0;
+    }
 };
 #endif // EMPACADORA_H
