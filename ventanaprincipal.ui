@@ -32,6 +32,9 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="toolTip">
+        <string>Inicia la Simulación.</string>
+       </property>
        <property name="text">
         <string/>
        </property>

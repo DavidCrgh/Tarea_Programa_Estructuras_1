@@ -4,23 +4,49 @@
 #include "prototipos.h"
 
 struct Ensambladora{
-    float cantidadxTiempo;
+    float producidoxTanda;
+    float tiempo;
     //Receta
-    float minimoMasa;
-    float minimoChocolate;
+    float masaRequerida;
+    float chocolateRequerido;
 
     float actualMasa;
     float actualChocolate;
 
+    bool estaEnsamblando;
+
+
+    /*
+     * nvlsActuales > req
+     * estaEnsamblando = true
+     * sleep(tiempo)
+     * ensamblar();
+     *
+     * */
     Banda* bandaSalida;
 
-    Ensambladora(float pCantidadxTiempo, float pMinimoMasa, float pMinimoChocolate, Banda* pBanda){
-        cantidadxTiempo = pCantidadxTiempo;
-        minimoMasa = pMinimoMasa;
-        minimoChocolate = pMinimoChocolate;
+    Ensambladora(float pCantidadProducida, float pTiempo, float pMinimoMasa, float pMinimoChocolate, Banda* pBanda){
+        producidoxTanda = pCantidadProducida;
+        tiempo = pTiempo;
+        masaRequerida = pMinimoMasa;
+        chocolateRequerido = pMinimoChocolate;
         actualMasa = 0;
         actualChocolate = 0;
         bandaSalida = pBanda;
+        estaEnsamblando = false;
+    }
+
+    void ensamblarGalletas(){
+        actualMasa -= masaRequerida;
+        actualChocolate -= chocolateRequerido;
+        if(!(bandaSalida->estaLlena())){
+            if(producidoxTanda + bandaSalida->contenidoActual() > bandaSalida->limite){
+                bandaSalida->encolarBanda(bandaSalida->limite - bandaSalida->contenidoActual);
+            } else {
+                bandaSalida->encolarBanda(producidoxTanda);
+            }
+            estaEnsamblando = false;
+        }
     }
 };
 

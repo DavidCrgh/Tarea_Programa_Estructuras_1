@@ -4,25 +4,50 @@
 #include "prototipos.h"
 
 struct AlmacenPrima{
-    CarritoEntrega* carritoPrincipal;
-    NodoPeticion* peticiones;
-    NodoPeticion* realizadas;
+    NodoPeticion* frentePeticiones;
+    NodoPeticion* inicioRealizadas;
 
-    AlmacenPrima(CarritoEntrega* carrito){
-        carritoPrincipal = carrito;
+    AlmacenPrima(){
         peticiones = NULL;
         realizadas = NULL;
+    }
+
+    void encolarPeticion(QString tipo, QString maquinaOrigen, float cantidad){
+        NodoPeticion* nodoNuevo = new NodoPeticion(tipo, maquinaOrigen, cantidad);
+
+        if(frentePeticiones == NULL){
+            frentePeticiones = nodoNuevo;
+        } else {
+            NodoPeticion* nodoActual = frentePeticiones;
+
+            while(nodoActual->siguiente != NULL){
+                nodoActual = nodoActual->siguiente;
+            }
+
+            nodoActual->siguiente = nodoNuevo;
+        }
+    }
+
+    NodoPeticion* desencolarPeticion(){
+        if(frentePeticiones == NULL){
+            return NULL;
+        } else {
+            NodoPeticion* nodoBorrado = frentePeticiones;
+            frentePeticiones = frentePeticiones->siguiente;
+            nodoBorrado->siguiente = NULL;
+            return nodoBorrado;
+        }
     }
 };
 
 struct NodoPeticion{
-    std::string tipo;
-    std::string maquinaOrigen;
+    QString tipo;
+    QString maquinaOrigen;
     float cantidad;
 
     NodoPeticion* siguiente;
 
-    NodoPeticion(std::string pTipo, std::string pMaquinaOrigen, float pCantidad){
+    NodoPeticion(QString pTipo, QString pMaquinaOrigen, float pCantidad){
         tipo = pTipo;
         maquinaOrigen = pMaquinaOrigen;
         cantidad = pCantidad;

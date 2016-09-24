@@ -4,29 +4,29 @@
 #include "prototipos.h"
 
 struct Horno{
-    float minimoHorneado;
+    Bandeja* bandejas[6];
 
-    Bandeja* bandeja1;
-    Bandeja* bandeja2;
-    Bandeja* bandeja3;
-    Bandeja* bandeja4;
-    Bandeja* bandeja5;
-    Bandeja* bandeja6;
+    Horno(Bandeja* pBandejas[6]){
+        for(int i = 0; i < 6; i++){
+            bandejas[i] = pBandejas[i];
+        }
+    }
 
-    Horno(float minimo, Bandeja* bandejas[6]){
-        minimoHorneado = minimo;
-        bandeja1 = bandejas[0];
-        bandeja2 = bandejas[1];
-        bandeja3 = bandejas[2];
-        bandeja4 = bandejas[3];
-        bandeja5 = bandejas[4];
-        bandeja6 = bandejas[5];
+    bool tieneCamposDisponibles(int bandejasPrendidas){
+        Bandeja* bandejaActual;
+        for(int i = 0; i < bandejasPrendidas; i++){
+            bandejaActual = bandejas[i];
+            if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+                return true;
+            }
+        }
     }
 
 };
 
 struct Bandeja{
     float capacidad;
+    float contenidoActual;
     float tiempo;
     BandaInspectores* bandaSalida;
 
@@ -34,6 +34,17 @@ struct Bandeja{
         capacidad = pCapacidad;
         tiempo = pTiempo;
         bandaSalida = pBanda;
+    }
+
+    void hornear(){
+        if(!(bandaSalida->estaLlena())){
+            if(contenidoActual + bandaSalida->contenidoActual() > bandaSalida->limite){
+                bandaSalida->encolarBanda(bandaSalida->limite - bandaSalida->contenidoActual);
+            } else {
+                bandaSalida->encolarBanda(contenidoActual);
+            }
+            contenidoActual = 0;
+        }
     }
 };
 

@@ -1,6 +1,6 @@
 #ifndef THREADMEZCLADORA_H
 #define THREADMEZCLADORA_H
-#include "mezcladoramasa.h"
+#include "prototipos.h"
 #include <QMutex>
 #include <QObject>
 

@@ -6,7 +6,7 @@
 struct Banda{
     float limite;
 
-    NodoContenido* frente;
+    NodoContenido* frenteBanda;
 
     Ensambladora* ensambladora;
     Horno* horno;
@@ -15,23 +15,106 @@ struct Banda{
         limite = pLimite;
         ensambladora = pEnsambladora;
         horno = NULL;
-        frente = NULL;
+        frenteBanda = NULL;
     }
 
     Banda(float pLimite, Horno* pHorno){
         limite = pLimite;
         ensambladora = NULL;
         horno = pHorno;
-        frente = NULL;
+        frenteBanda = NULL;
     }
+
+    void encolarBanda(float cantidad){
+        NodoContenido* nodoNuevo = new NodoContenido(cantidad);
+
+        if(frenteBanda == NULL){
+            frenteBanda = nodoNuevo;
+        } else {
+            NodoContenido* nodoActual = frenteBanda;
+
+            while(nodoActual->siguiente != NULL){
+                nodoActual = nodoActual->siguiente;
+            }
+
+            nodoActual->siguiente = nodoNuevo;
+        }
+    }
+
+    NodoContenido* desencolarBanda(){
+        if(frenteBanda == NULL){
+            return NULL;
+        } else {
+            NodoContenido* nodoBorrado = frenteBanda;
+            frenteBanda = frenteBanda->siguiente;
+            nodoBorrado->siguiente = NULL;
+            return nodoBorrado;
+        }
+    }
+
+    void alimentarEnsambladora(){
+        if(!(ensambladora->estaEnsamblando())){
+            NodoContenido* nodoDesencolado = desencolarBanda();
+            if(nodoDesencolado != NULL){
+                if(nodoDesencolado->tipo == "Masa"){
+                    ensambladora->actualMasa += nodoDesencolado->cantidad;
+                } else {
+                    ensambladora->actualChocolate += nodoDesencolado->cantidad;
+                }
+            }
+        }
+    }
+
+    void alimentarHorno(int bandejasPrendidas){
+        if(horno->tieneCamposDisponibles(bandejasPrendidas)){
+            NodoContenido* tandaGalletas = desencolarBanda();
+            if(tandaGalletas != NULL){
+                float galletas = tandaGalletas->cantidad;
+
+                for(int i = 0; i < bandejasPrendidas & ; i++){
+                    bandejaActual = horno->bandejas[i];
+
+                    if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+                        if(bandejaActual->contenidoActual + tandaGalletas > bandejaActual->capacidad){
+                            float cantidad = bandejaActual->capacidad - bandejaActual->contenidoActual;
+                            galletas -= cantidad;
+                            bandejaActual->contenidoActual += cantidad;
+                        } else {
+                            bandejaActual->contenidoActual += galletas;
+                            galletas = 0;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    bool estaLlena(){
+        return contenidoActual() >= limite;
+    }
+
+    float contenidoActual(){
+        NodoContenido* nodoActual = frenteBanda;
+        float sumatoria = 0.0;
+
+        while(nodoActual != NULL){
+            sumatoria += nodoActual->cantidad;
+        }
+
+        return sumatoria;
+    }
+
 };
 
 struct NodoContenido{
     float cantidad;
+    QString tipo;
 
     NodoContenido* siguiente;
 
-    NodoContenido(float pCantidad){
+    NodoContenido(float pCantidad, QString pTipo){
+        tipo = pTipo;
         cantidad = pCantidad;
         siguiente = NULL;
     }
