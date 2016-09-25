@@ -16,5 +16,6 @@
         <file>Imagenes/iconoPlay.png</file>
         <file>Imagenes/iconoStop.png</file>
         <file>Imagenes/iconoPausa.png</file>
+        <file>Imagenes/Imagen1.png</file>
     </qresource>
 </RCC>
