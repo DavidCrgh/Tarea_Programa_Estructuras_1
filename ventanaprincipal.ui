@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1354</width>
-    <height>634</height>
+    <width>1324</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,21 +21,22 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1354</width>
-    <height>634</height>
+    <width>1324</width>
+    <height>438</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1354</width>
-    <height>634</height>
+    <width>1324</width>
+    <height>438</height>
    </size>
-  </property>
-  <property name="cursor">
-   <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>Simulador</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoGalletas.png</normaloff>:/imagenes/Imagenes/iconoGalletas.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -856,7 +857,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_2">
+   <widget class="QToolButton" name="botonMezcladoraChocolate">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -869,7 +870,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_3">
+   <widget class="QToolButton" name="botonMezcladora2">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -882,7 +883,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_4">
+   <widget class="QToolButton" name="botonMezcladora1">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -895,7 +896,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_5">
+   <widget class="QToolButton" name="botonEnsambladora">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -986,11 +987,24 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_12">
+   <widget class="QToolButton" name="botonCarritoEntrega">
     <property name="geometry">
      <rect>
       <x>100</x>
       <y>220</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="botonAlmacenPrima">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>90</y>
       <width>25</width>
       <height>19</height>
      </rect>

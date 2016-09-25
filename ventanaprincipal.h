@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include "ventanacarritoentrega.h"
+#include "ventanamezcladoras.h"
+#include  "ventanaensambladora.h"
+#include "ventanaalmacenprima.h"
 namespace Ui {
 class VentanaPrincipal;
 }
@@ -15,11 +19,30 @@ public:
     explicit VentanaPrincipal(QWidget *parent = 0);
     ~VentanaPrincipal();
 
+public slots:
+    void openNewWindow();
+
 private slots:
-    void on_toolButton_12_clicked();
+    void on_botonCarritoEntrega_clicked();
+
+    void on_botonMezcladora1_clicked();
+
+    void on_botonMezcladora2_clicked();
+
+    void on_botonMezcladoraChocolate_clicked();
+
+    void on_botonEnsambladora_clicked();
+
+    void on_botonAlmacenPrima_clicked();
 
 private:
     Ui::VentanaPrincipal *ui;
+    VentanaCarritoEntrega* ventanaCarrito;
+    VentanaMezcladoras* ventanaMezcladora1;
+    VentanaMezcladoras* ventanaMezcladora2;
+    VentanaMezcladoras* ventanaMezcladoraChocolate;
+    ventanaEnsambladora* ventanaEnsambladoraSimulador;
+    VentanaAlmacenPrima* ventanaAlmacen;
 };
 
 #endif // VENTANAPRINCIPAL_H

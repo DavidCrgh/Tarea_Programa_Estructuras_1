@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VentanaMezcladoras</class>
+ <widget class="QMainWindow" name="VentanaMezcladoras">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>348</width>
+    <height>264</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mezcladora</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="minimo">
+          <property name="text">
+           <string>Minimo (g)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="maximo">
+          <property name="text">
+           <string>Maximo (g)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cantidad">
+          <property name="text">
+           <string>Cantidad/tiempo (g)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="tiempo">
+          <property name="text">
+           <string>Tiempo (s)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="procesando">
+          <property name="text">
+           <string>Procesando (g)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="procesado">
+          <property name="text">
+           <string>Procesado(g)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLineEdit" name="editorMinimo">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="editorMaximo">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="editorCantidad">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="editorTiempo">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="procesandoValor">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="procesadoValor">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QRadioButton" name="encendido">
+        <property name="text">
+         <string>Encendido</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="apagado">
+        <property name="text">
+         <string>Apagado</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="configurar">
+      <property name="text">
+       <string>Configurar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="aceptar">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Aceptar</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
