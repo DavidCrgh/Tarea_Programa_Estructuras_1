@@ -15,6 +15,9 @@ public:
     explicit VentanaPrincipal(QWidget *parent = 0);
     ~VentanaPrincipal();
 
+private slots:
+    void on_toolButton_12_clicked();
+
 private:
     Ui::VentanaPrincipal *ui;
 };

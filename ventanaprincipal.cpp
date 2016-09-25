@@ -3,7 +3,8 @@
 #include <QDebug>
 #include <QRegion>
 #include <QRect>
-
+#include <cstdlib>
+#include <iostream>
 
 VentanaPrincipal::VentanaPrincipal(QWidget *parent) :
     QMainWindow(parent),
@@ -15,4 +16,9 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent) :
 VentanaPrincipal::~VentanaPrincipal()
 {
     delete ui;
+}
+
+void VentanaPrincipal::on_toolButton_12_clicked()
+{
+    std::cout << "hola mundo" << endl;
 }
