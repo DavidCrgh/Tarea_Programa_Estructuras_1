@@ -9,17 +9,27 @@ struct MonticulosEmpaques{
     MonticulosEmpaques(){
         primerNodo = NULL;
     }
+
+    void insertarMonticulo(QString pTipo){
+        if(primerNodo == NULL){
+            primerNodo = new NodoMonticulo(pTipo);
+        } else {
+            NodoMonticulo* nodoNuevo = new NodoMonticulo(pTipo);
+            nodoNuevo->siguiente = primerNodo;
+            primerNodo =  nodoNuevo;
+        }
+    }
 };
 
 struct NodoMonticulo{
-    std::string nombre;
-    int cantidad;
+    QString nombre;
+    int cantidadPaquetes;
 
     NodoMonticulo* siguiente;
 
-    NodoMonticulo(std::string pNombre, int pCantidad){
+    NodoMonticulo(QString pNombre){
         nombre = pNombre;
-        cantidad = pCantidad;
+        cantidadPaquetes = 0;
         siguiente = NULL;
     }
 };

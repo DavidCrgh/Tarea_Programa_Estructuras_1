@@ -6,8 +6,8 @@
 struct BandaInspectores{
     float limite;
 
-    Inspector* inspector1;
-    Inspector* inspector2;
+    /*Inspector* inspector1;
+    Inspector* inspector2;*/
     NodoContenido* frenteInspectores;
 
     BandaInspectores(float pLimite, Inspector* pInspector1, Inpector* pInspector2){
@@ -63,10 +63,30 @@ struct BandaInspectores{
 struct Inspector{
     int desechadas;
     int aprobadas;
+    BandaInspectores* bandaInspector;
     Empacadora* empacadora;
 
     Inspector(Empacadora* pEmpcadora){
         empacadora = pEmpcadora;
+    }
+
+    void inspeccionar(){
+        if(!(empacadora->estaEmpacando)){
+            NodoContenido* tandaGalletas = bandaInspector->desencolarBanda();
+            if(tandaGalletas != NULL){
+                float cantidadGalletas = tandaGalletas->cantidad;
+                if(seDesecha()){
+                    int galletasDesechadas = rand()%(cantidadGalletas + 1);
+                    empacadora->galletasActuales += (cantidadGalletas - galletasDesechadas);
+                } else {
+                    empacadora->galletasActuales += cantidadGalletas;
+                }
+            }
+        }
+    }
+
+    bool seDesecha(){
+        return rand()%2 == 1;
     }
 };
 

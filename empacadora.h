@@ -3,15 +3,23 @@
 #include "prototipos.h"
 
 struct Empacadora{
-    int galletasActuales;
+    float galletasActuales;
     ListaGalletas* listaGalletas;
+    ListaRangos* listaRangos;
+    bool estaEmpacando;
 
     MonticulosEmpaques* monticulosEmpacadora;
 
-    Empacadora(ListaGalletas* pListaGalletas, MonticulosEmpaques* pMonticulo){
+    Empacadora(ListaGalletas* pListaGalletas){
         listaGalletas = pListaGalletas;
-        monticulosEmpacadora = pMonticulo;
-        galletasActuales = 0;
+        monticulosEmpacadora = pListaGalletas->generarMonticulos();
+        galletasActuales = 0.0;
+        estaEmpacando = false;
+        listaRangos= pListaGalletas->construirRangos();
+    }
+
+    NodoEmpaque* determinarPaquete(){
+
     }
 };
 #endif // EMPACADORA_H

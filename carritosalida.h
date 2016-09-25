@@ -7,7 +7,7 @@ struct CarritoSalida{
 
     std::string nombrePaquete;
     float tiempoViaje;
-    int maximo;
+    int capacidadMaxima;
     int cantidadTransportado;
 
     Empacadora* empacadora;
@@ -16,7 +16,7 @@ struct CarritoSalida{
     CarritoSalida(std::string pNombre, float pTiempo, int pMaximo, Empacadora* pEmpacadora, AlmacenTerminal* pAlmacen){
         nombrePaquete = pNombre;
         tiempoViaje = pTiempo;
-        maximo = pMaximo;
+        capacidadMaxima = pMaximo;
         empacadora = pEmpacadora;
         almacen = pAlmacen;
     }

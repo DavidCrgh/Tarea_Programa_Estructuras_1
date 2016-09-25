@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include <string.h>
+#include <stdlib.h>
 
 struct AlmacenPrima;
 struct NodoPeticion;
@@ -24,5 +25,7 @@ struct Planificador;
 struct CarritoSalida;
 struct MonticulosEmpaques;
 struct AlmacenTerminal;
+struct ListaRangos;
+struct NodoRango;
 
 #endif // PROTOTIPOS_H

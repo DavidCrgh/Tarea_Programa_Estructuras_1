@@ -7,9 +7,9 @@ struct AlmacenTerminal{
     MonticulosEmpaques* depositos;
     ListaGalletas* listaGalletas;
 
-    AlmacenTerminal(MonticulosEmpaques* pDepositos, ListaGalletas* pListaGalletas){
-        depositos = pDepositos;
+    AlmacenTerminal(ListaGalletas* pListaGalletas){
         listaGalletas = pListaGalletas;
+        depositos = listaGalletas->generarMonticulos();
     }
 };
 

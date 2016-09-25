@@ -18,7 +18,6 @@ SOURCES += main.cpp\
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
-    planificador.h \
     listagalletas.h \
     mezcladorachocolate.h \
     banda.h \
@@ -32,7 +31,8 @@ HEADERS  += ventanaprincipal.h \
     mezcladoramasa.h \
     prototipos.h \
     bandainspectores.h \
-    monticulosempaques.h
+    monticulosempaques.h \
+    listarangos.h
 
 FORMS    += ventanaprincipal.ui
 
