@@ -5,20 +5,33 @@
 
 struct CarritoSalida{
 
-    std::string nombrePaquete;
+    QString nombrePaquete;
     float tiempoViaje;
     int capacidadMaxima;
-    int cantidadTransportado;
+    int cantidadTransportada;
+
+    bool estaEntregando;
+
+    NodoMonticulo* monticuloEmpacadora;
+    NodoMonticulo* monticuloAlmacen;
 
     Empacadora* empacadora;
     AlmacenTerminal* almacen;
 
-    CarritoSalida(std::string pNombre, float pTiempo, int pMaximo, Empacadora* pEmpacadora, AlmacenTerminal* pAlmacen){
+    CarritoSalida(QString pNombre, float pTiempo, int pMaximo, Empacadora* pEmpacadora, AlmacenTerminal* pAlmacen){
         nombrePaquete = pNombre;
         tiempoViaje = pTiempo;
         capacidadMaxima = pMaximo;
+        estaEntregando = false;
         empacadora = pEmpacadora;
         almacen = pAlmacen;
+        monticuloEmpacadora = empacadora->monticulosEmpacadora->buscarMonticulo(nombrePaquete);
+        monticuloAlmacen = almacen->depositos->buscarMonticulo(nombrePaquete);
+    }
+
+    void realizarEntrega(int cantidadActual){
+        monticuloEmpacadora->cantidadPaquetes -= cantidadActual;
+        monticuloAlmacen->cantidadPaquetes += cantidadActual;
     }
 };
 

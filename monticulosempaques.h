@@ -19,6 +19,22 @@ struct MonticulosEmpaques{
             primerNodo =  nodoNuevo;
         }
     }
+
+    NodoMonticulo* buscarMonticulo(QString pNombre){
+        if(primerNodo == NULL){
+            return NULL;
+        } else {
+            NodoMonticulo* nodoActual = primerNodo;
+
+            while(nodoActual != NULL){
+                if(nodoActual->nombre == pNombre){
+                    return nodoActual;
+                }
+                nodoActual = nodoActual->siguiente;
+            }
+            return NULL;
+        }
+    }
 };
 
 struct NodoMonticulo{

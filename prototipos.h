@@ -24,6 +24,7 @@ struct NodoEmpaque;
 struct Planificador;
 struct CarritoSalida;
 struct MonticulosEmpaques;
+struct NodoMonticulo;
 struct AlmacenTerminal;
 struct ListaRangos;
 struct NodoRango;

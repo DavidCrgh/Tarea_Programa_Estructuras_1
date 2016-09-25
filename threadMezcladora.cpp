@@ -10,7 +10,6 @@ ThreadMezcladora::ThreadMezcladora(QObject* parent, MezcladoraMasa* pMezcladora)
 void ThreadMezcladora::run(){
 
     while(!stop){
-
         while(pause){
             msleep(100);
         }
