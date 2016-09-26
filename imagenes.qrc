@@ -18,5 +18,8 @@
         <file>Imagenes/iconoPausa.png</file>
         <file>Imagenes/Imagen1.png</file>
         <file>Imagenes/iconoGalletas.png</file>
+        <file>Imagenes/iconoConfiguracion.png</file>
+        <file>Imagenes/iconoApagado.png</file>
+        <file>Imagenes/iconoEncendido.png</file>
     </qresource>
 </RCC>

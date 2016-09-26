@@ -6,8 +6,6 @@
 struct BandaInspectores{
     float limite;
 
-    /*Inspector* inspector1;
-    Inspector* inspector2;*/
     NodoContenido* frenteInspectores;
 
     BandaInspectores(float pLimite, Inspector* pInspector1, Inpector* pInspector2){
@@ -63,11 +61,13 @@ struct BandaInspectores{
 struct Inspector{
     int desechadas;
     int aprobadas;
+    float probabilidadRechazo;
     BandaInspectores* bandaInspector;
     Empacadora* empacadora;
 
-    Inspector(Empacadora* pEmpcadora){
+    Inspector(Empacadora* pEmpcadora, float pProbabilidad){
         empacadora = pEmpcadora;
+        probabilidadRechazo = pProbabilidad;
     }
 
     void inspeccionar(){
@@ -85,8 +85,9 @@ struct Inspector{
         }
     }
 
-    bool seDesecha(){
-        return rand()%2 == 1;
+    void seDesecha(){
+        int random = rand()%101;
+        return random <= probabilidadRechazo;
     }
 };
 
