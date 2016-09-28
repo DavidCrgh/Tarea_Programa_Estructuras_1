@@ -2,6 +2,7 @@
 #define HILOBANDA_H
 
 #include "prototipos.h"
+#include "banda.h"
 
 class HiloBanda : public QThread
 {

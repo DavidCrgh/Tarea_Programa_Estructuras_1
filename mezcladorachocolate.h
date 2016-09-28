@@ -2,8 +2,9 @@
 #define MEZCLADORACHOCOLATE_H
 
 #include "prototipos.h"
-#include "almacenprima.h"
 #include "carritoentrega.h"
+#include "almacenprima.h"
+#include "banda.h"
 
 struct MezcladoraChocolate{
     float tiempo;

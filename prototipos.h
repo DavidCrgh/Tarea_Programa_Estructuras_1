@@ -1,11 +1,14 @@
 #ifndef PROTOTIPOS_H
 #define PROTOTIPOS_H
 
+#include <QMainWindow>
 #include <QtCore>
 #include <QObject>
 #include <QMutex>
 #include <string.h>
 #include <stdlib.h>
+#include <cstdlib>
+#include <iostream>
 
 //Estructuras
 struct AlmacenPrima;

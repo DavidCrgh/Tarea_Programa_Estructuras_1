@@ -33,7 +33,7 @@ struct CarritoEntrega{
 
     void cargarCarrito(){
         if((entrega == NULL) & !estaEntregando){
-            entrega = almacen->desencolarPeticion();
+            entrega = almacen->peek();
         }
     }
 

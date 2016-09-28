@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+//#include "horno.h"
+
 namespace Ui {
 class VentanaHorno;
 }

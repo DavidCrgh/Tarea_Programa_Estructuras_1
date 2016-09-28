@@ -1,11 +1,10 @@
 #include "simulacion.h"
 
-Simulacion::Simulacion(VentanaPrincipal *pInterfaz){
-    interfaz = pInterfaz;
-
+Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     bandaMasa = new Banda();
     bandaChocolate = new Banda();
 
+    //Estructuras
     almacenPrima = new AlmacenPrima();
     carritoEntrega = new CarritoEntrega(almacenPrima);
     QString nombresMezcladora[] = {"Mezcladora 1", "Mezcladora 2"};
@@ -14,11 +13,13 @@ Simulacion::Simulacion(VentanaPrincipal *pInterfaz){
     }
     mezcladoraChocolate = new MezcladoraChocolate("Mezcladora Chocolate", bandaChocolate, almacenPrima);
 
+    //Hilos
     hiloCarritoEntrega = new HiloCarritoEntrega(NULL, carritoEntrega);
+    hiloCarritoEntrega->start();
     for(int i = 0; i < 2; i++){
         hilosMezcladorasMasa[i] = new HiloMezcladoraMasa(NULL, mezcladorasMasa[i]);
+        hilosMezcladorasMasa[i]->start();
     }
     hiloMezcladoraChocolate = new HiloMezcladoraChocolate(NULL, mezcladoraChocolate);
-    //hiloBandaMezcladorasMasa = new HiloBanda(NULL, bandaMasa);
-    //hiloBandaMezcladorasChocolate = new HiloBanda(NULL, bandaChocolate);
+    hiloMezcladoraChocolate->start();
 }

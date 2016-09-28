@@ -1,7 +1,7 @@
 #ifndef HILOCARRITOENTREGA_H
 #define HILOCARRITOENTREGA_H
 
-#include "prototipos.h"
+#include "carritoentrega.h"
 
 class HiloCarritoEntrega : public QThread
 {

@@ -5,9 +5,11 @@
 
 #include "prototipos.h"
 
+#include "simulacion.h"
+
 #include "ventanacarritoentrega.h"
 #include "ventanamezcladoras.h"
-#include  "ventanaensambladora.h"
+#include "ventanaensambladora.h"
 #include "ventanaalmacenprima.h"
 #include "ventanahorno.h"
 
@@ -20,7 +22,7 @@ class VentanaPrincipal : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaPrincipal(QWidget *parent = 0);
+    explicit VentanaPrincipal(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaPrincipal();
 
 public slots:
@@ -41,7 +43,8 @@ private slots:
 
     void on_botonHorno_clicked();
 
-private:
+public:
+    Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;
     VentanaCarritoEntrega* ventanaCarrito;
     VentanaMezcladoras* ventanaMezcladora1;

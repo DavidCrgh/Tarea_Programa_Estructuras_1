@@ -34,6 +34,7 @@ struct MezcladoraMasa{
     void revisarCarrito(){
         if((carrito->entrega != NULL) & (carrito->maquinaActual == nombreMaquina)){
             masaActual += carrito->entrega->cantidad;
+            almacen->insertarRealizada(almacen->desencolarPeticion());
             carrito->vaciarCarrito();
             esperandoPeticion = false;
         }

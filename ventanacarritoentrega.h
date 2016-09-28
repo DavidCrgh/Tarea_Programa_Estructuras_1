@@ -1,7 +1,9 @@
 #ifndef VENTANACARRITOENTREGA_H
 #define VENTANACARRITOENTREGA_H
-#include "prototipos.h"
+
 #include <QMainWindow>
+
+#include "carritoentrega.h"
 
 namespace Ui {
 class VentanaCarritoEntrega;
@@ -12,7 +14,7 @@ class VentanaCarritoEntrega : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaCarritoEntrega(QWidget *parent = 0/*,CarritoEntrega* pCarrito*/);
+    explicit VentanaCarritoEntrega(QWidget *parent = 0, CarritoEntrega* pCarrito = 0);
     ~VentanaCarritoEntrega();
 
 private slots:
@@ -22,7 +24,7 @@ private slots:
 
 private:
     Ui::VentanaCarritoEntrega *ui;
-    //CarritoEntrega* carrito;
+    CarritoEntrega* carrito;
 };
 
 #endif // VENTANACARRITOENTREGA_H

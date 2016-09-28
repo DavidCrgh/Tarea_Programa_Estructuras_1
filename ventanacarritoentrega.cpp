@@ -1,12 +1,12 @@
 #include "ventanacarritoentrega.h"
 #include "ui_ventanacarritoentrega.h"
 
-VentanaCarritoEntrega::VentanaCarritoEntrega(QWidget *parent/*, CarritoEntrega* pCarrito*/) :
+VentanaCarritoEntrega::VentanaCarritoEntrega(QWidget *parent, CarritoEntrega* pCarrito) :
     QMainWindow(parent),
     ui(new Ui::VentanaCarritoEntrega)
 {
     ui->setupUi(this);
-    //carrito = pCarrito;
+    carrito = pCarrito;
 
 }
 

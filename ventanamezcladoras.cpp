@@ -1,11 +1,20 @@
 #include "ventanamezcladoras.h"
 #include "ui_ventanamezcladoras.h"
 
-VentanaMezcladoras::VentanaMezcladoras(QWidget *parent) :
+VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraMasa* pMezcladora) :
     QMainWindow(parent),
     ui(new Ui::VentanaMezcladoras)
 {
     ui->setupUi(this);
+    mezcladoraMasa = pMezcladora;
+}
+
+VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraChocolate* pMezcladora) :
+    QMainWindow(parent),
+    ui(new Ui::VentanaMezcladoras)
+{
+    ui->setupUi(this);
+    mezcladoraChocolate = pMezcladora;
 }
 
 VentanaMezcladoras::~VentanaMezcladoras()

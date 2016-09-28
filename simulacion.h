@@ -1,22 +1,23 @@
 #ifndef SIMULACION_H
 #define SIMULACION_H
 
-#include "prototipos.h"
+//#include "ventanaprincipal.h"
+
 #include "almacenprima.h"
-#include "carritoentrega.h"
+/*#include "carritoentrega.h"
 #include "mezcladoramasa.h"
 #include "mezcladorachocolate.h"
-#include "banda.h"
+#include "banda.h"*/
 
 #include "hilocarritoentrega.h"
 #include "hilomezcladoramasa.h"
 #include "hilomezcladorachocolate.h"
 #include "hilobanda.h"
-#include "hilointerfaz.h"
+//#include "hilointerfaz.h"
 
 struct Simulacion{
 
-    VentanaPrincipal* interfaz;
+    //VentanaPrincipal* interfaz;
 
     AlmacenPrima* almacenPrima;
     CarritoEntrega* carritoEntrega;
@@ -28,11 +29,11 @@ struct Simulacion{
     HiloCarritoEntrega* hiloCarritoEntrega;
     HiloMezcladoraMasa* hilosMezcladorasMasa[2];
     HiloMezcladoraChocolate* hiloMezcladoraChocolate;
-    HiloBanda* hiloBandaMezcladorasMasa;
-    HiloBanda* hiloBandaMezcladorasChocolate;
-    HiloInterfaz* hiloInterfaz;
+    /*HiloBanda* hiloBandaMezcladorasMasa[2];
+    HiloBanda* hiloBandaMezcladorasChocolate;*/
+    //HiloInterfaz* hiloInterfaz;
 
-    Simulacion(VentanaPrincipal* pInterfaz);
+    Simulacion(/*VentanaPrincipal* pInterfaz*/);
 };
 
 #endif // SIMULACION_H

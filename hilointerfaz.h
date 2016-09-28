@@ -2,6 +2,7 @@
 #define HILOINTERFAZ_H
 
 #include "prototipos.h"
+#include "ventanaprincipal.h"
 
 class HiloInterfaz : public QThread
 {
@@ -9,6 +10,7 @@ class HiloInterfaz : public QThread
 public:
     bool pause;
     bool stop;
+    Simulacion* simulacion;
     VentanaPrincipal* ventanaPrincipal;
     QMutex mute;
     HiloInterfaz(QObject* parent = 0, Simulacion* pSimulacion = 0, VentanaPrincipal* pVentanaPrincipal=0);

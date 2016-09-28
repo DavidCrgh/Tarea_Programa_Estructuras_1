@@ -42,9 +42,9 @@ struct Ensambladora{
         actualChocolate -= chocolateRequerido;
         if(!(bandaSalida->estaLlena())){
             if(producidoxTanda + bandaSalida->contenidoActual() > bandaSalida->limite){
-                bandaSalida->encolarBanda(bandaSalida->limite - bandaSalida->contenidoActual);
+                bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galleta Cruda");
             } else {
-                bandaSalida->encolarBanda(producidoxTanda);
+                bandaSalida->encolarBanda(producidoxTanda, "Galleta Cruda");
             }
             estaEnsamblando = false;
         }

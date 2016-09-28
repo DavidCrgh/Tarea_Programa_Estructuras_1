@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "ensambladora.h"
+
 namespace Ui {
 class ventanaEnsambladora;
 }

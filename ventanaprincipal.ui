@@ -59,7 +59,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="botonPlay">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -82,7 +82,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="botonPausa">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -102,7 +102,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="botonStop">
        <property name="enabled">
         <bool>true</bool>
        </property>
