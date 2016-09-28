@@ -16,13 +16,16 @@ SOURCES += main.cpp\
         ventanaprincipal.cpp \
     threadMezcladora.cpp \
     hilointerfaz.cpp \
-    simulacion.cpp \
     ventanacarritoentrega.cpp \
     ventanamezcladoras.cpp \
     ventanaensambladora.cpp \
     ventanaalmacenprima.cpp \
     ventanahorno.cpp \
-    hilocarritoentrega.cpp
+    hilocarritoentrega.cpp \
+    simulacion.cpp \
+    hilomezcladoramasa.cpp \
+    hilomezcladorachocolate.cpp \
+    hilobanda.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -44,26 +47,14 @@ HEADERS  += ventanaprincipal.h \
     hilointerfaz.h \
     simulacion.h \
     ventanacarritoentrega.h \
-    Estructuras/almacenprima.h \
-    Estructuras/almacenterminal.h \
-    Estructuras/banda.h \
-    Estructuras/bandainspectores.h \
-    Estructuras/carritoentrega.h \
-    Estructuras/carritosalida.h \
-    Estructuras/empacadora.h \
-    Estructuras/ensambladora.h \
-    Estructuras/horno.h \
-    Estructuras/listagalletas.h \
-    Estructuras/listarangos.h \
-    Estructuras/mezcladorachocolate.h \
-    Estructuras/mezcladoramasa.h \
-    Estructuras/monticulosempaques.h \
-    Estructuras/prototipos.h \
     ventanamezcladoras.h \
     ventanaensambladora.h \
     ventanaalmacenprima.h \
     ventanahorno.h \
-    hilocarritoentrega.h
+    hilocarritoentrega.h \
+    hilomezcladoramasa.h \
+    hilomezcladorachocolate.h \
+    hilobanda.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \

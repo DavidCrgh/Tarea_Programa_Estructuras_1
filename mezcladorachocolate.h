@@ -2,6 +2,8 @@
 #define MEZCLADORACHOCOLATE_H
 
 #include "prototipos.h"
+#include "almacenprima.h"
+#include "carritoentrega.h"
 
 struct MezcladoraChocolate{
     float tiempo;
@@ -10,44 +12,58 @@ struct MezcladoraChocolate{
     float mezclaMaxima;
     float mezclaActual;
     bool esperandoPeticion;
+    QString nombreMaquina;
 
     Banda* banda;
     AlmacenPrima* almacen;
     CarritoEntrega* carrito;
 
-    MezcladoraChocolate(float pTiempo, float pCantidad, float pMinima, float pMaxima, Banda* pBanda
-                        , AlmacenPrima* pAlmacen){
-        tiempo = pTiempo;
-        cantidadProcesada = pCantidad;
-        mezclaMinima = pMinima;
-        mezclaMaxima = pMaxima;
-        mezclaActual = 0;
+    MezcladoraChocolate(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
+        nombreMaquina = pNombre;
+        tiempo = 0.0;
+        cantidadProcesada = 0.0;
+        mezclaMinima = 0.0;
+        mezclaMaxima = 0.0;
+        mezclaActual = 0.0;
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
     }
 
-    void realizarPeticion(){
-        float cantidadSolicitada = mezclaMaxima - mezclaActual;
+    void revisarCarrito(){
+        if((carrito->entrega != NULL) & (carrito->maquinaActual == nombreMaquina)){
+            mezclaActual += carrito->entrega->cantidad;
+            carrito->vaciarCarrito();
+            esperandoPeticion = false;
+        }
+    }
 
-        if(cantidadSolicitada > carrito->capacidadMaxima){
-            cantidadSolicitada = carrito->capacidadMaxima;
+    void realizarPeticion(){
+        if(!esperandoPeticion && mezclaActual <= mezclaMinima){
+            float cantidadSolicitada = mezclaMaxima - mezclaActual;
+
+            if(cantidadSolicitada > carrito->capacidadMaxima){
+                cantidadSolicitada = carrito->capacidadMaxima;
+            }
+
+            almacen->encolarPeticion("Chocolate", nombreMaquina, cantidadSolicitada);
+            esperandoPeticion = true;
         }
 
-        almacen->encolarPeticion("Mezcla", "Mezcladora1",cantidadSolicitada);
-        esperandoPeticion = true;
     }
 
     void procesarChocolate(){
         mezclaActual -= cantidadProcesada;
         if(!(banda->estaLlena())){
             if(cantidadProcesada + banda->contenidoActual() > banda->limite){
-                banda->encolarBanda(banda->limite - banda->contenidoActual);
+                banda->encolarBanda((banda->limite) - (banda->contenidoActual()), "Chocolate");
             } else {
-                banda->encolarBanda(cantidadProcesada);
+                banda->encolarBanda(cantidadProcesada, "Chocolate");
             }
         }
     }
+
+
 };
 
 #endif // MEZCLADORACHOCOLATE_H

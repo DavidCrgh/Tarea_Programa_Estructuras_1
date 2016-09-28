@@ -1,6 +1,8 @@
 #ifndef EMPACADORA_H
 #define EMPACADORA_H
+
 #include "prototipos.h"
+
 struct Empacadora{
     float galletasActuales;
     ListaGalletas* listaGalletas;

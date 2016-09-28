@@ -2,6 +2,9 @@
 #define MEZCLADORAMASA_H
 
 #include "prototipos.h"
+#include "carritoentrega.h"
+#include "almacenprima.h"
+#include "banda.h"
 
 struct MezcladoraMasa{
     float tiempo;
@@ -16,36 +19,46 @@ struct MezcladoraMasa{
     AlmacenPrima* almacen;
     CarritoEntrega* carrito;
 
-    MezcladoraMasa(float pTiempo, float pCantidad, float pMinima, float pMaxima, Banda* pBanda,
-                   AlmacenPrima* pAlmacen){
-        tiempo = pTiempo;
-        cantidad = pCantidad;
-        masaMinima = pMinima;
-        masaMaxima = pMaxima;
+    MezcladoraMasa(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
+        nombreMaquina = pNombre;
+        tiempo = 0.0;
+        cantidad = 0.0;
+        masaMinima = 0.0;
+        masaMaxima = 0.0;
         masaActual = 0;
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
     }
 
-    void realizarPeticion(){
-        float cantidadSolicitada = masaMaxima - masaActual;
-
-        if(cantidadSolicitada > carrito->capacidadMaxima){
-            cantidadSolicitada = carrito->capacidadMaxima;
+    void revisarCarrito(){
+        if((carrito->entrega != NULL) & (carrito->maquinaActual == nombreMaquina)){
+            masaActual += carrito->entrega->cantidad;
+            carrito->vaciarCarrito();
+            esperandoPeticion = false;
         }
+    }
 
-        almacen->encolarPeticion("Mezcla", "Mezcladora1",cantidadSolicitada);
-        esperandoPeticion = true;
+    void realizarPeticion(){
+        if(!esperandoPeticion && masaActual <= masaMinima){
+            float cantidadSolicitada = masaMaxima - masaActual;
+
+            if(cantidadSolicitada > carrito->capacidadMaxima){
+                cantidadSolicitada = carrito->capacidadMaxima;
+            }
+
+            almacen->encolarPeticion("Masa", nombreMaquina, cantidadSolicitada);
+            esperandoPeticion = true;
+        }
     }
 
     void procesarMasa(){
         masaActual -= cantidad;
         if(!(banda->estaLlena())){
             if(cantidad + banda->contenidoActual() > banda->limite){
-                banda->encolarBanda(banda->limite - banda->contenidoActual);
+                banda->encolarBanda((banda->limite) - (banda->contenidoActual()), "Masa");
             } else {
-                banda->encolarBanda(cantidad);
+                banda->encolarBanda(cantidad, "Masa");
             }
         }
     }

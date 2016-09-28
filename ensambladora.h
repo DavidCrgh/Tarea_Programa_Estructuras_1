@@ -2,6 +2,7 @@
 #define ENSAMBLADORA_H
 
 #include "prototipos.h"
+#include "banda.h"
 
 struct Ensambladora{
     float producidoxTanda;

@@ -1,7 +1,6 @@
 #ifndef LISTAGALLETAS_H
 #define LISTAGALLETAS_H
 
-
 #include "prototipos.h"
 
 struct ListaGalletas{

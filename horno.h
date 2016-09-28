@@ -2,27 +2,7 @@
 #define HORNO_H
 
 #include "prototipos.h"
-
-struct Horno{
-    Bandeja* bandejas[6];
-
-    Horno(Bandeja* pBandejas[6]){
-        for(int i = 0; i < 6; i++){
-            bandejas[i] = pBandejas[i];
-        }
-    }
-
-    bool tieneCamposDisponibles(int bandejasPrendidas){
-        Bandeja* bandejaActual;
-        for(int i = 0; i < bandejasPrendidas; i++){
-            bandejaActual = bandejas[i];
-            if(bandejaActual->contenidoActual < bandejaActual->capacidad){
-                return true;
-            }
-        }
-    }
-
-};
+#include "banda.h"
 
 struct Bandeja{
     float capacidad;
@@ -48,4 +28,24 @@ struct Bandeja{
     }
 };
 
+struct Horno{
+    Bandeja* bandejas[6];
+
+    Horno(Bandeja* pBandejas[6]){
+        for(int i = 0; i < 6; i++){
+            bandejas[i] = pBandejas[i];
+        }
+    }
+
+    bool tieneCamposDisponibles(int bandejasPrendidas){
+        Bandeja* bandejaActual;
+        for(int i = 0; i < bandejasPrendidas; i++){
+            bandejaActual = bandejas[i];
+            if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+                return true;
+            }
+        }
+    }
+
+};
 #endif // HORNO_H

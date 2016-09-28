@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+//Estructuras
 struct AlmacenPrima;
 struct NodoPeticion;
 struct CarritoEntrega;
@@ -31,4 +32,14 @@ struct AlmacenTerminal;
 struct ListaRangos;
 struct NodoRango;
 
+//Clases de Interfaz
+class VentanaPrincipal;
+
+//Hilos
+struct Simulacion;
+class HiloCarritoEntrega;
+class HiloMezcladoraMasa;
+class HiloMezcladoraChocolate;
+class HiloBanda;
+class HiloInterfaz;
 #endif // PROTOTIPOS_H

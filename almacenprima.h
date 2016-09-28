@@ -3,13 +3,28 @@
 
 #include "prototipos.h"
 
+struct NodoPeticion{
+    QString tipo;
+    QString maquinaOrigen;
+    float cantidad;
+
+    NodoPeticion* siguiente;
+
+    NodoPeticion(QString pTipo, QString pMaquinaOrigen, float pCantidad){
+        tipo = pTipo;
+        maquinaOrigen = pMaquinaOrigen;
+        cantidad = pCantidad;
+        siguiente = NULL;
+    }
+};
+
 struct AlmacenPrima{
     NodoPeticion* frentePeticiones;
     NodoPeticion* inicioRealizadas;
 
     AlmacenPrima(){
-        peticiones = NULL;
-        realizadas = NULL;
+        frentePeticiones = NULL;
+        inicioRealizadas = NULL;
     }
 
     void encolarPeticion(QString tipo, QString maquinaOrigen, float cantidad){
@@ -39,20 +54,4 @@ struct AlmacenPrima{
         }
     }
 };
-
-struct NodoPeticion{
-    QString tipo;
-    QString maquinaOrigen;
-    float cantidad;
-
-    NodoPeticion* siguiente;
-
-    NodoPeticion(QString pTipo, QString pMaquinaOrigen, float pCantidad){
-        tipo = pTipo;
-        maquinaOrigen = pMaquinaOrigen;
-        cantidad = pCantidad;
-        siguiente = NULL;
-    }
-};
-
 #endif // ALMACENPRIMA_H

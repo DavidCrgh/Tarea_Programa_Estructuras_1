@@ -1,5 +1,6 @@
 #ifndef LISTARANGOS_H
 #define LISTARANGOS_H
+
 #include "prototipos.h"
 
 struct ListaRangos{

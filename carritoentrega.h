@@ -2,27 +2,52 @@
 #define CARRITOENTREGA_H
 
 #include "prototipos.h"
+#include "almacenprima.h"
+//#include "mezcladoramasa.h"
+//#include "mezcladorachocolate.h"
 
 struct CarritoEntrega{
     float tiempoViaje;
     float capacidadMaxima;
     NodoPeticion* entrega;
+    bool estaEntregando;
+    QString maquinaActual;
 
     AlmacenPrima* almacen;
-    MezcladoraMasa* mezcladoraMasa1;
+    /*MezcladoraMasa* mezcladoraMasa1;
     MezcladoraMasa* mezcladoraMasa2;
-    MezcladoraChocolate* mezcladoraChocolate;
+    MezcladoraChocolate* mezcladoraChocolate;*/
 
-    CarritoEntrega(float tiempo, MezcladoraMasa* mezcladora1, MezcladoraMasa* mezcladora2,
-                   MezcladoraChocolate* pMezcladoraChocolate, AlmacenPrima* pAlmacen){
-        tiempoViaje = tiempo;
-        mezcladoraMasa1 = mezcladora1;
+    CarritoEntrega(/*MezcladoraMasa* mezcladora1, MezcladoraMasa* mezcladora2, MezcladoraChocolate* pMezcladoraChocolate,*/
+                   AlmacenPrima* pAlmacen){
+        tiempoViaje = 0.0;
+        capacidadMaxima = 0.0;
+        entrega = NULL;
+        estaEntregando = false;
+        maquinaActual = "";
+        /*mezcladoraMasa1 = mezcladora1;
         mezcladoraMasa2 = mezcladora2;
-        mezcladoraChocolate = pMezcladoraChocolate;
+        mezcladoraChocolate = pMezcladoraChocolate;*/
         almacen = pAlmacen;
     }
 
-    void entregarPeticion(){
+    void cargarCarrito(){
+        if((entrega == NULL) & !estaEntregando){
+            entrega = almacen->desencolarPeticion();
+        }
+    }
+
+    void realizarEntrega(){
+        estaEntregando = true;
+        maquinaActual = entrega->maquinaOrigen;
+    }
+
+    void vaciarCarrito(){
+        entrega = NULL;
+        estaEntregando = false;
+    }
+
+    /*void entregarPeticion(){
         if(entrega != NULL){
             if(entrega->maquinaOrigen == "Mezcladora1"){
                 mezcladoraMasa1->masaActual += entrega->cantidad;
@@ -36,11 +61,11 @@ struct CarritoEntrega{
             }
             entrega->cantidad = 0;
         }
-    }
+    }*/
 
-    void volveraAlmacen(){
+    /*void volveraAlmacen(){
         entrega = almacen->desencolarPeticion();
-    }
+    }*/
 };
 
 #endif // CARRITOENTREGA_H

@@ -2,16 +2,36 @@
 #define BANDA_H
 
 #include "prototipos.h"
+//#include "ensambladora.h"
+//#include "horno.h"
+
+struct NodoContenido{
+    float cantidad;
+    QString tipo;
+
+    NodoContenido* siguiente;
+
+    NodoContenido(float pCantidad, QString pTipo){
+        tipo = pTipo;
+        cantidad = pCantidad;
+        siguiente = NULL;
+    }
+};
 
 struct Banda{
     float limite;
 
     NodoContenido* frenteBanda;
 
-    Ensambladora* ensambladora;
-    Horno* horno;
+    //Ensambladora* ensambladora;
+    //Horno* horno;
 
-    Banda(float pLimite, Ensambladora* pEnsambladora){
+    Banda(){
+        limite = 0.0;
+        frenteBanda = NULL;
+    }
+
+    /*Banda(float pLimite, Ensambladora* pEnsambladora){
         limite = pLimite;
         ensambladora = pEnsambladora;
         horno = NULL;
@@ -23,10 +43,10 @@ struct Banda{
         ensambladora = NULL;
         horno = pHorno;
         frenteBanda = NULL;
-    }
+    }*/
 
-    void encolarBanda(float cantidad){
-        NodoContenido* nodoNuevo = new NodoContenido(cantidad);
+    void encolarBanda(float pCantidad, QString pTipo){
+        NodoContenido* nodoNuevo = new NodoContenido(pCantidad, pTipo);
 
         if(frenteBanda == NULL){
             frenteBanda = nodoNuevo;
@@ -52,7 +72,7 @@ struct Banda{
         }
     }
 
-    void alimentarEnsambladora(){
+    /*void alimentarEnsambladora(){
         if(!(ensambladora->estaEnsamblando())){
             NodoContenido* nodoDesencolado = desencolarBanda();
             if(nodoDesencolado != NULL){
@@ -63,15 +83,15 @@ struct Banda{
                 }
             }
         }
-    }
+    }*/
 
-    void alimentarHorno(int bandejasPrendidas){
+    /*void alimentarHorno(int bandejasPrendidas){
         if(horno->tieneCamposDisponibles(bandejasPrendidas)){
             NodoContenido* tandaGalletas = desencolarBanda();
             if(tandaGalletas != NULL){
                 float galletas = tandaGalletas->cantidad;
 
-                for(int i = 0; i < bandejasPrendidas & ; i++){
+                for(int i = 0; i < bandejasPrendidas; i++){
                     bandejaActual = horno->bandejas[i];
 
                     if(bandejaActual->contenidoActual < bandejaActual->capacidad){
@@ -88,7 +108,7 @@ struct Banda{
                 }
             }
         }
-    }
+    }*/
 
     bool estaLlena(){
         return contenidoActual() >= limite;
@@ -106,18 +126,4 @@ struct Banda{
     }
 
 };
-
-struct NodoContenido{
-    float cantidad;
-    QString tipo;
-
-    NodoContenido* siguiente;
-
-    NodoContenido(float pCantidad, QString pTipo){
-        tipo = pTipo;
-        cantidad = pCantidad;
-        siguiente = NULL;
-    }
-};
-
 #endif // BANDA_H

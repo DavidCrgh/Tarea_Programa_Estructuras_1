@@ -1,8 +1,7 @@
 #ifndef THREADMEZCLADORA_H
 #define THREADMEZCLADORA_H
+
 #include "prototipos.h"
-#include <QMutex>
-#include <QObject>
 
 class ThreadMezcladora : public QThread
 {

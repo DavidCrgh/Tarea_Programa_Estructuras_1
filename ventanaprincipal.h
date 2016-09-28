@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "prototipos.h"
+
 #include "ventanacarritoentrega.h"
 #include "ventanamezcladoras.h"
 #include  "ventanaensambladora.h"
