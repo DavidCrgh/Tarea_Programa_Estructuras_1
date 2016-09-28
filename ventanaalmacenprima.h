@@ -15,6 +15,9 @@ public:
     explicit VentanaAlmacenPrima(QWidget *parent = 0);
     ~VentanaAlmacenPrima();
 
+private slots:
+
+
 private:
     Ui::VentanaAlmacenPrima *ui;
 };

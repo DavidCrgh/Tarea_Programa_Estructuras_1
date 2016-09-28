@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     ventanacarritoentrega.cpp \
     ventanamezcladoras.cpp \
     ventanaensambladora.cpp \
-    ventanaalmacenprima.cpp
+    ventanaalmacenprima.cpp \
+    ventanahorno.cpp \
+    hilocarritoentrega.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -59,13 +61,16 @@ HEADERS  += ventanaprincipal.h \
     Estructuras/prototipos.h \
     ventanamezcladoras.h \
     ventanaensambladora.h \
-    ventanaalmacenprima.h
+    ventanaalmacenprima.h \
+    ventanahorno.h \
+    hilocarritoentrega.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \
     ventanamezcladoras.ui \
     ventanaensambladora.ui \
-    ventanaalmacenprima.ui
+    ventanaalmacenprima.ui \
+    ventanahorno.ui
 
 RESOURCES += \
     imagenes.qrc

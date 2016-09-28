@@ -10,6 +10,18 @@
     <height>415</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>306</width>
+    <height>415</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>306</width>
+    <height>415</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Peticiones</string>
   </property>
@@ -22,7 +34,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="enEspera">
         <property name="text">
          <string>En espera</string>
         </property>
@@ -32,24 +44,10 @@
        </widget>
       </item>
       <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>284</width>
-           <height>174</height>
-          </rect>
-         </property>
-        </widget>
-       </widget>
+       <widget class="QTextBrowser" name="cuadroEspera"/>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="realizas">
         <property name="text">
          <string>Realizadas</string>
         </property>
@@ -59,21 +57,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QScrollArea" name="scrollArea_2">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>284</width>
-           <height>173</height>
-          </rect>
-         </property>
-        </widget>
-       </widget>
+       <widget class="QTextBrowser" name="cuadroRealizadas"/>
       </item>
      </layout>
     </item>

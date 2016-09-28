@@ -64,3 +64,9 @@ void VentanaPrincipal::on_botonAlmacenPrima_clicked()
     ventanaAlmacen= new VentanaAlmacenPrima;
     ventanaAlmacen->show();
 }
+
+void VentanaPrincipal::on_botonHorno_clicked()
+{
+    ventanaHorno = new VentanaHorno();
+    ventanaHorno->show();
+}

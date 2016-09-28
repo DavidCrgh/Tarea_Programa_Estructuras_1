@@ -1,6 +1,6 @@
 #include "hilointerfaz.h"
 
-HiloInterfaz::HiloInterfaz()
+HiloInterfaz::HiloInterfaz(QObject* parent, VentanaPrincipal* pVentanaPrincipal)
 {
 
 }

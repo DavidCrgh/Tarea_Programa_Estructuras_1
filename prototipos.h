@@ -2,6 +2,8 @@
 #define PROTOTIPOS_H
 
 #include <QtCore>
+#include <QObject>
+#include <QMutex>
 #include <string.h>
 #include <stdlib.h>
 
