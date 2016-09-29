@@ -1,5 +1,8 @@
 #include "hilointerfaz.h"
 #include <QApplication>
+using namespace std;
+#include<cstdlib>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {

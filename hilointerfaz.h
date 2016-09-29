@@ -17,6 +17,7 @@ public:
     void run();
 signals:
     void actualizarAlmacenPrima(QStringList mensaje);
+    void actualizarVentanaCarrito(QStringList mensaje);
 };
 
 #endif // HILOINTERFAZ_H

@@ -22,6 +22,8 @@ private slots:
 
     void on_aceptar_clicked();
 
+    void actualizarVentana(QStringList pMensaje);
+
 private:
     Ui::VentanaCarritoEntrega *ui;
     CarritoEntrega* carrito;

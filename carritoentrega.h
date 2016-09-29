@@ -37,6 +37,14 @@ struct CarritoEntrega{
         }
     }
 
+    /*
+     * cargar()
+     * if(entrega != NULL & !estaEntregando)
+     * realizarEntrega()
+     * sleep(tiempo)
+     * else
+     * sleep(100
+     * */
     void realizarEntrega(){
         estaEntregando = true;
         maquinaActual = entrega->maquinaOrigen;
@@ -46,6 +54,8 @@ struct CarritoEntrega{
         entrega = NULL;
         estaEntregando = false;
     }
+
+    QStringList imprimirCarrito();
 
     /*void entregarPeticion(){
         if(entrega != NULL){

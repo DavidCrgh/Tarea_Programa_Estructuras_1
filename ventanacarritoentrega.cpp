@@ -7,7 +7,6 @@ VentanaCarritoEntrega::VentanaCarritoEntrega(QWidget *parent, CarritoEntrega* pC
 {
     ui->setupUi(this);
     carrito = pCarrito;
-
 }
 
 VentanaCarritoEntrega::~VentanaCarritoEntrega()
@@ -21,13 +20,23 @@ void VentanaCarritoEntrega::on_configurar_clicked()
     ui->editorTiempo->setEnabled(true);
     ui->aceptar->setEnabled(true);
     ui->configurar->setEnabled(false);
-
 }
 
 void VentanaCarritoEntrega::on_aceptar_clicked()
 {
+    QString nepe = ui->editorCapacidad->text();
+    QString negro = ui->editorTiempo->text();
+    carrito->capacidadMaxima = nepe.toFloat();
+    carrito->tiempoViaje = nepe.toFloat();
     ui->configurar->setEnabled(true);
     ui->editorCapacidad->setEnabled(false);
     ui->editorTiempo->setEnabled(false);
     ui->aceptar->setEnabled(false);
+}
+void VentanaCarritoEntrega::actualizarVentana(QStringList pMensaje){
+
+
+    ui->maquinaValor->setText(pMensaje[2]);
+    ui->contenidoValor->setText(pMensaje[3]);
+
 }

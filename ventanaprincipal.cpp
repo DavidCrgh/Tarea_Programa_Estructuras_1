@@ -11,12 +11,12 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
 {
     simulacion = pSimulacion;
     ui->setupUi(this);
-    ventanaAlmacen= new VentanaAlmacenPrima(NULL, simulacion->almacenPrima);
+    ventanaAlmacen = new VentanaAlmacenPrima(NULL, simulacion->almacenPrima);
     ventanaCarrito = new VentanaCarritoEntrega(NULL, simulacion->carritoEntrega);
     ventanaMezcladora1 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[0]);
     ventanaMezcladora2 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[1]);
     ventanaMezcladoraChocolate = new VentanaMezcladoras(NULL, simulacion->mezcladoraChocolate);
-    ventanaEnsambladoraSimulador= new ventanaEnsambladora();
+    ventanaEnsambladoraSimulador = new ventanaEnsambladora();
     ventanaHorno = new VentanaHorno();
 }
 
