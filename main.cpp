@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     VentanaPrincipal* ventana = new VentanaPrincipal(NULL,simulacion);
     HiloInterfaz* hiloInterfaz = new HiloInterfaz(NULL, simulacion, ventana);
-    //hiloInterfaz->start();
+    hiloInterfaz->start();
     ventana->show();
 
     return a.exec();

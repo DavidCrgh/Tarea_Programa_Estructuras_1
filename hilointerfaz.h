@@ -15,6 +15,8 @@ public:
     QMutex mute;
     HiloInterfaz(QObject* parent = 0, Simulacion* pSimulacion = 0, VentanaPrincipal* pVentanaPrincipal=0);
     void run();
+signals:
+    void actualizarAlmacenPrima(std::string mensaje[]);
 };
 
 #endif // HILOINTERFAZ_H

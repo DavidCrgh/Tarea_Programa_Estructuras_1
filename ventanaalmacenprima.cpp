@@ -14,10 +14,7 @@ VentanaAlmacenPrima::~VentanaAlmacenPrima()
     delete ui;
 }
 
-void VentanaAlmacenPrima::actualizarCuadroEspera(QString pMensaje){
-    ui->cuadroEspera->setText(pMensaje);
-}
-
-void VentanaAlmacenPrima::actualizarCuadroRealizadas(QString pMensaje){
-    ui->cuadroEspera->setText(pMensaje);
+void VentanaAlmacenPrima::actualizarVentana(std::string pMensaje[]){
+    ui->cuadroEspera->setText(pMensaje[0]);
+    ui->cuadroEspera->setText(pMensaje[1]);
 }

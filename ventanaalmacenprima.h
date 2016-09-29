@@ -16,11 +16,9 @@ class VentanaAlmacenPrima : public QMainWindow
 public:
     explicit VentanaAlmacenPrima(QWidget *parent = 0, AlmacenPrima* pAlmacen = 0);
     ~VentanaAlmacenPrima();
-    void actualizarCuadroEspera(QString pMensaje);
-    void actualizarCuadroRealizadas(QString pMensaje);
 
-private slots:
-
+public slots:
+    void actualizarVentana(std::string pMensaje[]);
 
 public:
     Ui::VentanaAlmacenPrima *ui;
