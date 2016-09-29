@@ -16,7 +16,7 @@ public:
     HiloInterfaz(QObject* parent = 0, Simulacion* pSimulacion = 0, VentanaPrincipal* pVentanaPrincipal=0);
     void run();
 signals:
-    void actualizarAlmacenPrima(std::string mensaje[]);
+    void actualizarAlmacenPrima(QStringList mensaje);
 };
 
 #endif // HILOINTERFAZ_H

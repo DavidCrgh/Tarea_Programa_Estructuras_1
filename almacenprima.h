@@ -81,22 +81,20 @@ struct AlmacenPrima{
         }
 
         if(nodoActual == NULL){
-            return "Holiwis";
+            return "Vacio";
         } else {
             QString mensaje = "";
 
             while(nodoActual != NULL){
-                /*mensaje.append("Tipo: " + nodoActual->tipo + "\n");
-                mensaje.append("Hecha por: " + nodoActual->maquinaOrigen + "\n");
-                mensaje.append("Cantidad: " + nodoActual->cantidad + "\n");
-                mensaje.append("--------------------------------------------------\n");*/
+                mensaje += "Tipo: " + nodoActual->tipo + "\n";
+                mensaje += "Hecha por: " + nodoActual->maquinaOrigen + "\n";
+                mensaje += "Cantidad: " + QString::number(nodoActual->cantidad) + "\n";
+                mensaje += "--------------------------------------------------\n";
                 nodoActual = nodoActual->siguiente;
             }
 
             return mensaje;
         }
-
-
     }
 };
 #endif // ALMACENPRIMA_H

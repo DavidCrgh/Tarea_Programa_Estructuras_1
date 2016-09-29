@@ -18,7 +18,7 @@ public:
     ~VentanaAlmacenPrima();
 
 public slots:
-    void actualizarVentana(std::string pMensaje[]);
+    void actualizarVentana(QStringList pMensaje);
 
 public:
     Ui::VentanaAlmacenPrima *ui;
