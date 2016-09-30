@@ -23,3 +23,19 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     hiloMezcladoraChocolate = new HiloMezcladoraChocolate(NULL, mezcladoraChocolate);
     hiloMezcladoraChocolate->start();
 }
+
+void Simulacion::iniciarHilos(){
+    hiloCarritoEntrega->pause = false;
+    for(int i = 0; i < 2; i++){
+        hilosMezcladorasMasa[i]->pause = false;
+    }
+    hiloMezcladoraChocolate->pause = false;
+}
+
+void Simulacion::pausarHilos(){
+    hiloCarritoEntrega->pause = true;
+    for(int i = 0; i < 2; i++){
+        hilosMezcladorasMasa[i]->pause = true;
+    }
+    hiloMezcladoraChocolate->pause = true;
+}

@@ -24,6 +24,8 @@ private slots:
 
     void on_aceptar_clicked();
 
+    void actualizarVentana();
+
 private:
     Ui::VentanaMezcladoras *ui;
     MezcladoraMasa* mezcladoraMasa;

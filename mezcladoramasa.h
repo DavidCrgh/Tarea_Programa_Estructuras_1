@@ -8,11 +8,12 @@
 
 struct MezcladoraMasa{
     float tiempo;
-    float cantidad;
+    float cantidadxTanda;
     float masaMinima;
     float masaMaxima;
     float masaActual;
     bool esperandoPeticion;
+    float cantidadProcesada;
     QString nombreMaquina;
 
     Banda* banda;
@@ -22,17 +23,18 @@ struct MezcladoraMasa{
     MezcladoraMasa(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
         nombreMaquina = pNombre;
         tiempo = 0.0;
-        cantidad = 0.0;
+        cantidadxTanda = 0.0;
         masaMinima = 0.0;
         masaMaxima = 0.0;
         masaActual = 0;
+        cantidadProcesada = 0.0;
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
     }
 
     void revisarCarrito(){
-        if((carrito->entrega != NULL) & (carrito->maquinaActual == nombreMaquina)){
+        if((carrito->entrega != NULL) & (carrito->entrega->maquinaOrigen == nombreMaquina)){
             masaActual += carrito->entrega->cantidad;
             almacen->insertarRealizada(almacen->desencolarPeticion());
             carrito->vaciarCarrito();
@@ -54,14 +56,25 @@ struct MezcladoraMasa{
     }
 
     void procesarMasa(){
-        masaActual -= cantidad;
+        masaActual -= cantidadxTanda;
         if(!(banda->estaLlena())){
-            if(cantidad + banda->contenidoActual() > banda->limite){
+            if(cantidadxTanda + banda->contenidoActual() > banda->limite){
                 banda->encolarBanda((banda->limite) - (banda->contenidoActual()), "Masa");
+                cantidadProcesada += (banda->limite) - (banda->contenidoActual());
             } else {
-                banda->encolarBanda(cantidad, "Masa");
+                banda->encolarBanda(cantidadxTanda, "Masa");
+                cantidadProcesada += cantidadxTanda;
             }
         }
+    }
+
+    QStringList imprimirMezcladora(){
+        QStringList mensaje;
+
+        mensaje.append(QString::number(masaActual));
+        mensaje.append(QString::number(cantidadProcesada));
+
+        return mensaje;
     }
 };
 

@@ -8,11 +8,12 @@
 
 struct MezcladoraChocolate{
     float tiempo;
-    float cantidadProcesada;
+    float cantidadxTanda;
     float mezclaMinima;
     float mezclaMaxima;
     float mezclaActual;
     bool esperandoPeticion;
+    float cantidadProcesada;
     QString nombreMaquina;
 
     Banda* banda;
@@ -22,17 +23,18 @@ struct MezcladoraChocolate{
     MezcladoraChocolate(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
         nombreMaquina = pNombre;
         tiempo = 0.0;
-        cantidadProcesada = 0.0;
+        cantidadxTanda = 0.0;
         mezclaMinima = 0.0;
         mezclaMaxima = 0.0;
         mezclaActual = 0.0;
+        cantidadProcesada = 0.0;
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
     }
 
     void revisarCarrito(){
-        if((carrito->entrega != NULL) & (carrito->maquinaActual == nombreMaquina)){
+        if((carrito->entrega != NULL) & (carrito->entrega->maquinaOrigen == nombreMaquina)){
             mezclaActual += carrito->entrega->cantidad;
             carrito->vaciarCarrito();
             esperandoPeticion = false;
@@ -54,17 +56,26 @@ struct MezcladoraChocolate{
     }
 
     void procesarChocolate(){
-        mezclaActual -= cantidadProcesada;
+        mezclaActual -= cantidadxTanda;
         if(!(banda->estaLlena())){
-            if(cantidadProcesada + banda->contenidoActual() > banda->limite){
+            if(cantidadxTanda + banda->contenidoActual() > banda->limite){
                 banda->encolarBanda((banda->limite) - (banda->contenidoActual()), "Chocolate");
+                cantidadProcesada += (banda->limite) - (banda->contenidoActual());
             } else {
-                banda->encolarBanda(cantidadProcesada, "Chocolate");
+                banda->encolarBanda(cantidadxTanda, "Chocolate");
+                cantidadProcesada += cantidadxTanda;
             }
         }
     }
 
+    QStringList imprimirMezcladora(){
+        QStringList mensaje;
 
+        mensaje.append(QString::number(mezclaActual));
+        mensaje.append(QString::number(cantidadProcesada));
+
+        return mensaje;
+    }
 };
 
 #endif // MEZCLADORACHOCOLATE_H

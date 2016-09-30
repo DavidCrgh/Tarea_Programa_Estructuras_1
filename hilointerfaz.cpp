@@ -10,29 +10,27 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
             ventanaPrincipal->ventanaAlmacen, SLOT(actualizarVentana(QStringList)));
     connect(this,SIGNAL(actualizarVentanaCarrito(QStringList)),
             ventanaPrincipal->ventanaCarrito,SLOT(actualizarVentana(QStringList)));
+    connect(this, SIGNAL(actualizarMezcladoras()),
+            ventanaPrincipal->ventanaMezcladora1, SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarMezcladoras()),
+            ventanaPrincipal->ventanaMezcladora2, SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarMezcladoras()),
+            ventanaPrincipal->ventanaMezcladoraChocolate, SLOT(actualizarVentana()));
 }
 
 void HiloInterfaz::run(){
-    QStringList infoAlmacen;
-    QStringList informacionCarritoEntrega;
-    simulacion->almacenPrima->encolarPeticion("Nepe","Nepe",7.6);
-    simulacion->carritoEntrega->cargarCarrito();
-
     while(!stop){
         while(pause){
             msleep(100);
         }
-        msleep(100);
-        infoAlmacen.clear();
-        informacionCarritoEntrega.clear();
+        msleep(1000);
 
-        infoAlmacen.append(simulacion->almacenPrima->imprimirLista(false));
-        infoAlmacen.append(simulacion->almacenPrima->imprimirLista(true));
-
-        informacionCarritoEntrega.append(simulacion->carritoEntrega->entrega->maquinaOrigen);
-        informacionCarritoEntrega.append(QString::number(simulacion->carritoEntrega->entrega->cantidad));
-
-        emit actualizarAlmacenPrima(infoAlmacen);
-        emit actualizarVentanaCarrito(informacionCarritoEntrega);
+        emit actualizarAlmacenPrima(simulacion->almacenPrima->imprimirAlmacen());
+        emit actualizarVentanaCarrito(simulacion->carritoEntrega->imprimirCarrito());
+        emit actualizarMezcladoras();
+        QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
+        QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
+        qDebug("BMasa: " + contenidoBandeja1.toLatin1());
+        qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
     }
 }

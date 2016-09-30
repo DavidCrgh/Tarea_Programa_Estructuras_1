@@ -24,6 +24,9 @@ struct Simulacion{
     HiloMezcladoraChocolate* hiloMezcladoraChocolate;
 
     Simulacion();
+
+    void iniciarHilos();
+    void pausarHilos();
 };
 
 #endif // SIMULACION_H

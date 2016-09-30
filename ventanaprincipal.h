@@ -43,6 +43,10 @@ private slots:
 
     void on_botonHorno_clicked();
 
+    void on_botonPlay_clicked();
+
+    void on_botonPausa_clicked();
+
 public:
     Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;

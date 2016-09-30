@@ -96,5 +96,12 @@ struct AlmacenPrima{
             return mensaje;
         }
     }
+
+    QStringList imprimirAlmacen(){
+        QStringList mensaje;
+        mensaje.append(imprimirLista(false));
+        mensaje.append(imprimirLista(true));
+        return mensaje;
+    }
 };
 #endif // ALMACENPRIMA_H

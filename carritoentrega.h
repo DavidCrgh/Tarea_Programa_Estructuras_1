@@ -11,7 +11,6 @@ struct CarritoEntrega{
     float capacidadMaxima;
     NodoPeticion* entrega;
     bool estaEntregando;
-    QString maquinaActual;
 
     AlmacenPrima* almacen;
     /*MezcladoraMasa* mezcladoraMasa1;
@@ -24,7 +23,6 @@ struct CarritoEntrega{
         capacidadMaxima = 0.0;
         entrega = NULL;
         estaEntregando = false;
-        maquinaActual = "";
         /*mezcladoraMasa1 = mezcladora1;
         mezcladoraMasa2 = mezcladora2;
         mezcladoraChocolate = pMezcladoraChocolate;*/
@@ -47,7 +45,6 @@ struct CarritoEntrega{
      * */
     void realizarEntrega(){
         estaEntregando = true;
-        maquinaActual = entrega->maquinaOrigen;
     }
 
     void vaciarCarrito(){
@@ -55,7 +52,19 @@ struct CarritoEntrega{
         estaEntregando = false;
     }
 
-    QStringList imprimirCarrito();
+    QStringList imprimirCarrito(){
+        QStringList mensaje;
+
+        if(entrega != NULL){
+            mensaje.append(entrega->maquinaOrigen);
+            mensaje.append(QString::number(entrega->cantidad));
+        } else {
+            mensaje.append("Vacio");
+            mensaje.append("Vacio");
+        }
+
+        return mensaje;
+    }
 
     /*void entregarPeticion(){
         if(entrega != NULL){

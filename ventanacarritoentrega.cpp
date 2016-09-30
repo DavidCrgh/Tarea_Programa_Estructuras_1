@@ -24,10 +24,10 @@ void VentanaCarritoEntrega::on_configurar_clicked()
 
 void VentanaCarritoEntrega::on_aceptar_clicked()
 {
-    QString nepe = ui->editorCapacidad->text();
-    QString negro = ui->editorTiempo->text();
-    carrito->capacidadMaxima = nepe.toFloat();
-    carrito->tiempoViaje = nepe.toFloat();
+    QString capacidadMaxima = ui->editorCapacidad->text();
+    QString tiempo = ui->editorTiempo->text();
+    carrito->capacidadMaxima = capacidadMaxima.toFloat();
+    carrito->tiempoViaje = tiempo.toFloat();
     ui->configurar->setEnabled(true);
     ui->editorCapacidad->setEnabled(false);
     ui->editorTiempo->setEnabled(false);
@@ -36,5 +36,4 @@ void VentanaCarritoEntrega::on_aceptar_clicked()
 void VentanaCarritoEntrega::actualizarVentana(QStringList pMensaje){
     ui->maquinaValor->setText(pMensaje[0]);
     ui->contenidoValor->setText(pMensaje[1]);
-
 }

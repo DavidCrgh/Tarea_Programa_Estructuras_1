@@ -77,3 +77,13 @@ void VentanaPrincipal::on_botonHorno_clicked()
     //ventanaHorno = new VentanaHorno();
     ventanaHorno->show();
 }
+
+void VentanaPrincipal::on_botonPlay_clicked()
+{
+    simulacion->iniciarHilos();
+}
+
+void VentanaPrincipal::on_botonPausa_clicked()
+{
+    simulacion->pausarHilos();
+}
