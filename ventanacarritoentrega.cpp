@@ -34,9 +34,7 @@ void VentanaCarritoEntrega::on_aceptar_clicked()
     ui->aceptar->setEnabled(false);
 }
 void VentanaCarritoEntrega::actualizarVentana(QStringList pMensaje){
-
-
-    ui->maquinaValor->setText(pMensaje[2]);
-    ui->contenidoValor->setText(pMensaje[3]);
+    ui->maquinaValor->setText(pMensaje[0]);
+    ui->contenidoValor->setText(pMensaje[1]);
 
 }

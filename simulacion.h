@@ -6,7 +6,7 @@
 #include "hilocarritoentrega.h"
 #include "hilomezcladoramasa.h"
 #include "hilomezcladorachocolate.h"
-#include "hilobanda.h"
+//#include "hilobanda.h"
 
 struct Simulacion{
 

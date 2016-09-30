@@ -22,22 +22,17 @@ void HiloInterfaz::run(){
         while(pause){
             msleep(100);
         }
-        msleep(1000);
+        msleep(100);
         infoAlmacen.clear();
         informacionCarritoEntrega.clear();
 
         infoAlmacen.append(simulacion->almacenPrima->imprimirLista(false));
         infoAlmacen.append(simulacion->almacenPrima->imprimirLista(true));
 
-        informacionCarritoEntrega.append(QString::number(simulacion->carritoEntrega->capacidadMaxima));
-        informacionCarritoEntrega.append(QString::number(simulacion->carritoEntrega->tiempoViaje));
         informacionCarritoEntrega.append(simulacion->carritoEntrega->entrega->maquinaOrigen);
         informacionCarritoEntrega.append(QString::number(simulacion->carritoEntrega->entrega->cantidad));
 
         emit actualizarAlmacenPrima(infoAlmacen);
         emit actualizarVentanaCarrito(informacionCarritoEntrega);
-
-        QString str1 = QString::number(simulacion->carritoEntrega->capacidadMaxima);
-        qDebug(str1.toLatin1());
     }
 }

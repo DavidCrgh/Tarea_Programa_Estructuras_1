@@ -89,7 +89,7 @@ struct AlmacenPrima{
                 mensaje += "Tipo: " + nodoActual->tipo + "\n";
                 mensaje += "Hecha por: " + nodoActual->maquinaOrigen + "\n";
                 mensaje += "Cantidad: " + QString::number(nodoActual->cantidad) + "\n";
-                mensaje += "--------------------------------------------------\n";
+                mensaje += "-------------------------------------------------------\n";
                 nodoActual = nodoActual->siguiente;
             }
 
