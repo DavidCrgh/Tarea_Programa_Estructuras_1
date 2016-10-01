@@ -44,17 +44,21 @@ struct MezcladoraChocolate{
     }
 
     void realizarPeticion(){
+        //qDebug("1");
         if(!esperandoPeticion && mezclaActual <= mezclaMinima){
+            //qDebug("2");
             float cantidadSolicitada = mezclaMaxima - mezclaActual;
-
+            //qDebug("3");
             if(cantidadSolicitada > carrito->capacidadMaxima){
+                //qDebug("4");
                 cantidadSolicitada = carrito->capacidadMaxima;
             }
-
+            //qDebug("5");
             almacen->encolarPeticion("Chocolate", nombreMaquina, cantidadSolicitada);
+            //qDebug("6");
             esperandoPeticion = true;
         }
-
+        //qDebug("7");
     }
 
     void procesarChocolate(){

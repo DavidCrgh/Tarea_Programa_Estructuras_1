@@ -24,17 +24,38 @@ struct Ensambladora{
      * ensamblar();
      *
      * */
+    Banda* bandaMasa;
+    Banda* bandaChocolate;
     Banda* bandaSalida;
 
-    Ensambladora(float pCantidadProducida, float pTiempo, float pMinimoMasa, float pMinimoChocolate, Banda* pBanda){
-        producidoxTanda = pCantidadProducida;
-        tiempo = pTiempo;
-        masaRequerida = pMinimoMasa;
-        chocolateRequerido = pMinimoChocolate;
+    Ensambladora(Banda* pBanda, Banda* pBandaMasa, Banda* pBandaChocolate){
+        producidoxTanda = 0.0;
+        tiempo = 0.0;
+        masaRequerida = 0.0;
+        chocolateRequerido = 0.0;
         actualMasa = 0;
         actualChocolate = 0;
         bandaSalida = pBanda;
+        bandaMasa = pBandaMasa;
+        bandaChocolate = pBandaChocolate;
         estaEnsamblando = false;
+    }
+
+    void recibirMasa(){
+        if(bandaMasa->frenteBanda != NULL & !estaEnsamblando){
+            actualMasa += (bandaMasa->desencolarBanda())->cantidad;
+        }
+    }
+
+    void recibirChocolate(){
+        if(bandaChocolate->frenteBanda != & !estaEnsamblando){
+            actualChocolate += (bandaChocolate->desencolarBanda())->cantidad;
+        }
+    }
+
+    void alimentarEnsambladora(){
+        recibirMasa();
+        recibirChocolate();
     }
 
     void ensamblarGalletas(){

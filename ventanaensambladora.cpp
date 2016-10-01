@@ -1,11 +1,12 @@
 #include "ventanaensambladora.h"
 #include "ui_ventanaensambladora.h"
 
-ventanaEnsambladora::ventanaEnsambladora(QWidget *parent) :
+ventanaEnsambladora::ventanaEnsambladora(QWidget *parent, Ensambladora* pEnsambladora) :
     QMainWindow(parent),
     ui(new Ui::ventanaEnsambladora)
 {
     ui->setupUi(this);
+    ensambladora = pEnsambladora;
 }
 
 ventanaEnsambladora::~ventanaEnsambladora()
@@ -15,12 +16,12 @@ ventanaEnsambladora::~ventanaEnsambladora()
 
 void ventanaEnsambladora::on_configurar_clicked()
 {
-  ui->editorMasa->setEnabled(true);
-  ui->editorChocolate->setEnabled(true);
-  ui->editorTiempo->setEnabled(true);
-  ui->editorCantidad->setEnabled(true);
-  ui->aceptar->setEnabled(true);
-  ui->configurar->setEnabled(false);
+    ui->editorMasa->setEnabled(true);
+    ui->editorChocolate->setEnabled(true);
+    ui->editorTiempo->setEnabled(true);
+    ui->editorCantidad->setEnabled(true);
+    ui->aceptar->setEnabled(true);
+    ui->configurar->setEnabled(false);
 }
 
 void ventanaEnsambladora::on_aceptar_clicked()

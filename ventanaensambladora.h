@@ -14,7 +14,7 @@ class ventanaEnsambladora : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ventanaEnsambladora(QWidget *parent = 0);
+    explicit ventanaEnsambladora(QWidget *parent = 0, Ensambladora* pEnsambladora);
     ~ventanaEnsambladora();
 
 private slots:
@@ -24,6 +24,7 @@ private slots:
 
 private:
     Ui::ventanaEnsambladora *ui;
+    Ensambladora* ensambladora;
 };
 
 #endif // VENTANAENSAMBLADORA_H

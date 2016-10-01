@@ -6,6 +6,7 @@
 #include "hilocarritoentrega.h"
 #include "hilomezcladoramasa.h"
 #include "hilomezcladorachocolate.h"
+#include "hiloensambladora.h"
 //#include "hilobanda.h"
 
 struct Simulacion{
@@ -18,10 +19,13 @@ struct Simulacion{
     MezcladoraChocolate* mezcladoraChocolate;
     Banda* bandaMasa;
     Banda* bandaChocolate;
+    Banda* bandaGalletasCrudas;
+    Ensambladora* ensambladora;
 
     HiloCarritoEntrega* hiloCarritoEntrega;
     HiloMezcladoraMasa* hilosMezcladorasMasa[2];
     HiloMezcladoraChocolate* hiloMezcladoraChocolate;
+    HiloEnsambladora* hiloEnsambladora;
 
     Simulacion();
 

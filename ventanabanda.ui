@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Banda</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoBanda.png</normaloff>:/imagenes/Imagenes/iconoBanda.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -93,6 +97,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

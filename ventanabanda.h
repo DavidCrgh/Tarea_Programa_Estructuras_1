@@ -22,6 +22,8 @@ private slots:
 
     void on_aceptar_clicked();
 
+    void actualizarBandas();
+
 private:
     Ui::VentanaBanda *ui;
     Banda* banda;

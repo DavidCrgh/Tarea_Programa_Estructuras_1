@@ -27,7 +27,7 @@ struct Banda{
     //Horno* horno;
 
     Banda(){
-        limite = 10000.0;
+        limite = 0;//10000.0;
         frenteBanda = NULL;
     }
 

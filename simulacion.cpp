@@ -1,9 +1,10 @@
 #include "simulacion.h"
 
 Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
+    //Bandas
     bandaMasa = new Banda();
     bandaChocolate = new Banda();
-
+    bandaGalletasCrudas = new Banda();
     //Estructuras
     almacenPrima = new AlmacenPrima();
     carritoEntrega = new CarritoEntrega(almacenPrima);
@@ -12,6 +13,7 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
         mezcladorasMasa[i] = new MezcladoraMasa(nombresMezcladora[i], bandaMasa, almacenPrima,carritoEntrega);
     }
     mezcladoraChocolate = new MezcladoraChocolate("Mezcladora Chocolate", bandaChocolate, almacenPrima,carritoEntrega);
+    ensambladora = new Ensambladora(bandaGalletasCrudas, bandaMasa, bandaChocolate);
 
     //Hilos
     hiloCarritoEntrega = new HiloCarritoEntrega(NULL, carritoEntrega);
@@ -22,6 +24,9 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     }
     hiloMezcladoraChocolate = new HiloMezcladoraChocolate(NULL, mezcladoraChocolate);
     hiloMezcladoraChocolate->start();
+    hiloEnsambladora = new HiloEnsambladora(NULL, ensambladora);
+    hiloEnsambladora->start();
+
 }
 
 void Simulacion::iniciarHilos(){
@@ -30,6 +35,7 @@ void Simulacion::iniciarHilos(){
         hilosMezcladorasMasa[i]->pause = false;
     }
     hiloMezcladoraChocolate->pause = false;
+    hiloEnsambladora->pause = false;
 }
 
 void Simulacion::pausarHilos(){
@@ -38,4 +44,5 @@ void Simulacion::pausarHilos(){
         hilosMezcladorasMasa[i]->pause = true;
     }
     hiloMezcladoraChocolate->pause = true;
+    hiloEnsambladora->pause = true;
 }

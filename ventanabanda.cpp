@@ -23,7 +23,15 @@ void VentanaBanda::on_configurar_clicked()
 
 void VentanaBanda::on_aceptar_clicked()
 {
+    QString maximoBanda= ui->editorMaximo->text();
     ui->editorMaximo->setEnabled(false);
     ui->aceptar->setEnabled(false);
     ui->configurar->setEnabled(true);
+    banda->limite= maximoBanda.toFloat();
+}
+
+void VentanaBanda::actualizarBandas(){
+
+ui->cantidadValor->setText(QString::number(banda->contenidoActual()));
+
 }

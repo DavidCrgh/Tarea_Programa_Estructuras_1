@@ -19,13 +19,20 @@ void HiloMezcladoraChocolate::run(){
         //mute.unlock();
         //qDebug("Hilo chocolate: realizando peticion");
         mezcladoraChocolate->realizarPeticion();
-        if(mezcladoraChocolate->mezclaActual >= mezcladoraChocolate->cantidadxTanda){
+        if(mezcladoraChocolate->mezclaActual >= mezcladoraChocolate->mezclaMinima & mezcladoraChocolate->mezclaActual>=mezcladoraChocolate->cantidadxTanda){
             //qDebug("Hilo masa: procesando chocolate");
             msleep((mezcladoraChocolate->tiempo)*1000);
             mezcladoraChocolate->procesarChocolate();
         } else {
-            msleep(2000);
+            msleep(1000);
         }
+        /*if(mezcladoraChocolate->banda->estaLlena()){
+            pause=true;
+            mezcladoraChocolate->carrito->vaciarCarrito();
+            mezcladoraChocolate->almacen->desencolarPeticion();
+            mezcladoraChocolate->esperandoPeticion = false;
+        }*/
         mute.unlock();
+
     }
 }

@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     simulacion.cpp \
     hilomezcladoramasa.cpp \
     hilomezcladorachocolate.cpp \
-    ventanabanda.cpp
+    ventanabanda.cpp \
+    hiloensambladora.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -54,7 +55,8 @@ HEADERS  += ventanaprincipal.h \
     hilocarritoentrega.h \
     hilomezcladoramasa.h \
     hilomezcladorachocolate.h \
-    ventanabanda.h
+    ventanabanda.h \
+    hiloensambladora.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \
