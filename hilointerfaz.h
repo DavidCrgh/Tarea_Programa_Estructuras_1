@@ -20,6 +20,7 @@ signals:
     void actualizarVentanaCarrito(QStringList mensaje);
     void actualizarMezcladoras();
     void actualizarBandas();
+    void actualizarEnsambladora();
 };
 
 #endif // HILOINTERFAZ_H

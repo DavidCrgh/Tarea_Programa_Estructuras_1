@@ -19,6 +19,8 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaMasa,SLOT(actualizarBandas()));
 
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaChocolate,SLOT(actualizarBandas()));
+    connect(this, SIGNAL(actualizarBandas()), ventanaPrincipal->ventanaBandaCrudas, SLOT(actualizarBandas()));
+    connect(this,SIGNAL(actualizarEnsambladora()),ventanaPrincipal->ventanaEnsambladoraSimulador, SLOT(actualizarVentana()));
 }
 
 void HiloInterfaz::run(){
@@ -37,9 +39,10 @@ void HiloInterfaz::run(){
         emit actualizarMezcladoras();
         //qDebug("");
         emit actualizarBandas();
-      //  QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
+        emit actualizarEnsambladora();
+        //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
         //qDebug("");
-       // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
+        // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
         //qDebug("BMasa: " + contenidoBandeja1.toLatin1());
         //qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
         //mute.unlock();

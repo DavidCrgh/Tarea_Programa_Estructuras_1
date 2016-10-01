@@ -18,7 +18,8 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     ventanaMezcladoraChocolate = new VentanaMezcladoras(NULL, simulacion->mezcladoraChocolate);
     ventanaBandaMasa = new VentanaBanda(NULL, simulacion->bandaMasa);
     ventanaBandaChocolate = new VentanaBanda(NULL, simulacion->bandaChocolate);
-    ventanaEnsambladoraSimulador = new ventanaEnsambladora();
+    ventanaEnsambladoraSimulador = new ventanaEnsambladora(NULL, simulacion->ensambladora);
+    ventanaBandaCrudas = new VentanaBanda(NULL, simulacion->bandaGalletasCrudas);
     ventanaHorno = new VentanaHorno();
 }
 
@@ -98,4 +99,9 @@ void VentanaPrincipal::on_botonBandaMasa_clicked()
 void VentanaPrincipal::on_botonBandaChocolate_clicked()
 {
     ventanaBandaChocolate->show();
+}
+
+void VentanaPrincipal::on_botonBandaCrudas_clicked()
+{
+    ventanaBandaCrudas->show();
 }

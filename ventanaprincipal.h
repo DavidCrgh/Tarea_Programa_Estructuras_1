@@ -52,6 +52,8 @@ private slots:
 
     void on_botonBandaChocolate_clicked();
 
+    void on_botonBandaCrudas_clicked();
+
 public:
     Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;
@@ -64,8 +66,8 @@ public:
     VentanaHorno* ventanaHorno;
     VentanaBanda* ventanaBandaMasa;
     VentanaBanda* ventanaBandaChocolate;
-    VentanaBanda* ventanaGalletasCrudas;
-    VentanaBanda* ventanaGalletasCocinadas;
+    VentanaBanda* ventanaBandaCrudas;
+    VentanaBanda* ventanaBandaCocinadas;
 };
 
 #endif // VENTANAPRINCIPAL_H

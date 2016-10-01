@@ -14,9 +14,7 @@ struct Ensambladora{
     float actualMasa;
     float actualChocolate;
 
-    bool estaEnsamblando;
-
-
+    float cantidadProcesada;
     /*
      * nvlsActuales > req
      * estaEnsamblando = true
@@ -35,20 +33,20 @@ struct Ensambladora{
         chocolateRequerido = 0.0;
         actualMasa = 0;
         actualChocolate = 0;
+        cantidadProcesada = 0;
         bandaSalida = pBanda;
         bandaMasa = pBandaMasa;
         bandaChocolate = pBandaChocolate;
-        estaEnsamblando = false;
     }
 
     void recibirMasa(){
-        if(bandaMasa->frenteBanda != NULL & !estaEnsamblando){
+        if(bandaMasa->frenteBanda != NULL){
             actualMasa += (bandaMasa->desencolarBanda())->cantidad;
         }
     }
 
     void recibirChocolate(){
-        if(bandaChocolate->frenteBanda != & !estaEnsamblando){
+        if(bandaChocolate->frenteBanda != NULL){
             actualChocolate += (bandaChocolate->desencolarBanda())->cantidad;
         }
     }
@@ -61,14 +59,15 @@ struct Ensambladora{
     void ensamblarGalletas(){
         actualMasa -= masaRequerida;
         actualChocolate -= chocolateRequerido;
-        if(!(bandaSalida->estaLlena())){
-            if(producidoxTanda + bandaSalida->contenidoActual() > bandaSalida->limite){
-                bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galleta Cruda");
-            } else {
-                bandaSalida->encolarBanda(producidoxTanda, "Galleta Cruda");
-            }
-            estaEnsamblando = false;
+        //if(!(bandaSalida->estaLlena())){
+        if(producidoxTanda + bandaSalida->contenidoActual() > bandaSalida->limite){
+            bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galleta Cruda");
+            cantidadProcesada+=bandaSalida->limite - bandaSalida->contenidoActual();
+        } else {
+            bandaSalida->encolarBanda(producidoxTanda, "Galleta Cruda");
+            cantidadProcesada+=producidoxTanda;
         }
+        //}
     }
 };
 

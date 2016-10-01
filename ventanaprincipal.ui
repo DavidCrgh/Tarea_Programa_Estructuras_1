@@ -912,7 +912,7 @@
    <widget class="QToolButton" name="botonHorno">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>860</x>
       <y>260</y>
       <width>25</width>
       <height>19</height>
@@ -1168,6 +1168,19 @@
      <rect>
       <x>460</x>
       <y>300</y>
+      <width>26</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="botonBandaCrudas">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>160</y>
       <width>26</width>
       <height>20</height>
      </rect>
