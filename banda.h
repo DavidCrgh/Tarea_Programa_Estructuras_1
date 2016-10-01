@@ -120,6 +120,7 @@ struct Banda{
 
         while(nodoActual != NULL){
             sumatoria += nodoActual->cantidad;
+            nodoActual = nodoActual->siguiente;
         }
 
         return sumatoria;

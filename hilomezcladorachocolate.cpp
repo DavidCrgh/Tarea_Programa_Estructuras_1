@@ -12,16 +12,20 @@ void HiloMezcladoraChocolate::run(){
         while(pause){
             msleep(500);
         }
-        qDebug("Hilo chocolate: revisando carrito");
+        mute.lock();
+        //qDebug("Hilo chocolate: revisando carrito");
+        //mute.lock();
         mezcladoraChocolate->revisarCarrito();
-        qDebug("Hilo chocolate: realizando peticion");
+        //mute.unlock();
+        //qDebug("Hilo chocolate: realizando peticion");
         mezcladoraChocolate->realizarPeticion();
         if(mezcladoraChocolate->mezclaActual >= mezcladoraChocolate->cantidadxTanda){
-            qDebug("Hilo masa: procesando chocolate");
+            //qDebug("Hilo masa: procesando chocolate");
             msleep((mezcladoraChocolate->tiempo)*1000);
             mezcladoraChocolate->procesarChocolate();
         } else {
-            msleep(100);
+            msleep(2000);
         }
+        mute.unlock();
     }
 }

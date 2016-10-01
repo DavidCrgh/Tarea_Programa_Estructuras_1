@@ -20,7 +20,7 @@ struct MezcladoraMasa{
     AlmacenPrima* almacen;
     CarritoEntrega* carrito;
 
-    MezcladoraMasa(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
+    MezcladoraMasa(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen,CarritoEntrega*pCarrito){
         nombreMaquina = pNombre;
         tiempo = 0.0;
         cantidadxTanda = 0.0;
@@ -31,15 +31,22 @@ struct MezcladoraMasa{
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
+        carrito=pCarrito;
     }
 
     void revisarCarrito(){
-        if((carrito->entrega != NULL) & (carrito->entrega->maquinaOrigen == nombreMaquina)){
+        //qDebug("1");
+        if((carrito->entrega != NULL) && (carrito->estaEntregando) &&(carrito->entrega->maquinaOrigen == nombreMaquina)){
+           // qDebug("2");
             masaActual += carrito->entrega->cantidad;
+           // qDebug("3");
             almacen->insertarRealizada(almacen->desencolarPeticion());
+          //  qDebug("4");
             carrito->vaciarCarrito();
+         //   qDebug("5");
             esperandoPeticion = false;
         }
+       // qDebug("6");
     }
 
     void realizarPeticion(){
@@ -49,7 +56,6 @@ struct MezcladoraMasa{
             if(cantidadSolicitada > carrito->capacidadMaxima){
                 cantidadSolicitada = carrito->capacidadMaxima;
             }
-
             almacen->encolarPeticion("Masa", nombreMaquina, cantidadSolicitada);
             esperandoPeticion = true;
         }

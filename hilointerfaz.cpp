@@ -23,14 +23,21 @@ void HiloInterfaz::run(){
         while(pause){
             msleep(100);
         }
+        //mute.lock();
         msleep(1000);
 
+        //qDebug("");
         emit actualizarAlmacenPrima(simulacion->almacenPrima->imprimirAlmacen());
+        //qDebug("");
         emit actualizarVentanaCarrito(simulacion->carritoEntrega->imprimirCarrito());
+        //qDebug("");
         emit actualizarMezcladoras();
+        //qDebug("");
         QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
+        //qDebug("");
         QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
-        qDebug("BMasa: " + contenidoBandeja1.toLatin1());
-        qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
+        //qDebug("BMasa: " + contenidoBandeja1.toLatin1());
+        //qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
+        //mute.unlock();
     }
 }

@@ -32,7 +32,10 @@ struct CarritoEntrega{
     void cargarCarrito(){
         if((entrega == NULL) & !estaEntregando){
             entrega = almacen->peek();
+            //qDebug("carrito cargado con nueva entrega");
         }
+        //std::cout << "entrega: " << entrega << endl;
+        //qDebug("entrega == null o esta entregando");
     }
 
     /*
@@ -45,11 +48,13 @@ struct CarritoEntrega{
      * */
     void realizarEntrega(){
         estaEntregando = true;
+        //qDebug("realizarEntrega()");
     }
 
     void vaciarCarrito(){
         entrega = NULL;
         estaEntregando = false;
+        //qDebug("carrito vaciado");
     }
 
     QStringList imprimirCarrito(){
@@ -61,6 +66,7 @@ struct CarritoEntrega{
         } else {
             mensaje.append("Vacio");
             mensaje.append("Vacio");
+
         }
 
         return mensaje;

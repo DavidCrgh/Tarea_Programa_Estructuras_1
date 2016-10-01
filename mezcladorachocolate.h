@@ -20,7 +20,7 @@ struct MezcladoraChocolate{
     AlmacenPrima* almacen;
     CarritoEntrega* carrito;
 
-    MezcladoraChocolate(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen){
+    MezcladoraChocolate(QString pNombre, Banda* pBanda, AlmacenPrima* pAlmacen,CarritoEntrega* pCarrito){
         nombreMaquina = pNombre;
         tiempo = 0.0;
         cantidadxTanda = 0.0;
@@ -31,11 +31,13 @@ struct MezcladoraChocolate{
         banda = pBanda;
         almacen = pAlmacen;
         esperandoPeticion = false;
+        carrito=pCarrito;
     }
 
     void revisarCarrito(){
-        if((carrito->entrega != NULL) & (carrito->entrega->maquinaOrigen == nombreMaquina)){
+        if((carrito->entrega != NULL) && (carrito->estaEntregando) && (carrito->entrega->maquinaOrigen == nombreMaquina)){
             mezclaActual += carrito->entrega->cantidad;
+            almacen->insertarRealizada(almacen->desencolarPeticion());
             carrito->vaciarCarrito();
             esperandoPeticion = false;
         }

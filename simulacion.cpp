@@ -9,9 +9,9 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     carritoEntrega = new CarritoEntrega(almacenPrima);
     QString nombresMezcladora[] = {"Mezcladora 1", "Mezcladora 2"};
     for(int i = 0; i < 2; i++){
-        mezcladorasMasa[i] = new MezcladoraMasa(nombresMezcladora[i], bandaMasa, almacenPrima);
+        mezcladorasMasa[i] = new MezcladoraMasa(nombresMezcladora[i], bandaMasa, almacenPrima,carritoEntrega);
     }
-    mezcladoraChocolate = new MezcladoraChocolate("Mezcladora Chocolate", bandaChocolate, almacenPrima);
+    mezcladoraChocolate = new MezcladoraChocolate("Mezcladora Chocolate", bandaChocolate, almacenPrima,carritoEntrega);
 
     //Hilos
     hiloCarritoEntrega = new HiloCarritoEntrega(NULL, carritoEntrega);
