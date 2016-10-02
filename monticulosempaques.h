@@ -3,6 +3,19 @@
 
 #include "prototipos.h"
 
+struct NodoMonticulo{
+    QString nombre;
+    int cantidadPaquetes;
+
+    NodoMonticulo* siguiente;
+
+    NodoMonticulo(QString pNombre){
+        nombre = pNombre;
+        cantidadPaquetes = 0;
+        siguiente = NULL;
+    }
+};
+
 struct MonticulosEmpaques{
     NodoMonticulo* primerNodo;
 
@@ -36,18 +49,4 @@ struct MonticulosEmpaques{
         }
     }
 };
-
-struct NodoMonticulo{
-    QString nombre;
-    int cantidadPaquetes;
-
-    NodoMonticulo* siguiente;
-
-    NodoMonticulo(QString pNombre){
-        nombre = pNombre;
-        cantidadPaquetes = 0;
-        siguiente = NULL;
-    }
-};
-
 #endif // MONTICULOSEMPAQUES_H

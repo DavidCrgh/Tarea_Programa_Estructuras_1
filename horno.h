@@ -3,46 +3,80 @@
 
 #include "prototipos.h"
 #include "banda.h"
+//#include "bandainspectores.h"
 
 struct Bandeja{
     float capacidad;
     float contenidoActual;
     float tiempo;
-    BandaInspectores* bandaSalida;
+    float cantidadProcesada;
+    Banda* bandaSalida;
 
-    Bandeja(float pCapacidad, float pTiempo, BandaInspectores* pBanda){
-        capacidad = pCapacidad;
-        tiempo = pTiempo;
+    Bandeja(Banda* pBanda){
+        capacidad = 0.0;
+        contenidoActual = 0.0;
+        tiempo = 0.0;
+        cantidadProcesada = 0.0;
         bandaSalida = pBanda;
     }
 
     void hornear(){
-        if(!(bandaSalida->estaLlena())){
-            if(contenidoActual + bandaSalida->contenidoActual() > bandaSalida->limite){
-                bandaSalida->encolarBanda(bandaSalida->limite - bandaSalida->contenidoActual);
-            } else {
-                bandaSalida->encolarBanda(contenidoActual);
-            }
-            contenidoActual = 0;
+        if(contenidoActual + bandaSalida->contenidoActual() > bandaSalida->limite){
+            bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galletas Cocinadas");
+            cantidadProcesada += (bandaSalida->limite - bandaSalida->contenidoActual());
+        } else {
+            bandaSalida->encolarBanda(contenidoActual, "Galletas Cocinadas");
+            cantidadProcesada += contenidoActual;
         }
+        contenidoActual = 0;
     }
 };
 
 struct Horno{
+    Banda* bandaEntrada;
     Bandeja* bandejas[6];
+    int bandejasPrendidas;
 
-    Horno(Bandeja* pBandejas[6]){
+    Horno(Bandeja* pBandejas[6], Banda* pBandaCrudas){
         for(int i = 0; i < 6; i++){
             bandejas[i] = pBandejas[i];
         }
+        bandaEntrada = pBandaCrudas;
+        bandejasPrendidas = 0.0;
     }
 
-    bool tieneCamposDisponibles(int bandejasPrendidas){
+    bool tieneCamposDisponibles(){
         Bandeja* bandejaActual;
         for(int i = 0; i < bandejasPrendidas; i++){
             bandejaActual = bandejas[i];
             if(bandejaActual->contenidoActual < bandejaActual->capacidad){
                 return true;
+            }
+        }
+        return false;
+    }
+
+    void alimentarHorno(){
+        if(tieneCamposDisponibles()){
+            NodoContenido* tandaGalletas = bandaEntrada->desencolarBanda();
+            if(tandaGalletas != NULL){
+                float galletas = tandaGalletas->cantidad;
+                Bandeja* bandejaActual;
+                for(int i = 0; i < bandejasPrendidas; i++){
+                    bandejaActual =bandejas[i];
+
+                    if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+                        if(bandejaActual->contenidoActual + galletas > bandejaActual->capacidad){
+                            float cantidad = bandejaActual->capacidad - bandejaActual->contenidoActual;
+                            galletas -= cantidad;
+                            bandejaActual->contenidoActual += cantidad;
+                        } else {
+                            bandejaActual->contenidoActual += galletas;
+                            galletas = 0;
+
+                        }
+                    }
+                }
             }
         }
     }

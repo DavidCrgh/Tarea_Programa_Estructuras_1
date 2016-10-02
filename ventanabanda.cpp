@@ -31,7 +31,7 @@ void VentanaBanda::on_aceptar_clicked()
 }
 
 void VentanaBanda::actualizarBandas(){
-
+ui->tipoValor->setText(banda->tipo);
 ui->cantidadValor->setText(QString::number(banda->contenidoActual()));
 
 }

@@ -13,6 +13,7 @@
 #include "ventanaalmacenprima.h"
 #include "ventanahorno.h"
 #include "ventanabanda.h"
+#include "ventanainspectores.h"
 
 namespace Ui {
 class VentanaPrincipal;
@@ -27,7 +28,7 @@ public:
     ~VentanaPrincipal();
 
 public slots:
-    void openNewWindow();
+
 
 private slots:
     void on_botonCarritoEntrega_clicked();
@@ -54,6 +55,12 @@ private slots:
 
     void on_botonBandaCrudas_clicked();
 
+    void on_bandaInspectores_clicked();
+
+    void on_botonInspector1_clicked();
+
+    void on_botonInspector2_clicked();
+
 public:
     Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;
@@ -68,6 +75,9 @@ public:
     VentanaBanda* ventanaBandaChocolate;
     VentanaBanda* ventanaBandaCrudas;
     VentanaBanda* ventanaBandaCocinadas;
+    VentanaBanda* ventanaBandaInspectores;
+    ventanaInspectores* ventanaInspector1;
+    ventanaInspectores* ventanaInspector2;
 };
 
 #endif // VENTANAPRINCIPAL_H

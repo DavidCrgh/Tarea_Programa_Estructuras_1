@@ -2,9 +2,12 @@
 
 Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     //Bandas
-    bandaMasa = new Banda();
-    bandaChocolate = new Banda();
-    bandaGalletasCrudas = new Banda();
+    bandaMasa = new Banda("Masa");
+    bandaChocolate = new Banda("Chocolate");
+    bandaGalletasCrudas = new Banda("Galletas Crudas");
+    bandaInspectores = new Banda("Galletas Cocinadas");
+    //qDebug("Bandas Inicializadas");
+
     //Estructuras
     almacenPrima = new AlmacenPrima();
     carritoEntrega = new CarritoEntrega(almacenPrima);
@@ -14,6 +17,18 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     }
     mezcladoraChocolate = new MezcladoraChocolate("Mezcladora Chocolate", bandaChocolate, almacenPrima,carritoEntrega);
     ensambladora = new Ensambladora(bandaGalletasCrudas, bandaMasa, bandaChocolate);
+    for(int j = 0; j < 6; j++){
+        bandejas[j] = new Bandeja(bandaInspectores);
+    }
+    horno = new Horno(bandejas, bandaGalletasCrudas);
+    listaGalletas = new ListaGalletas();
+    //qDebug("listaGalletas");
+    empacadora = new Empacadora(listaGalletas);
+    //qDebug("empacadora");
+    inspector1 = new Inspector(empacadora, bandaInspectores);
+    //qDebug("inspector1");
+    inspector2 = new Inspector(empacadora, bandaInspectores);
+    //qDebug("Estructuras Inicializadas");
 
     //Hilos
     hiloCarritoEntrega = new HiloCarritoEntrega(NULL, carritoEntrega);
@@ -26,7 +41,19 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     hiloMezcladoraChocolate->start();
     hiloEnsambladora = new HiloEnsambladora(NULL, ensambladora);
     hiloEnsambladora->start();
-
+    hiloHorno = new HiloHorno(NULL, horno);
+    hiloHorno->start();
+    for(int i = 0; i < 6; i++){
+        hilosBandeja[i] = new HiloBandeja(NULL, bandejas[i]);
+        hilosBandeja[i]->start();
+    }
+    hiloInspector1 = new hiloInspector(NULL, inspector1);
+    hiloInspector1->start();
+    hiloInspector2 = new hiloInspector(NULL, inspector2);
+    hiloInspector2->start();
+    hiloEmpacadora = new HiloEmpacadora(NULL, empacadora);
+    hiloEmpacadora->start();
+    //qDebug("Hilos Inicializados");
 }
 
 void Simulacion::iniciarHilos(){
@@ -36,6 +63,13 @@ void Simulacion::iniciarHilos(){
     }
     hiloMezcladoraChocolate->pause = false;
     hiloEnsambladora->pause = false;
+    hiloHorno->pause = false;
+    for(int i = 0; i < 6; i++){
+        hilosBandeja[i]->pause = false;
+    }
+    hiloInspector1->pause=false;
+    hiloInspector2->pause=false;
+    hiloEmpacadora->pause=false;
 }
 
 void Simulacion::pausarHilos(){
@@ -45,4 +79,8 @@ void Simulacion::pausarHilos(){
     }
     hiloMezcladoraChocolate->pause = true;
     hiloEnsambladora->pause = true;
+    hiloHorno->pause = true;
+    for(int i = 0; i < 6; i++){
+        hilosBandeja[i]->pause = true;
+    }
 }

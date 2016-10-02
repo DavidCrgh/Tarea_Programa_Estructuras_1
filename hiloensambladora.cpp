@@ -12,6 +12,7 @@ void HiloEnsambladora::run(){
         while(pause){
             msleep(1000);
         }
+        mute.lock();
         ensambladora->alimentarEnsambladora();
         if(ensambladora->actualMasa >= ensambladora->masaRequerida && ensambladora->actualChocolate >= ensambladora->chocolateRequerido){
             msleep((ensambladora->tiempo) * 1000);
@@ -19,5 +20,6 @@ void HiloEnsambladora::run(){
         } else {
             msleep(100);
         }
+        mute.unlock();
     }
 }

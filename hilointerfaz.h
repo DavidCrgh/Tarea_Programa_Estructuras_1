@@ -21,6 +21,8 @@ signals:
     void actualizarMezcladoras();
     void actualizarBandas();
     void actualizarEnsambladora();
+    void actualizarBandejas();
+    void actualizarInspectores();
 };
 
 #endif // HILOINTERFAZ_H

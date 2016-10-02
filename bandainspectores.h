@@ -2,21 +2,26 @@
 #define BANDAINSPECTORES_H
 
 #include "prototipos.h"
+#include "banda.h"
+#include "empacadora.h"
 
 struct BandaInspectores{
     float limite;
 
+    //Inspector inspector1;
+    //Inspector inspector2;
+
     NodoContenido* frenteInspectores;
 
-    BandaInspectores(float pLimite, Inspector* pInspector1, Inpector* pInspector2){
-        limite = pLimite;
-        inspector1 = pInspector1;
-        inspector2 = pInspector2;
-        frente = NULL;
+    BandaInspectores(/*float pLimite, Inspector* pInspector1, Inspector* pInspector2*/){
+        limite = 0.0;
+        //inspector1 = pInspector1;
+        //inspector2 = pInspector2;
+        frenteInspectores = NULL;
     }
 
     void encolarBanda(float cantidad){
-        NodoContenido* nodoNuevo = new NodoContenido(cantidad);
+        NodoContenido* nodoNuevo = new NodoContenido(cantidad, "Galletas Cocinadas");
 
         if(frenteInspectores == NULL){
             frenteInspectores = nodoNuevo;
@@ -52,6 +57,7 @@ struct BandaInspectores{
 
         while(nodoActual != NULL){
             sumatoria += nodoActual->cantidad;
+            nodoActual= nodoActual->siguiente;
         }
 
         return sumatoria;
@@ -59,34 +65,45 @@ struct BandaInspectores{
 };
 
 struct Inspector{
-    int desechadas;
-    int aprobadas;
+    float desechadas;
+    float aprobadas;
     float probabilidadRechazo;
-    BandaInspectores* bandaInspector;
+    Banda* bandaInspector;
     Empacadora* empacadora;
 
-    Inspector(Empacadora* pEmpcadora, float pProbabilidad){
-        empacadora = pEmpcadora;
-        probabilidadRechazo = pProbabilidad;
+    Inspector(Empacadora* pEmpacadora, Banda* pBanda){
+        empacadora = pEmpacadora;
+        bandaInspector = pBanda;
+        probabilidadRechazo = 0.0;
+        desechadas = 0.0;
+        aprobadas = 0.0;
     }
 
     void inspeccionar(){
         if(!(empacadora->estaEmpacando)){
+
             NodoContenido* tandaGalletas = bandaInspector->desencolarBanda();
             if(tandaGalletas != NULL){
-                float cantidadGalletas = tandaGalletas->cantidad;
+                int cantidadGalletas = tandaGalletas->cantidad;
                 if(seDesecha()){
                     int galletasDesechadas = rand()%(cantidadGalletas + 1);
                     empacadora->galletasActuales += (cantidadGalletas - galletasDesechadas);
+                    aprobadas += (cantidadGalletas - galletasDesechadas);
+
+                    desechadas += galletasDesechadas;
+
                 } else {
                     empacadora->galletasActuales += cantidadGalletas;
+                    aprobadas += cantidadGalletas;
                 }
             }
+
         }
     }
 
-    void seDesecha(){
-        int random = rand()%101;
+
+    bool seDesecha(){
+        int random = rand()% 101;
         return random <= probabilidadRechazo;
     }
 };

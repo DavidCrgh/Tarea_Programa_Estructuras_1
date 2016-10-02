@@ -13,13 +13,10 @@ void HiloMezcladoraMasa::run(){
             msleep(100);
         }
         mute.lock();
-        //qDebug("Hilo masa: revisando carrito");
         mezcladoraMasa->revisarCarrito();
 
-        //qDebug("Hilo masa: realizando peticion");
         mezcladoraMasa->realizarPeticion();
-        if(mezcladoraMasa->masaActual >= mezcladoraMasa->masaMinima & mezcladoraMasa->masaActual>=mezcladoraMasa->cantidadxTanda){ //cambiar
-            //qDebug("Hilo masa: procesandoMasa");
+        if((mezcladoraMasa->masaActual >= mezcladoraMasa->masaMinima) & (mezcladoraMasa->masaActual >= mezcladoraMasa->cantidadxTanda)){ //cambiar
             msleep((mezcladoraMasa->tiempo) * 1000);
             mezcladoraMasa->procesarMasa();
         } else {

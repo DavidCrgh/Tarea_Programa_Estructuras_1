@@ -13,15 +13,13 @@ void HiloCarritoEntrega::run(){
             msleep(100);
         }
         mute.lock();
-        //qDebug("Hilo carrito: cargando carrito");
         carritoEntrega->cargarCarrito();
         if(carritoEntrega->entrega != NULL & !(carritoEntrega->estaEntregando)){
             msleep((carritoEntrega->tiempoViaje) * 1000);
             carritoEntrega->realizarEntrega();
         } else {
-            msleep(1000);
+            msleep(100);
         }
-        //qDebug("Hilo carrito");
         mute.unlock();
     }
 

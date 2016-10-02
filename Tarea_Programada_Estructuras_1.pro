@@ -14,7 +14,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         ventanaprincipal.cpp \
-    threadMezcladora.cpp \
     hilointerfaz.cpp \
     ventanacarritoentrega.cpp \
     ventanamezcladoras.cpp \
@@ -27,7 +26,12 @@ SOURCES += main.cpp\
     hilomezcladorachocolate.cpp \
     ventanabanda.cpp \
     hiloensambladora.cpp \
-    ventanabandeja.cpp
+    ventanabandeja.cpp \
+    hilohorno.cpp \
+    hilobandeja.cpp \
+    ventanainspectores.cpp \
+    hiloinspector.cpp \
+    hiloempacadora.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -35,7 +39,6 @@ HEADERS  += ventanaprincipal.h \
     mezcladorachocolate.h \
     banda.h \
     ensambladora.h \
-    threadmezcladoramasa1.h \
     horno.h \
     empacadora.h \
     almacenterminal.h \
@@ -58,7 +61,12 @@ HEADERS  += ventanaprincipal.h \
     hilomezcladorachocolate.h \
     ventanabanda.h \
     hiloensambladora.h \
-    ventanabandeja.h
+    ventanabandeja.h \
+    hilohorno.h \
+    hilobandeja.h \
+    ventanainspectores.h \
+    hiloinspector.h \
+    hiloempacadora.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \
@@ -67,7 +75,8 @@ FORMS    += ventanaprincipal.ui \
     ventanaalmacenprima.ui \
     ventanahorno.ui \
     ventanabanda.ui \
-    ventanabandeja.ui
+    ventanabandeja.ui \
+    ventanainspectores.ui
 
 RESOURCES += \
     imagenes.qrc

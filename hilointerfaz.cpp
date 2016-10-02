@@ -21,6 +21,12 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaChocolate,SLOT(actualizarBandas()));
     connect(this, SIGNAL(actualizarBandas()), ventanaPrincipal->ventanaBandaCrudas, SLOT(actualizarBandas()));
     connect(this,SIGNAL(actualizarEnsambladora()),ventanaPrincipal->ventanaEnsambladoraSimulador, SLOT(actualizarVentana()));
+    for(int i = 0; i < 6; i++){
+        connect(this, SIGNAL(actualizarBandejas()), ventanaPrincipal->ventanaHorno->ventanasBandeja[i], SLOT(actualizarVentana()));
+    connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaInspectores,SLOT(actualizarBandas()));
+    }
+    connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector1,SLOT(actualizarVentana()));
+    connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector2,SLOT(actualizarVentana()));
 }
 
 void HiloInterfaz::run(){
@@ -40,11 +46,14 @@ void HiloInterfaz::run(){
         //qDebug("");
         emit actualizarBandas();
         emit actualizarEnsambladora();
+        emit actualizarBandejas();
+        emit actualizarInspectores();
         //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
         //qDebug("");
         // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
         //qDebug("BMasa: " + contenidoBandeja1.toLatin1());
         //qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
         //mute.unlock();
+        //QString contenidoBandaInspectores =
     }
 }

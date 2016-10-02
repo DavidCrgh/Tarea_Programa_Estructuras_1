@@ -3,6 +3,30 @@
 
 #include "prototipos.h"
 
+#include "monticulosempaques.h"
+#include "listarangos.h"
+
+struct NodoEmpaque{
+    QString tipoEmpaque;
+    int galletasxEmpaque;
+    int cantidadxTiempo;
+    float tiempoProduccion;
+    float probabilidad;
+
+    NodoEmpaque* siguiente;
+    NodoEmpaque* anterior;
+
+    NodoEmpaque(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo, float pTiempo, float pProbabilidad){
+        tipoEmpaque = pTipo;
+        galletasxEmpaque = pGalletasxEmpaque;
+        cantidadxTiempo = pCantidadxTiempo;
+        tiempoProduccion = pTiempo;
+        probabilidad = pProbabilidad;
+        siguiente = NULL;
+        anterior = NULL;
+    }
+};
+
 struct ListaGalletas{
     NodoEmpaque* primerEmpaque;
 
@@ -27,9 +51,9 @@ struct ListaGalletas{
         }
     }
 
-    void crearArregloProbabilidades(int probabilidades[]){
+    void crearArregloProbabilidades(float probabilidades[]){
 
-        NodoEmpaque* nodoActual= primerEmpaque;
+        NodoEmpaque* nodoActual = primerEmpaque;
         int largoGalletas= largoListaGalletas();
         int indice=0;
 
@@ -51,12 +75,11 @@ struct ListaGalletas{
              tipoEmpaques[indice]= nodoActual->tipoEmpaque;
              nodoActual=nodoActual->siguiente;
              indice++;
-
          }
     }
 
 
-    void insertion_sort(int arregloProbabilidades[],QString arregloTipoEmpaques[], int largoArreglo) {
+    void insertion_sort(float arregloProbabilidades[],QString arregloTipoEmpaques[], int largoArreglo) {
      int i, j ,temporal1;
      QString temporal2;
      for (i = 1; i < largoArreglo; i++) {
@@ -71,7 +94,6 @@ struct ListaGalletas{
              j--;
          }
      }
-     )
     }
 
 
@@ -97,8 +119,7 @@ struct ListaGalletas{
     int largoListaGalletas(){
         NodoEmpaque* nodoActual= primerEmpaque;
         int largo=0;
-        while(nodoActual!=primerEmpaque){
-
+        while(nodoActual != primerEmpaque){
             largo++;
             nodoActual= nodoActual->siguiente;
 
@@ -142,47 +163,27 @@ struct ListaGalletas{
 
     ListaRangos* construirRangos(){
        ListaRangos* listaRangos= new ListaRangos();
-       int probabilidades[largoListaGalletas()];
-       QString tipoEmpaques[largoListaGalletas()];
+       int largoLista = largoListaGalletas();
+       float *probabilidades = new float[largoLista];
+       QString *tipoEmpaques = new QString[largoLista];
        crearArregloProbabilidades(probabilidades);
        crearArregloNombres(tipoEmpaques);
-       insertion_sort(probabilidades,tipoEmpaques,largoListaGalletas());
-       float minimo=0;
-       float maximo= probabilidades[0];
-       listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[0]);
+       insertion_sort(probabilidades,tipoEmpaques,largoLista);
+       float minimo = 0;
+       float maximo = float(probabilidades[0]);
+       //listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[0]);
 
-       for(int i=1;i<largoListaGalletas();i++){
+       for(int i=1;i<largoLista;i++){
            minimo=maximo;
            maximo=probabilidades[i]+minimo;
            listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[i]);
             }
         return listaRangos;
-       }
-
-
-
-
-};
-
-struct NodoEmpaque{
-    QString tipoEmpaque;
-    int galletasxEmpaque;
-    int cantidadxTiempo;
-    float tiempoProduccion;
-    float probabilidad;
-
-    NodoEmpaque* siguiente;
-    NodoEmpaque* anterior;
-
-    NodoEmpaque(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo, float pTiempo, float pProbabilidad){
-        tipoEmpaque = pTipo;
-        galletasxEmpaque = pGalletasxEmpaque;
-        cantidadxTiempo = pCantidadxTiempo;
-        tiempoProduccion = pTiempo;
-        probabilidad = pProbabilidad;
-        siguiente = NULL;
-        anterior = NULL;
     }
+
+
+
+
 };
 
 #endif // LISTAGALLETAS_H

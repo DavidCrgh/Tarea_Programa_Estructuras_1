@@ -2,6 +2,8 @@
 #define EMPACADORA_H
 
 #include "prototipos.h"
+#include "listagalletas.h"
+//#include "monticulosempaques.h"
 
 struct Empacadora{
     float galletasActuales;
@@ -23,7 +25,7 @@ struct Empacadora{
        int random= rand()%101;
        NodoRango* nodoActual=listaRangos->primerRango;
        for(int i=0;listaGalletas->largoListaGalletas();i++){
-            if(nodoActual->minimo>=random & random<=nodoActual->maximo){
+            if((nodoActual->minimo>=random) & (random<=nodoActual->maximo)){
                 NodoEmpaque* buscado= listaGalletas->buscarEmpaque(nodoActual->tipoEmpaque);
                 return buscado;
             }
@@ -32,11 +34,10 @@ struct Empacadora{
     }
 
     void empacarGalletas(NodoEmpaque* empaque){
-        if(galletasActuales >= (empaque->galletasxEmpaque * empaque->cantidadxTiempo)){
-            galletasActuales -= (empaque->galletasxEmpaque * empaque->cantidadxTiempo);
-            NodoMonticulo* monticulo = monticulosEmpacadora->buscarMonticulo(empaque->tipoEmpaque);
-            monticulo->cantidadPaquetes += empaque->cantidadxTiempo;
-        }
+        //if(galletasActuales >= (empaque->galletasxEmpaque * empaque->cantidadxTiempo)){
+        galletasActuales -= (empaque->galletasxEmpaque * empaque->cantidadxTiempo);
+        NodoMonticulo* monticulo = monticulosEmpacadora->buscarMonticulo(empaque->tipoEmpaque);
+        monticulo->cantidadPaquetes += empaque->cantidadxTiempo;
     }
 };
 #endif // EMPACADORA_H

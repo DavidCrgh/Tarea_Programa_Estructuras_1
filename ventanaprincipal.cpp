@@ -9,23 +9,34 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     QMainWindow(parent),
     ui(new Ui::VentanaPrincipal)
 {
+    //qDebug("A");
     simulacion = pSimulacion;
+    //qDebug("B");
     ui->setupUi(this);
+    //qDebug("C");
     ventanaAlmacen = new VentanaAlmacenPrima(NULL, simulacion->almacenPrima);
+    //qDebug("D");
     ventanaCarrito = new VentanaCarritoEntrega(NULL, simulacion->carritoEntrega);
+    //qDebug("E");
     ventanaMezcladora1 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[0]);
+    //qDebug("F");
     ventanaMezcladora2 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[1]);
+    //qDebug("G");
     ventanaMezcladoraChocolate = new VentanaMezcladoras(NULL, simulacion->mezcladoraChocolate);
+    //qDebug("H");
     ventanaBandaMasa = new VentanaBanda(NULL, simulacion->bandaMasa);
+    //qDebug("I");
     ventanaBandaChocolate = new VentanaBanda(NULL, simulacion->bandaChocolate);
+    //qDebug("J");
     ventanaEnsambladoraSimulador = new ventanaEnsambladora(NULL, simulacion->ensambladora);
+    //qDebug("K");
     ventanaBandaCrudas = new VentanaBanda(NULL, simulacion->bandaGalletasCrudas);
-    ventanaHorno = new VentanaHorno();
-}
-
-void VentanaPrincipal::openNewWindow(){
-    ventanaCarrito = new VentanaCarritoEntrega();
-    ventanaCarrito->show();
+    //qDebug("L");
+    ventanaHorno = new VentanaHorno(NULL, simulacion->horno);
+    //qDebug("Completado");
+    ventanaBandaInspectores= new VentanaBanda(NULL,simulacion->bandaInspectores);
+    ventanaInspector1 = new ventanaInspectores(NULL,simulacion->inspector1);
+    ventanaInspector2 = new ventanaInspectores(NULL,simulacion->inspector2);
 }
 
 VentanaPrincipal::~VentanaPrincipal()
@@ -35,28 +46,24 @@ VentanaPrincipal::~VentanaPrincipal()
 
 void VentanaPrincipal::on_botonCarritoEntrega_clicked()
 {
-    //ventanaCarrito = new VentanaCarritoEntrega();
     ventanaCarrito->show();
 }
 
 
 void VentanaPrincipal::on_botonMezcladora1_clicked()
 {
-    //ventanaMezcladora1 = new VentanaMezcladoras();
     ventanaMezcladora1->setWindowIcon(QIcon(":/imagenes/Imagenes/iconoMezcladoraC.png"));
     ventanaMezcladora1->show();
 }
 
 void VentanaPrincipal::on_botonMezcladora2_clicked()
 {
-    //ventanaMezcladora2 = new VentanaMezcladoras();
     ventanaMezcladora2->setWindowIcon(QIcon(":/imagenes/Imagenes/iconoMezcladoraC.png"));
     ventanaMezcladora2->show();
 }
 
 void VentanaPrincipal::on_botonMezcladoraChocolate_clicked()
 {
-    //ventanaMezcladoraChocolate = new VentanaMezcladoras();
     ventanaMezcladoraChocolate->setWindowIcon(QIcon(":/imagenes/Imagenes/Imagen1.png"));
     ventanaMezcladoraChocolate->show();
 
@@ -64,20 +71,17 @@ void VentanaPrincipal::on_botonMezcladoraChocolate_clicked()
 
 void VentanaPrincipal::on_botonEnsambladora_clicked()
 {
-    //ventanaEnsambladoraSimulador= new ventanaEnsambladora();
     ventanaEnsambladoraSimulador->setWindowIcon(QIcon(":/imagenes/Imagenes/iconoEnsambladora.png"));
     ventanaEnsambladoraSimulador->show();
 }
 
 void VentanaPrincipal::on_botonAlmacenPrima_clicked()
 {
-    //ventanaAlmacen= new VentanaAlmacenPrima;
     ventanaAlmacen->show();
 }
 
 void VentanaPrincipal::on_botonHorno_clicked()
 {
-    //ventanaHorno = new VentanaHorno();
     ventanaHorno->show();
 }
 
@@ -104,4 +108,20 @@ void VentanaPrincipal::on_botonBandaChocolate_clicked()
 void VentanaPrincipal::on_botonBandaCrudas_clicked()
 {
     ventanaBandaCrudas->show();
+}
+
+void VentanaPrincipal::on_bandaInspectores_clicked()
+{
+    ventanaBandaInspectores->show();
+}
+
+void VentanaPrincipal::on_botonInspector1_clicked()
+{
+    ventanaInspector1->show();
+}
+
+
+void VentanaPrincipal::on_botonInspector2_clicked()
+{
+    ventanaInspector2->show();
 }

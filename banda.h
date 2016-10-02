@@ -20,15 +20,16 @@ struct NodoContenido{
 
 struct Banda{
     float limite;
-
+    QString tipo;
     NodoContenido* frenteBanda;
 
     //Ensambladora* ensambladora;
     //Horno* horno;
 
-    Banda(){
-        limite = 0;//10000.0;
+    Banda(QString pTipo){
+        limite = 10000;//10000.0;
         frenteBanda = NULL;
+        tipo=pTipo;
     }
 
     /*Banda(float pLimite, Ensambladora* pEnsambladora){
