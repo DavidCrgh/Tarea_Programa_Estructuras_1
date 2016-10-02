@@ -12,8 +12,8 @@ struct NodoContenido{
     NodoContenido* siguiente;
 
     NodoContenido(float pCantidad, QString pTipo){
-        tipo = pTipo;
         cantidad = pCantidad;
+        tipo = pTipo;
         siguiente = NULL;
     }
 };

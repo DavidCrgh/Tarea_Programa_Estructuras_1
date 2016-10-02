@@ -83,4 +83,7 @@ void Simulacion::pausarHilos(){
     for(int i = 0; i < 6; i++){
         hilosBandeja[i]->pause = true;
     }
+    hiloInspector1->pause = true;
+    hiloInspector2->pause = true;
+    hiloEmpacadora->pause = true;
 }

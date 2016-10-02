@@ -13,7 +13,7 @@ void HiloBandeja::run(){
             msleep(100);
         }
         mute.lock();
-        if(bandeja->contenidoActual==bandeja->capacidad){
+        if(bandeja->contenidoActual==bandeja->capacidad & bandeja->capacidad!=0){
             msleep((bandeja->tiempo)*1000);
             bandeja->hornear();
         }

@@ -21,9 +21,10 @@ struct Bandeja{
     }
 
     void hornear(){
-        if(contenidoActual + bandaSalida->contenidoActual() > bandaSalida->limite){
-            bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galletas Cocinadas");
-            cantidadProcesada += (bandaSalida->limite - bandaSalida->contenidoActual());
+        float contenidoActualBanda= bandaSalida->contenidoActual();
+        if(contenidoActual + contenidoActualBanda > bandaSalida->limite){
+            bandaSalida->encolarBanda((bandaSalida->limite - contenidoActualBanda),"Galletas Cocinadas");
+            cantidadProcesada += (bandaSalida->limite - contenidoActualBanda);
         } else {
             bandaSalida->encolarBanda(contenidoActual, "Galletas Cocinadas");
             cantidadProcesada += contenidoActual;
@@ -73,7 +74,6 @@ struct Horno{
                         } else {
                             bandejaActual->contenidoActual += galletas;
                             galletas = 0;
-
                         }
                     }
                 }

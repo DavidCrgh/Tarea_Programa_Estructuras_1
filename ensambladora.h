@@ -59,7 +59,6 @@ struct Ensambladora{
     void ensamblarGalletas(){
         actualMasa -= masaRequerida;
         actualChocolate -= chocolateRequerido;
-        //if(!(bandaSalida->estaLlena())){
         if(producidoxTanda + bandaSalida->contenidoActual() > bandaSalida->limite){
             bandaSalida->encolarBanda((bandaSalida->limite - bandaSalida->contenidoActual()),"Galleta Cruda");
             cantidadProcesada+=bandaSalida->limite - bandaSalida->contenidoActual();
@@ -67,7 +66,6 @@ struct Ensambladora{
             bandaSalida->encolarBanda(producidoxTanda, "Galleta Cruda");
             cantidadProcesada+=producidoxTanda;
         }
-        //}
     }
 };
 

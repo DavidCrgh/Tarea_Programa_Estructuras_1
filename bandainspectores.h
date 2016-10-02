@@ -4,7 +4,7 @@
 #include "prototipos.h"
 #include "banda.h"
 #include "empacadora.h"
-
+/*
 struct BandaInspectores{
     float limite;
 
@@ -13,7 +13,7 @@ struct BandaInspectores{
 
     NodoContenido* frenteInspectores;
 
-    BandaInspectores(/*float pLimite, Inspector* pInspector1, Inspector* pInspector2*/){
+    BandaInspectores(/*float pLimite, Inspector* pInspector1, Inspector* pInspector2){
         limite = 0.0;
         //inspector1 = pInspector1;
         //inspector2 = pInspector2;
@@ -62,7 +62,7 @@ struct BandaInspectores{
 
         return sumatoria;
     }
-};
+};*/
 
 struct Inspector{
     float desechadas;
@@ -85,16 +85,20 @@ struct Inspector{
             NodoContenido* tandaGalletas = bandaInspector->desencolarBanda();
             if(tandaGalletas != NULL){
                 int cantidadGalletas = tandaGalletas->cantidad;
+                std::cout << "cantidad de galletas: " << cantidadGalletas << std::endl;
                 if(seDesecha()){
                     int galletasDesechadas = rand()%(cantidadGalletas + 1);
+                    std::cout << "Galletas desechadas: " << galletasDesechadas << std::endl;
                     empacadora->galletasActuales += (cantidadGalletas - galletasDesechadas);
                     aprobadas += (cantidadGalletas - galletasDesechadas);
-
                     desechadas += galletasDesechadas;
-
+                    std::cout << "Valor actual de aprobadas: " << aprobadas << std::endl;
+                    std::cout << "Valor actual de desechadas: " << desechadas << std::endl;
                 } else {
                     empacadora->galletasActuales += cantidadGalletas;
                     aprobadas += cantidadGalletas;
+                    std::cout << "Valor actual de aprobadas: " << aprobadas << std::endl;
+                    std::cout << "Valor actual de desechadas: " << desechadas << std::endl;
                 }
             }
 
@@ -104,6 +108,7 @@ struct Inspector{
 
     bool seDesecha(){
         int random = rand()% 101;
+        std::cout << "Valor random: " << random << std::endl;
         return random <= probabilidadRechazo;
     }
 };
