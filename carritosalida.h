@@ -18,18 +18,16 @@ struct CarritoSalida{
     NodoMonticulo* monticuloEmpacadora;
     NodoMonticulo* monticuloAlmacen;
 
-    Empacadora* empacadora;
-    AlmacenTerminal* almacen;
-
-    CarritoSalida(QString pNombre, float pTiempo, int pMaximo, Empacadora* pEmpacadora, AlmacenTerminal* pAlmacen){
+    CarritoSalida(QString pNombre, NodoMonticulo* pMonticuloEmpacadora, NodoMonticulo* pMonticuloAlmacen){
         nombrePaquete = pNombre;
-        tiempoViaje = pTiempo;
-        capacidadMaxima = pMaximo;
+        tiempoViaje = 0.0;
+        capacidadMaxima = 0.0;
+        cantidadTransportada = 0.0;
         estaEntregando = false;
-        empacadora = pEmpacadora;
-        almacen = pAlmacen;
-        monticuloEmpacadora = empacadora->monticulosEmpacadora->buscarMonticulo(nombrePaquete);
-        monticuloAlmacen = almacen->depositos->buscarMonticulo(nombrePaquete);
+        monticuloEmpacadora = pMonticuloEmpacadora;
+        monticuloAlmacen = pMonticuloAlmacen;
+        //monticuloEmpacadora = empacadora->monticulosEmpacadora->buscarMonticulo(nombrePaquete);
+        //monticuloAlmacen = almacen->depositos->buscarMonticulo(nombrePaquete);
     }
 
     void realizarEntrega(int cantidadActual){

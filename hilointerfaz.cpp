@@ -25,8 +25,8 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
         connect(this, SIGNAL(actualizarBandejas()), ventanaPrincipal->ventanaHorno->ventanasBandeja[i], SLOT(actualizarVentana()));
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaInspectores,SLOT(actualizarBandas()));
     }
-    connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector1,SLOT(actualizarVentana()));
-    connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector2,SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector1,SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector2,SLOT(actualizarVentana()));
     connect(this, SIGNAL(actualizarEmpacadora()), ventanaPrincipal->ventanaEmpacadora, SLOT(actualizarVentana()));
 }
 
@@ -37,6 +37,8 @@ void HiloInterfaz::run(){
         }
         //mute.lock();
         msleep(1000);
+
+
 
         //qDebug("");
         emit actualizarAlmacenPrima(simulacion->almacenPrima->imprimirAlmacen());
@@ -50,6 +52,10 @@ void HiloInterfaz::run(){
         emit actualizarBandejas();
         emit actualizarInspectores();
         emit actualizarEmpacadora();
+        if(ventanaPrincipal->ventanaCarritosSalida != NULL){
+            connect(this, SIGNAL(actualizarCarritosSalida()), ventanaPrincipal->ventanaCarritosSalida, SLOT(actualizarVentana()));
+            emit actualizarCarritosSalida();
+        }
         //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
         //qDebug("");
         // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());

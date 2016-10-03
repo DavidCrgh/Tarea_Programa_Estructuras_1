@@ -37,8 +37,11 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     ventanaBandaInspectores= new VentanaBanda(NULL,simulacion->bandaInspectores);
     ventanaInspector1 = new ventanaInspectores(NULL,simulacion->inspector1);
     ventanaInspector2 = new ventanaInspectores(NULL,simulacion->inspector2);
-    ventanaPlanificador = new VentanaPlanificador(NULL, simulacion->listaGalletas, simulacion->empacadora);
+    ventanaPlanificador = new VentanaPlanificador(NULL, simulacion->listaGalletas, simulacion->empacadora,
+                                                  simulacion->almacenTerminal);
     ventanaEmpacadora = new VentanaEmpacadora(NULL, simulacion->empacadora);
+    connect(ventanaPlanificador, SIGNAL(inicializarCarritos()), this, SLOT(crearCarritos()));
+    ventanaCarritosSalida = NULL;
 }
 
 VentanaPrincipal::~VentanaPrincipal()
@@ -136,4 +139,14 @@ void VentanaPrincipal::on_botonPlanificador_clicked()
 void VentanaPrincipal::on_botonEmpacadora_clicked()
 {
     ventanaEmpacadora->show();
+}
+
+void VentanaPrincipal::crearCarritos(){
+    simulacion->crearHilosCarritoSalida();
+    ventanaCarritosSalida = new VentanaCarritos(NULL, simulacion);
+}
+
+void VentanaPrincipal::on_botonCarritoSalida_clicked()
+{
+    ventanaCarritosSalida->show();
 }

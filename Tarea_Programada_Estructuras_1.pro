@@ -35,7 +35,9 @@ SOURCES += main.cpp\
     ventanaplanificador.cpp \
     ventanapaquete.cpp \
     ventanaempacadora.cpp \
-    ventanacarritos.cpp
+    ventanacarritos.cpp \
+    hilocarritosalida.cpp \
+    hiloalmacenterminal.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -75,7 +77,9 @@ HEADERS  += ventanaprincipal.h \
     planificador.h \
     ventanapaquete.h \
     ventanaempacadora.h \
-    ventanacarritos.h
+    ventanacarritos.h \
+    hilocarritosalida.h \
+    hiloalmacenterminal.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \

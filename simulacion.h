@@ -11,6 +11,8 @@
 #include "hilobandeja.h"
 #include "hiloinspector.h"
 #include "hiloempacadora.h"
+#include "hilocarritosalida.h"
+#include "hiloalmacenterminal.h"
 
 #include "listagalletas.h"
 
@@ -32,6 +34,10 @@ struct Simulacion{
     Inspector* inspector1;
     Inspector* inspector2;
     Empacadora* empacadora;
+    ListaGalletas* listaGalletas;
+    Planificador* planificador;
+    CarritoSalida** carritosSalida;
+    AlmacenTerminal* almacenTerminal;
 
     HiloCarritoEntrega* hiloCarritoEntrega;
     HiloMezcladoraMasa* hilosMezcladorasMasa[2];
@@ -42,14 +48,14 @@ struct Simulacion{
     hiloInspector* hiloInspector1;
     hiloInspector* hiloInspector2;
     HiloEmpacadora* hiloEmpacadora;
-
-    ListaGalletas* listaGalletas;
-    Planificador* planificador;
+    HiloCarritoSalida** hilosCarritoSalida;
+    HiloAlmacenTerminal* hiloAlmacenTerminal;
 
     Simulacion();
 
     void iniciarHilos();
     void pausarHilos();
+    void crearHilosCarritoSalida();
 };
 
 #endif // SIMULACION_H

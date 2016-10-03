@@ -4,6 +4,7 @@
 #include <QWidget>
 //#include "listagalletas.h"
 #include "empacadora.h"
+#include "almacenterminal.h"
 #include "ventanapaquete.h"
 
 namespace Ui {
@@ -15,8 +16,13 @@ class VentanaPlanificador : public QWidget
     Q_OBJECT
 
 public:
-    explicit VentanaPlanificador(QWidget *parent = 0, ListaGalletas* pLista = 0, Empacadora* pEmpacadora = 0);
+    explicit VentanaPlanificador(QWidget *parent = 0, ListaGalletas* pLista = 0, Empacadora* pEmpacadora = 0,
+                                 AlmacenTerminal* pAlmacen = 0);
     ~VentanaPlanificador();
+
+
+signals:
+    void inicializarCarritos();
 
 public slots:
     void on_agregar_clicked();
@@ -35,6 +41,7 @@ private:
     Ui::VentanaPlanificador *ui;
     ListaGalletas* listaGalletas;
     Empacadora* empacadora;
+    AlmacenTerminal* almacen;
     VentanaPaquete* ventanaPaquete;
 };
 

@@ -1,13 +1,15 @@
 #include "ventanaplanificador.h"
 #include "ui_ventanaplanificador.h"
 
-VentanaPlanificador::VentanaPlanificador(QWidget *parent, ListaGalletas* pLista, Empacadora* pEmpacadora) :
+VentanaPlanificador::VentanaPlanificador(QWidget *parent, ListaGalletas* pLista, Empacadora* pEmpacadora,
+                                         AlmacenTerminal* pAlmacen) :
     QWidget(parent),
     ui(new Ui::VentanaPlanificador)
 {
     ui->setupUi(this);
     listaGalletas = pLista;
     empacadora = pEmpacadora;
+    almacen = pAlmacen;
     actualizarVentana();
 }
 
@@ -55,5 +57,7 @@ void VentanaPlanificador::on_aceptar_clicked()
 {
     empacadora->listaRangos = listaGalletas->construirRangos();
     empacadora->monticulosEmpacadora = listaGalletas->generarMonticulos();
+    almacen->depositos = listaGalletas->generarMonticulos();
+    emit inicializarCarritos();
     this->close();
 }
