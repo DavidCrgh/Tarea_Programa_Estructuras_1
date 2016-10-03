@@ -23,13 +23,13 @@ struct Empacadora{
 
     NodoEmpaque* elegirPaquete(){
        int random= rand()%100;
-       NodoRango* nodoActual=listaRangos->primerRango;
-       for(int i=0;listaGalletas->largoListaGalletas();i++){
-            if((nodoActual->minimo>=random) & (random<=nodoActual->maximo)){
+       NodoRango* nodoActual = listaRangos->primerRango;
+       for(int i=0; i < listaGalletas->largoListaGalletas() ;i++){
+            if((nodoActual->minimo<=random) & (random<=nodoActual->maximo)){
                 NodoEmpaque* buscado= listaGalletas->buscarEmpaque(nodoActual->tipoEmpaque);
                 return buscado;
             }
-            nodoActual=nodoActual->siguiente;
+            nodoActual = nodoActual->siguiente;
        }
     }
 

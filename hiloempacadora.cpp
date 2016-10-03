@@ -12,6 +12,13 @@ void HiloEmpacadora::run(){
         while(pause){
             msleep(1000);
         }
-        msleep(5000);
+        NodoEmpaque* empaqueActual =  empacadora->elegirPaquete();
+
+        if(empacadora->galletasActuales >= (empaqueActual->galletasxEmpaque * empaqueActual->cantidadxTiempo)){
+            msleep((empaqueActual->tiempoProduccion) * 1000);
+            empacadora->empacarGalletas(empaqueActual);
+        } else {
+            msleep(100);
+        }
     }
 }

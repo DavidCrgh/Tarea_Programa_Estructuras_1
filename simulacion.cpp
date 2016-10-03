@@ -51,7 +51,7 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
 }
 
 void Simulacion::iniciarHilos(){
-    /*hiloCarritoEntrega->pause = false;
+    hiloCarritoEntrega->pause = false;
     for(int i = 0; i < 2; i++){
         hilosMezcladorasMasa[i]->pause = false;
     }
@@ -62,7 +62,7 @@ void Simulacion::iniciarHilos(){
         hilosBandeja[i]->pause = false;
     }
     hiloInspector1->pause=false;
-    hiloInspector2->pause=false;*/
+    hiloInspector2->pause=false;
     hiloEmpacadora->pause=false;
 }
 

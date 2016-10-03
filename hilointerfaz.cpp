@@ -49,7 +49,7 @@ void HiloInterfaz::run(){
         emit actualizarEnsambladora();
         emit actualizarBandejas();
         emit actualizarInspectores();
-
+        emit actualizarEmpacadora();
         //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
         //qDebug("");
         // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
