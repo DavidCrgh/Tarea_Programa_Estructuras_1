@@ -25,6 +25,7 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     inspector1 = new Inspector(empacadora, bandaInspectores);
     inspector2 = new Inspector(empacadora, bandaInspectores);
     almacenTerminal = new AlmacenTerminal(listaGalletas);
+    carritosSalida = NULL;
 
     //Hilos
     hiloCarritoEntrega = new HiloCarritoEntrega(NULL, carritoEntrega);
@@ -49,6 +50,9 @@ Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
     hiloInspector2->start();
     hiloEmpacadora = new HiloEmpacadora(NULL, empacadora);
     hiloEmpacadora->start();
+    hilosCarritoSalida = NULL;
+    hiloAlmacenTerminal = new HiloAlmacenTerminal(NULL, almacenTerminal);
+    hiloAlmacenTerminal->start();
 }
 
 void Simulacion::iniciarHilos(){
@@ -65,6 +69,12 @@ void Simulacion::iniciarHilos(){
     hiloInspector1->pause=false;
     hiloInspector2->pause=false;
     hiloEmpacadora->pause=false;
+    if(hilosCarritoSalida != NULL){
+        for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
+            hilosCarritoSalida[i]->pause = false;
+        }
+    }
+    hiloAlmacenTerminal->pause = false;
 }
 
 void Simulacion::pausarHilos(){
@@ -81,6 +91,12 @@ void Simulacion::pausarHilos(){
     hiloInspector1->pause = true;
     hiloInspector2->pause = true;
     hiloEmpacadora->pause = true;
+    if(hilosCarritoSalida != NULL){
+        for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
+            hilosCarritoSalida[i]->pause = true;
+        }
+    }
+    hiloAlmacenTerminal->pause = true;
 }
 
 void Simulacion::crearHilosCarritoSalida(){

@@ -30,9 +30,21 @@ struct CarritoSalida{
         //monticuloAlmacen = almacen->depositos->buscarMonticulo(nombrePaquete);
     }
 
-    void realizarEntrega(int cantidadActual){
-        monticuloEmpacadora->cantidadPaquetes -= cantidadActual;
-        monticuloAlmacen->cantidadPaquetes += cantidadActual;
+    void cargarCarrito(){
+        if(monticuloEmpacadora->cantidadPaquetes + cantidadTransportada > capacidadMaxima){
+            cantidadTransportada += capacidadMaxima - cantidadTransportada;
+            monticuloEmpacadora->cantidadPaquetes -= capacidadMaxima - cantidadTransportada;
+        } else {
+            cantidadTransportada += monticuloEmpacadora->cantidadPaquetes;
+            monticuloEmpacadora->cantidadPaquetes = 0;
+        }
+    }
+
+    void realizarEntrega(){
+        if(!monticuloEmpacadora->estaLleno){
+            monticuloAlmacen->cantidadPaquetes += cantidadTransportada;
+            cantidadTransportada = 0;
+        }
     }
 };
 

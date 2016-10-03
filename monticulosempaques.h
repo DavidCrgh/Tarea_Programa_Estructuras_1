@@ -7,6 +7,7 @@ struct NodoMonticulo{
     QString nombre;
     int cantidadPaquetes;
     int totalGalletas;
+    bool estaLleno;
 
     NodoMonticulo* siguiente;
 
@@ -14,6 +15,7 @@ struct NodoMonticulo{
         nombre = pNombre;
         cantidadPaquetes = 0;
         totalGalletas = 0;
+        estaLleno = false;
         siguiente = NULL;
     }
 };

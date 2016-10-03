@@ -3,6 +3,8 @@
 HiloAlmacenTerminal::HiloAlmacenTerminal(QObject* parent, AlmacenTerminal* pAlmacen)
 {
     almacen = pAlmacen;
+    stop = false;
+    pause = true;
 }
 
 void HiloAlmacenTerminal::run(){
@@ -10,5 +12,7 @@ void HiloAlmacenTerminal::run(){
         while(pause){
             msleep(100);
         }
+        almacen->actualizarTotales();
+        almacen->actualizarEstaLleno();
     }
 }

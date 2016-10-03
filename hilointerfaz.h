@@ -25,6 +25,7 @@ signals:
     void actualizarInspectores();
     void actualizarEmpacadora();
     void actualizarCarritosSalida();
+    void actualizarAlmacenTerminal();
 };
 
 #endif // HILOINTERFAZ_H

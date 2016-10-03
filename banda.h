@@ -27,7 +27,7 @@ struct Banda{
     //Horno* horno;
 
     Banda(QString pTipo){
-        limite = 10000;//10000.0;
+        limite = 0;//10000.0;
         frenteBanda = NULL;
         tipo=pTipo;
     }

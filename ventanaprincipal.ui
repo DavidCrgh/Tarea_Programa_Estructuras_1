@@ -936,6 +936,9 @@
     </property>
    </widget>
    <widget class="QToolButton" name="botonCarritoSalida">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1260</x>
@@ -948,7 +951,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_11">
+   <widget class="QToolButton" name="botonAlmacenTerminal">
     <property name="geometry">
      <rect>
       <x>1140</x>

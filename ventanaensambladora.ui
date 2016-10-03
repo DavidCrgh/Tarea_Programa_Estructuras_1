@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Ensambladora</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoEnsambladora.png</normaloff>:/imagenes/Imagenes/iconoEnsambladora.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
@@ -168,6 +172,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

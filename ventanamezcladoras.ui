@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>348</width>
-    <height>264</height>
+    <height>272</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Mezcladora</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoMezcladoraC.png</normaloff>:/imagenes/Imagenes/iconoMezcladoraC.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -158,6 +162,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -17,6 +17,7 @@
 #include "ventanaplanificador.h"
 #include "ventanaempacadora.h"
 #include "ventanacarritos.h"
+#include "ventanaalmacenterminal.h"
 
 namespace Ui {
 class VentanaPrincipal;
@@ -72,6 +73,8 @@ private slots:
 
     void on_botonCarritoSalida_clicked();
 
+    void on_botonAlmacenTerminal_clicked();
+
 public:
     Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;
@@ -92,6 +95,7 @@ public:
     VentanaPlanificador* ventanaPlanificador;
     VentanaEmpacadora* ventanaEmpacadora;
     VentanaCarritos* ventanaCarritosSalida;
+    VentanaAlmacenTerminal* ventanaAlmacenTerminal;
 };
 
 #endif // VENTANAPRINCIPAL_H
