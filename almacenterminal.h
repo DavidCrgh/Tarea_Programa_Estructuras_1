@@ -2,6 +2,7 @@
 #define ALMACENTERMINAL_H
 
 #include "prototipos.h"
+#include "listagalletas.h"
 
 struct AlmacenTerminal{
     MonticulosEmpaques* depositos;

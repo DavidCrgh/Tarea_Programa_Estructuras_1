@@ -38,6 +38,23 @@ struct ListaRangos{
             primerRango =  nodoNuevo;
         }
     }
+
+    QString imprimirRangos(){
+        if(primerRango == NULL){
+            return "Vacio";
+        } else {
+            QString mensaje = "";
+
+            NodoRango* nodoActual = primerRango;
+
+            while(nodoActual != NULL){
+                mensaje += "Rango " + nodoActual->tipoEmpaque + ": (" + QString::number(nodoActual->minimo) + "," + QString::number(nodoActual->maximo) + ")\n";
+                nodoActual = nodoActual->siguiente;
+            }
+
+            return mensaje;
+        }
+    }
 };
 
 

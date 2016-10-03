@@ -844,7 +844,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton">
+   <widget class="QToolButton" name="botonPlanificador">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -1176,7 +1176,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>960</x>

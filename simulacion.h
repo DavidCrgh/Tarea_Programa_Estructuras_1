@@ -44,6 +44,7 @@ struct Simulacion{
     HiloEmpacadora* hiloEmpacadora;
 
     ListaGalletas* listaGalletas;
+    Planificador* planificador;
 
     Simulacion();
 

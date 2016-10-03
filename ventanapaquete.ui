@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VentanaPaquete</class>
+ <widget class="QWidget" name="VentanaPaquete">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>352</width>
+    <height>216</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>352</width>
+    <height>216</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>352</width>
+    <height>216</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Agregar nuevo empaque</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoGalletas.png</normaloff>:/imagenes/Imagenes/iconoGalletas.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="nombre">
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="galletas">
+         <property name="text">
+          <string>Galletas</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="cantidad">
+         <property name="text">
+          <string>Cantidad/Tiempo</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="tiempo">
+         <property name="text">
+          <string>Tiempo</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="cantidadRequerida">
+         <property name="text">
+          <string>Cantidad Requerida</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="probabilidad">
+         <property name="text">
+          <string>Probabilidad</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="editorNombre"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editorGalletas"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editorCantidad"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editorTiempo"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="editorRequerida"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QSpinBox" name="editorProbabilidad">
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>108</width>
+             <height>18</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="aceptar">
+       <property name="text">
+        <string>Aceptar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelar">
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections/>
+</ui>

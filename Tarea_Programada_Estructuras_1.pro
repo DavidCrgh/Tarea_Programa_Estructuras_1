@@ -31,7 +31,11 @@ SOURCES += main.cpp\
     hilobandeja.cpp \
     ventanainspectores.cpp \
     hiloinspector.cpp \
-    hiloempacadora.cpp
+    hiloempacadora.cpp \
+    ventanaplanificador.cpp \
+    ventanapaquete.cpp \
+    ventanaempacadora.cpp \
+    ventanacarritos.cpp
 
 HEADERS  += ventanaprincipal.h \
     almacenprima.h \
@@ -66,7 +70,12 @@ HEADERS  += ventanaprincipal.h \
     hilobandeja.h \
     ventanainspectores.h \
     hiloinspector.h \
-    hiloempacadora.h
+    hiloempacadora.h \
+    ventanaplanificador.h \
+    planificador.h \
+    ventanapaquete.h \
+    ventanaempacadora.h \
+    ventanacarritos.h
 
 FORMS    += ventanaprincipal.ui \
     ventanacarritoentrega.ui \
@@ -76,7 +85,11 @@ FORMS    += ventanaprincipal.ui \
     ventanahorno.ui \
     ventanabanda.ui \
     ventanabandeja.ui \
-    ventanainspectores.ui
+    ventanainspectores.ui \
+    ventanaplanificador.ui \
+    ventanapaquete.ui \
+    ventanaempacadora.ui \
+    ventanacarritos.ui
 
 RESOURCES += \
     imagenes.qrc

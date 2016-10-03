@@ -2,6 +2,9 @@
 #define CARRITOSALIDA_H
 
 #include "prototipos.h"
+#include "monticulosempaques.h"
+#include "almacenterminal.h"
+#include "empacadora.h"
 
 struct CarritoSalida{
 

@@ -6,12 +6,14 @@
 struct NodoMonticulo{
     QString nombre;
     int cantidadPaquetes;
+    int totalGalletas;
 
     NodoMonticulo* siguiente;
 
     NodoMonticulo(QString pNombre){
         nombre = pNombre;
         cantidadPaquetes = 0;
+        totalGalletas = 0;
         siguiente = NULL;
     }
 };
@@ -46,6 +48,25 @@ struct MonticulosEmpaques{
                 nodoActual = nodoActual->siguiente;
             }
             return NULL;
+        }
+    }
+
+    QString imprimirMonticulos(){
+        if(primerNodo == NULL){
+            return "";
+        } else {
+            QString mensaje = "";
+
+            NodoMonticulo* nodoActual = primerNodo;
+
+            while(nodoActual != NULL){
+                mensaje += "Nombre: " + nodoActual->nombre + "\n";
+                mensaje += "Cantidad Actual: " + QString::number(nodoActual->cantidadPaquetes) + "\n";
+                mensaje += "--------------------------------------------------------\n";
+                nodoActual = nodoActual->siguiente;
+            }
+
+            return mensaje;
         }
     }
 };

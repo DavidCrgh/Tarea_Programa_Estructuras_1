@@ -14,11 +14,13 @@ struct Empacadora{
     MonticulosEmpaques* monticulosEmpacadora;
 
     Empacadora(ListaGalletas* pListaGalletas){
-        listaGalletas = pListaGalletas;
-        monticulosEmpacadora = pListaGalletas->generarMonticulos();
         galletasActuales = 0.0;
+        listaGalletas = pListaGalletas;
+        monticulosEmpacadora = NULL;
+        //monticulosEmpacadora = pListaGalletas->generarMonticulos();
         estaEmpacando = false;
-        listaRangos= pListaGalletas->construirRangos();
+        listaRangos = NULL;
+        //listaRangos= pListaGalletas->construirRangos();
     }
 
     NodoEmpaque* elegirPaquete(){

@@ -3,8 +3,6 @@
 
 #include "prototipos.h"
 #include "almacenprima.h"
-//#include "mezcladoramasa.h"
-//#include "mezcladorachocolate.h"
 
 struct CarritoEntrega{
     float tiempoViaje;

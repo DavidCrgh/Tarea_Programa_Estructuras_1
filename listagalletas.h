@@ -12,16 +12,19 @@ struct NodoEmpaque{
     int cantidadxTiempo;
     float tiempoProduccion;
     float probabilidad;
+    int cantidadRequerida;
 
     NodoEmpaque* siguiente;
     NodoEmpaque* anterior;
 
-    NodoEmpaque(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo, float pTiempo, float pProbabilidad){
+    NodoEmpaque(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo, float pTiempo,
+                float pProbabilidad, int pCantidadRequerida){
         tipoEmpaque = pTipo;
         galletasxEmpaque = pGalletasxEmpaque;
         cantidadxTiempo = pCantidadxTiempo;
         tiempoProduccion = pTiempo;
         probabilidad = pProbabilidad;
+        cantidadRequerida = pCantidadRequerida;
         siguiente = NULL;
         anterior = NULL;
     }
@@ -35,9 +38,9 @@ struct ListaGalletas{
     }
 
     void insertarTipoGalleta(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo,
-                             float pTiempoProduccion, float pProbabilidad){
-        NodoEmpaque* empaqueGalleta = new NodoEmpaque(pTipo, pGalletasxEmpaque, pCantidadxTiempo, pTiempoProduccion,
-                                                      pProbabilidad);
+                             float pTiempoProduccion, float pProbabilidad, int pCantidadRequerida){
+        NodoEmpaque* empaqueGalleta = new NodoEmpaque(pTipo, pGalletasxEmpaque, pCantidadxTiempo,
+                                                      pTiempoProduccion, pProbabilidad, pCantidadRequerida);
         if(primerEmpaque == NULL){
             primerEmpaque = empaqueGalleta;
             empaqueGalleta->siguiente = primerEmpaque;
@@ -52,18 +55,15 @@ struct ListaGalletas{
     }
 
     void crearArregloProbabilidades(float probabilidades[]){
-
         NodoEmpaque* nodoActual = primerEmpaque;
         int largoGalletas= largoListaGalletas();
         int indice=0;
-
-            while(indice<largoGalletas){
-                probabilidades[indice]= nodoActual->probabilidad;
-                nodoActual=nodoActual->siguiente;
-                indice++;
-            }
-
+        while(indice<largoGalletas){
+            probabilidades[indice]= nodoActual->probabilidad;
+            nodoActual=nodoActual->siguiente;
+            indice++;
         }
+    }
 
 
     void crearArregloNombres(QString tipoEmpaques[]){
@@ -80,20 +80,20 @@ struct ListaGalletas{
 
 
     void insertion_sort(float arregloProbabilidades[],QString arregloTipoEmpaques[], int largoArreglo) {
-     int i, j ,temporal1;
-     QString temporal2;
-     for (i = 1; i < largoArreglo; i++) {
-         j = i;
-         while (j > 0 && arregloProbabilidades[j - 1] > arregloProbabilidades[j]) {
-             temporal1 = arregloProbabilidades[j];
-             temporal2 = arregloTipoEmpaques[j];
-             arregloProbabilidades[j] = arregloProbabilidades[j - 1];
-             arregloTipoEmpaques[j] = arregloTipoEmpaques[j - 1];
-             arregloProbabilidades[j - 1] = temporal1;
-             arregloTipoEmpaques[j - 1] = temporal2;
-             j--;
-         }
-     }
+        int i, j ,temporal1;
+        QString temporal2;
+        for (i = 1; i < largoArreglo; i++) {
+            j = i;
+            while (j > 0 && arregloProbabilidades[j - 1] > arregloProbabilidades[j]) {
+                temporal1 = arregloProbabilidades[j];
+                temporal2 = arregloTipoEmpaques[j];
+                arregloProbabilidades[j] = arregloProbabilidades[j - 1];
+                arregloTipoEmpaques[j] = arregloTipoEmpaques[j - 1];
+                arregloProbabilidades[j - 1] = temporal1;
+                arregloTipoEmpaques[j - 1] = temporal2;
+                j--;
+            }
+        }
     }
 
 
@@ -117,26 +117,46 @@ struct ListaGalletas{
     }
 
     int largoListaGalletas(){
-        NodoEmpaque* nodoActual= primerEmpaque;
-        int largo=0;
-        while(nodoActual != primerEmpaque){
-            largo++;
-            nodoActual= nodoActual->siguiente;
+        if(primerEmpaque == NULL){
+            return 0;
+        } else {
+            int largo = 1;
+            NodoEmpaque* nodoActual = primerEmpaque->siguiente;
 
+            while(nodoActual != primerEmpaque){
+                largo++;
+                nodoActual = nodoActual->siguiente;
+            }
+
+            return largo;
         }
-        return largo;
-
     }
 
     float contarProbabilidades(){
         if(primerEmpaque == NULL){
-            return 0.0;
+            return 0;
         } else {
             float sumatoria = primerEmpaque->probabilidad;
             NodoEmpaque* nodoActual = primerEmpaque->siguiente;
 
             while(nodoActual != primerEmpaque){
                 sumatoria += nodoActual->probabilidad;
+                nodoActual = nodoActual->siguiente;
+            }
+
+            return sumatoria;
+        }
+    }
+
+    int contarTotalRequerido(){
+        if(primerEmpaque == NULL){
+            return 0;
+        } else {
+            int sumatoria = (primerEmpaque->cantidadRequerida) * (primerEmpaque->galletasxEmpaque);
+            NodoEmpaque* nodoActual = primerEmpaque->siguiente;
+
+            while(nodoActual != primerEmpaque){
+                sumatoria += (nodoActual->cantidadRequerida) * (nodoActual->galletasxEmpaque);
                 nodoActual = nodoActual->siguiente;
             }
 
@@ -170,20 +190,47 @@ struct ListaGalletas{
        crearArregloNombres(tipoEmpaques);
        insertion_sort(probabilidades,tipoEmpaques,largoLista);
        float minimo = 0;
-       float maximo = float(probabilidades[0]);
-       //listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[0]);
+       float maximo = probabilidades[0];
+       listaRangos->insertarRango(minimo, maximo-1, tipoEmpaques[0]);
 
        for(int i=1;i<largoLista;i++){
            minimo=maximo;
            maximo=probabilidades[i]+minimo;
            listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[i]);
-            }
-        return listaRangos;
+       }
+       return listaRangos;
     }
 
+    QString imprimirLista(){
+        if(primerEmpaque == NULL){
+            return "";
+        } else {
+            QString mensaje = "";
 
+            mensaje += "Nombre: " + primerEmpaque->tipoEmpaque + "\n";
+            mensaje += "Galletas: " + QString::number(primerEmpaque->galletasxEmpaque) + "\n";
+            mensaje += "Cantidad de Producción: " + QString::number(primerEmpaque->cantidadxTiempo) + "\n";
+            mensaje += "Tiempo: " + QString::number(primerEmpaque->tiempoProduccion) + "\n";
+            mensaje += "Probabilidad de empaque: " + QString::number(primerEmpaque->probabilidad) + "%\n";
+            mensaje += "Cantidad Requerida: " + QString::number(primerEmpaque->cantidadRequerida) + "\n";
+            mensaje += "--------------------------------------------------------------------------------------\n";
 
+            NodoEmpaque* nodoActual = primerEmpaque->siguiente;
 
+            while(nodoActual != primerEmpaque){
+                mensaje += "Nombre: " + nodoActual->tipoEmpaque + "\n";
+                mensaje += "Galletas: " + QString::number(nodoActual->galletasxEmpaque) + "\n";
+                mensaje += "Cantidad de Producción: " + QString::number(nodoActual->cantidadxTiempo) + "\n";
+                mensaje += "Tiempo: " + QString::number(nodoActual->tiempoProduccion) + "\n";
+                mensaje += "Probabilidad de empaque: " + QString::number(nodoActual->probabilidad) + "%\n";
+                mensaje += "Cantidad Requerida: " + QString::number(nodoActual->cantidadRequerida) + "\n";
+                mensaje += "-----------------------------------------------------------------------------------\n";
+                nodoActual = nodoActual->siguiente;
+            }
+
+            return mensaje;
+        }
+    }
 };
 
 #endif // LISTAGALLETAS_H

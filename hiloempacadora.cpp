@@ -10,8 +10,8 @@ HiloEmpacadora::HiloEmpacadora(QObject* parent, Empacadora* pEmpacadora)
 void HiloEmpacadora::run(){
     while(!stop){
         while(pause){
-            msleep(100);
+            msleep(1000);
         }
-        msleep(100);
+        msleep(5000);
     }
 }

@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     HiloInterfaz* hiloInterfaz = new HiloInterfaz(NULL, simulacion, ventana);
     //qDebug("5");
     hiloInterfaz->start();
+
     //qDebug("6");
     ventana->show();
     //qDebug("7");
