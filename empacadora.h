@@ -16,15 +16,13 @@ struct Empacadora{
     Empacadora(ListaGalletas* pListaGalletas){
         galletasActuales = 0.0;
         listaGalletas = pListaGalletas;
-        monticulosEmpacadora = NULL;
-        //monticulosEmpacadora = pListaGalletas->generarMonticulos();
-        estaEmpacando = false;
+        monticulosEmpacadora = listaGalletas->generarMonticulos();
         listaRangos = NULL;
-        //listaRangos= pListaGalletas->construirRangos();
+        estaEmpacando = false;
     }
 
     NodoEmpaque* elegirPaquete(){
-       int random= rand()%101;
+       int random= rand()%100;
        NodoRango* nodoActual=listaRangos->primerRango;
        for(int i=0;listaGalletas->largoListaGalletas();i++){
             if((nodoActual->minimo>=random) & (random<=nodoActual->maximo)){
@@ -40,6 +38,7 @@ struct Empacadora{
         galletasActuales -= (empaque->galletasxEmpaque * empaque->cantidadxTiempo);
         NodoMonticulo* monticulo = monticulosEmpacadora->buscarMonticulo(empaque->tipoEmpaque);
         monticulo->cantidadPaquetes += empaque->cantidadxTiempo;
+        monticulo->totalGalletas += (empaque->cantidadxTiempo) * (empaque->galletasxEmpaque);
     }
 };
 #endif // EMPACADORA_H

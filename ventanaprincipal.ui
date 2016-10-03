@@ -922,7 +922,7 @@
      <string>...</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_9">
+   <widget class="QToolButton" name="botonEmpacadora">
     <property name="geometry">
      <rect>
       <x>1100</x>

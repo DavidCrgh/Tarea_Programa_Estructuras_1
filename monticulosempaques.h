@@ -62,6 +62,7 @@ struct MonticulosEmpaques{
             while(nodoActual != NULL){
                 mensaje += "Nombre: " + nodoActual->nombre + "\n";
                 mensaje += "Cantidad Actual: " + QString::number(nodoActual->cantidadPaquetes) + "\n";
+                mensaje += "Total de Galletas: " + QString::number(nodoActual->totalGalletas) + "\n";
                 mensaje += "--------------------------------------------------------\n";
                 nodoActual = nodoActual->siguiente;
             }

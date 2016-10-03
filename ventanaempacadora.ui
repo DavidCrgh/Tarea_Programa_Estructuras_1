@@ -6,50 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>529</height>
+    <width>317</width>
+    <height>521</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
+  <property name="minimumSize">
+   <size>
+    <width>317</width>
+    <height>521</height>
+   </size>
   </property>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>271</width>
-     <height>491</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>30</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>60</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
+  <property name="maximumSize">
+   <size>
+    <width>317</width>
+    <height>521</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Empacadora</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imagenes.qrc">
+    <normaloff>:/imagenes/Imagenes/iconoEmpacadora.png</normaloff>:/imagenes/Imagenes/iconoEmpacadora.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="monticulos">
+     <property name="text">
+      <string>Montículos de Empaques</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextBrowser" name="cuadroMonticulos"/>
+   </item>
+  </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -27,6 +27,7 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
     }
     connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector1,SLOT(actualizarVentana()));
     connect(this,SIGNAL(actualizarInspectores()),ventanaPrincipal->ventanaInspector2,SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarEmpacadora()), ventanaPrincipal->ventanaEmpacadora, SLOT(actualizarVentana()));
 }
 
 void HiloInterfaz::run(){
@@ -48,6 +49,7 @@ void HiloInterfaz::run(){
         emit actualizarEnsambladora();
         emit actualizarBandejas();
         emit actualizarInspectores();
+
         //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
         //qDebug("");
         // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());

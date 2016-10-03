@@ -23,6 +23,7 @@ signals:
     void actualizarEnsambladora();
     void actualizarBandejas();
     void actualizarInspectores();
+    void actualizarEmpacadora();
 };
 
 #endif // HILOINTERFAZ_H

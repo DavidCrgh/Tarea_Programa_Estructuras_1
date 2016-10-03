@@ -38,6 +38,7 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     ventanaInspector1 = new ventanaInspectores(NULL,simulacion->inspector1);
     ventanaInspector2 = new ventanaInspectores(NULL,simulacion->inspector2);
     ventanaPlanificador = new VentanaPlanificador(NULL, simulacion->listaGalletas, simulacion->empacadora);
+    ventanaEmpacadora = new VentanaEmpacadora(NULL, simulacion->empacadora);
 }
 
 VentanaPrincipal::~VentanaPrincipal()
@@ -130,4 +131,9 @@ void VentanaPrincipal::on_botonInspector2_clicked()
 void VentanaPrincipal::on_botonPlanificador_clicked()
 {
     ventanaPlanificador->show();
+}
+
+void VentanaPrincipal::on_botonEmpacadora_clicked()
+{
+    ventanaEmpacadora->show();
 }
