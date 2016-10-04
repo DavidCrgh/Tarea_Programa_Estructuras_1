@@ -75,6 +75,8 @@ private slots:
 
     void on_botonAlmacenTerminal_clicked();
 
+    void on_botonStop_clicked();
+
 public:
     Simulacion* simulacion;
     Ui::VentanaPrincipal *ui;

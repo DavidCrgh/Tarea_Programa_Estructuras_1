@@ -78,6 +78,54 @@ void Simulacion::iniciarHilos(){
     hiloAlmacenTerminal->pause = false;
 }
 
+void Simulacion::resetearSimulacion(){
+    hiloCarritoEntrega->stop=true;
+    for(int i = 0; i < 2; i++){
+        hilosMezcladorasMasa[i]->stop=true;
+    }
+    hiloMezcladoraChocolate->stop=true;
+    hiloEnsambladora->stop=true;
+    hiloHorno->stop=true;
+    for(int i = 0; i < 6; i++){
+        hilosBandeja[i]->stop=true;
+    }
+    hiloInspector1->stop=true;
+    hiloInspector2->stop=true;
+    hiloEmpacadora->stop=true;
+    hiloAlmacenTerminal->stop=true;
+    if(hilosCarritoSalida!=NULL){
+
+        for(int i=0;i<listaGalletas->largoListaGalletas();i++){
+
+            hilosCarritoSalida[i]->stop=true;
+        }
+    }
+
+    for(int i =0;i<listaGalletas->largoListaGalletas();i++){
+
+            carritosSalida[i]->resetearCarritoSalida();
+
+    }
+    bandaMasa->resetearBanda();
+    bandaChocolate->resetearBanda();
+    bandaGalletasCrudas->resetearBanda();
+    bandaInspectores->resetearBanda();
+    almacenPrima->resetearAlmacen();
+    carritoEntrega->resetearCarritoEntrega();
+    mezcladoraChocolate->resetearChocolate();
+    for(int i = 0; i < 2; i++){
+        mezcladorasMasa[i]->resetearMasa();}
+    ensambladora->resetearEnsambladora();
+    horno->resetearHorno();
+    for(int j = 0; j < 6; j++){
+        bandejas[j]->resetearBandeja();
+    }
+    empacadora->resetearEmpacadora();
+    inspector1->resetearInspector();
+    inspector2->resetearInspector();
+    listaGalletas->resetearListaGalletas();
+}
+
 void Simulacion::pausarHilos(){
     hiloCarritoEntrega->pause = true;
     for(int i = 0; i < 2; i++){

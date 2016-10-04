@@ -37,6 +37,7 @@ struct MonticulosEmpaques{
         }
     }
 
+
     NodoMonticulo* buscarMonticulo(QString pNombre){
         if(primerNodo == NULL){
             return NULL;

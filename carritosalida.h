@@ -28,6 +28,15 @@ struct CarritoSalida{
         monticuloAlmacen = pMonticuloAlmacen;
     }
 
+    void resetearCarritoSalida(){
+
+        tiempoViaje = 0.0;
+        capacidadMaxima = 0.0;
+        cantidadTransportada = 0.0;
+        estaEntregando = false;
+
+    }
+
     void cargarCarrito(){
         if(monticuloEmpacadora->cantidadPaquetes + cantidadTransportada > capacidadMaxima){
             cantidadTransportada += capacidadMaxima - cantidadTransportada;

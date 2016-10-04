@@ -40,6 +40,18 @@ struct MezcladoraChocolate{
         carrito->vaciarCarrito();
     }
 
+    void resetearChocolate(){
+        tiempo = 0.0;
+        cantidadxTanda = 0.0;
+        mezclaMinima = 0.0;
+        mezclaMaxima = 0.0;
+        mezclaActual = 0.0;
+        cantidadProcesada = 0.0;
+         esperandoPeticion = false;
+
+
+    }
+
     void revisarCarrito(){
         if((carrito->entrega != NULL) && (carrito->estaEntregando) && (carrito->entrega->maquinaOrigen == nombreMaquina)){
             mezclaActual += carrito->entrega->cantidad;

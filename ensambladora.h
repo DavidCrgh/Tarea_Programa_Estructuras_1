@@ -33,6 +33,18 @@ struct Ensambladora{
         bandaChocolate = pBandaChocolate;
     }
 
+    void resetearEnsambladora(){
+
+        producidoxTanda = 0.0;
+        tiempo = 0.0;
+        masaRequerida = 0.0;
+        chocolateRequerido = 0.0;
+        actualMasa = 0;
+        actualChocolate = 0;
+        cantidadProcesada = 0;
+
+    }
+
     void recibirMasa(){
         if(bandaMasa->frenteBanda != NULL){
             actualMasa += (bandaMasa->desencolarBanda())->cantidad;

@@ -23,6 +23,7 @@ struct AlmacenTerminal{
         }
     }
 
+
     void actualizarEstaLleno(){
         NodoMonticulo* monticuloActual = depositos->primerNodo;
 

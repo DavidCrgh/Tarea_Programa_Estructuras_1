@@ -22,6 +22,16 @@ struct Bandeja{
         bandaSalida = pBanda;
     }
 
+    void resetearBandeja(){
+
+        capacidad = 0.0;
+        contenidoActual = 0.0;
+        tiempo = 0.0;
+        cantidadProcesada = 0.0;
+        estaActiva = false;
+
+    }
+
     void hornear(){
         float contenidoActualBanda= bandaSalida->contenidoActual();
         if(contenidoActual + contenidoActualBanda > bandaSalida->limite){
@@ -46,6 +56,12 @@ struct Horno{
         }
         bandaEntrada = pBandaCrudas;
         bandejasPrendidas = 0.0;
+    }
+
+    void resetearHorno(){
+
+        bandejasPrendidas = 0.0;
+
     }
 
     bool tieneCamposDisponibles(){

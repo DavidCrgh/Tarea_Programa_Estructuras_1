@@ -22,6 +22,12 @@ struct Empacadora{
         estaActiva = false;
     }
 
+    void resetearEmpacadora(){
+        galletasActuales = 0.0;
+        estaEmpacando = false;
+        estaActiva = false;
+    }
+
     NodoEmpaque* elegirPaquete(){
        int random= rand()%100;
        NodoRango* nodoActual = listaRangos->primerRango;

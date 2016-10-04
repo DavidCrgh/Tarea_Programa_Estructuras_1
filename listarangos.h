@@ -39,6 +39,12 @@ struct ListaRangos{
         }
     }
 
+    void resetearListaRangos(){
+
+        primerRango = NULL;
+
+    }
+
     QString imprimirRangos(){
         if(primerRango == NULL){
             return "Vacio";

@@ -27,6 +27,12 @@ struct Banda{
         tipo=pTipo;
     }
 
+    void resetearBanda(){
+        limite=0.0;
+        frenteBanda=NULL;
+
+    }
+
     void encolarBanda(float pCantidad, QString pTipo){
         NodoContenido* nodoNuevo = new NodoContenido(pCantidad, pTipo);
 

@@ -120,6 +120,7 @@ void VentanaPrincipal::on_botonInspector2_clicked()
 
 void VentanaPrincipal::on_botonPlanificador_clicked()
 {
+
     ventanaPlanificador->show();
 }
 
@@ -142,4 +143,9 @@ void VentanaPrincipal::on_botonCarritoSalida_clicked()
 void VentanaPrincipal::on_botonAlmacenTerminal_clicked()
 {
     ventanaAlmacenTerminal->show();
+}
+
+void VentanaPrincipal::on_botonStop_clicked()
+{
+    simulacion->resetearSimulacion();
 }

@@ -27,6 +27,12 @@ struct AlmacenPrima{
         inicioRealizadas = NULL;
     }
 
+    void resetearAlmacen(){
+        frentePeticiones = NULL;
+        inicioRealizadas = NULL;
+
+    }
+
     void encolarPeticion(QString tipo, QString maquinaOrigen, float cantidad){
         NodoPeticion* nodoNuevo = new NodoPeticion(tipo, maquinaOrigen, cantidad);
 

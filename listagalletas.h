@@ -54,6 +54,12 @@ struct ListaGalletas{
         }
     }
 
+    void resetearListaGalletas(){
+
+         primerEmpaque = NULL;
+
+    }
+
     void crearArregloProbabilidades(float probabilidades[]){
         NodoEmpaque* nodoActual = primerEmpaque;
         int largoGalletas= largoListaGalletas();

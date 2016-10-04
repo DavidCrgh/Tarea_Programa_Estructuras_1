@@ -17,6 +17,13 @@ struct Planificador{
         listaGalletas = pLista;
         empacadora = pEmpacadora;
     }
+
+    void resetearPlanificador(){
+
+        probabilidades = 0;
+        totalGalletas = 0;
+
+    }
 };
 
 #endif // PLANIFICADOR_H

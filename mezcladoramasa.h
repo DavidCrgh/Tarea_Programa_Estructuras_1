@@ -40,6 +40,18 @@ struct MezcladoraMasa{
         carrito->vaciarCarrito();
     }
 
+    void resetearMasa(){
+
+        tiempo = 0.0;
+        cantidadxTanda = 0.0;
+        masaMinima = 0.0;
+        masaMaxima = 0.0;
+        masaActual = 0;
+        cantidadProcesada = 0.0;
+        esperandoPeticion = false;
+
+    }
+
     void revisarCarrito(){
         if((carrito->entrega != NULL) && (carrito->estaEntregando) &&(carrito->entrega->maquinaOrigen == nombreMaquina)){
             masaActual += carrito->entrega->cantidad;

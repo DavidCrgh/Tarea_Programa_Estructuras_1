@@ -20,6 +20,13 @@ struct Inspector{
         aprobadas = 0.0;
     }
 
+    void resetearInspector(){
+
+        probabilidadRechazo = 0.0;
+        desechadas = 0.0;
+        aprobadas = 0.0;
+
+    }
     void inspeccionar(){
         if(!(empacadora->estaEmpacando) & (empacadora->estaActiva)){
 

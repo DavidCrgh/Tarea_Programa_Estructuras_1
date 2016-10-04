@@ -20,6 +20,15 @@ struct CarritoEntrega{
         almacen = pAlmacen;
     }
 
+    void resetearCarritoEntrega(){
+
+        tiempoViaje = 0.0;
+        capacidadMaxima = 0.0;
+        entrega = NULL;
+        estaEntregando = false;
+
+    }
+
     void cargarCarrito(){
         if((entrega == NULL) & !estaEntregando){
             entrega = almacen->peek();
