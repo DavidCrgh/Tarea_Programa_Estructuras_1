@@ -84,3 +84,28 @@ void VentanaMezcladoras::actualizarVentana(){
     }
 
 }
+
+void VentanaMezcladoras::on_apagado_clicked()
+{
+    if(mezcladoraMasa == simulacion->mezcladorasMasa[0]){
+        simulacion->hilosMezcladorasMasa[0]->pause = true;
+        mezcladoraMasa->apagarMezcladora();
+    } else if(mezcladoraMasa == simulacion->mezcladorasMasa[1]){
+        simulacion->hilosMezcladorasMasa[1]->pause = true;
+        mezcladoraMasa->apagarMezcladora();
+    } else {
+        simulacion->hiloMezcladoraChocolate->pause = true;
+        mezcladoraChocolate->apagarMezcladora();
+    }
+}
+
+void VentanaMezcladoras::on_encendido_clicked()
+{
+    if(mezcladoraMasa == simulacion->mezcladorasMasa[0]){
+        simulacion->hilosMezcladorasMasa[0]->pause = false;
+    } else if(mezcladoraMasa == simulacion->mezcladorasMasa[1]){
+        simulacion->hilosMezcladorasMasa[1]->pause = false;
+    } else {
+        simulacion->hiloMezcladoraChocolate->pause = false;
+    }
+}

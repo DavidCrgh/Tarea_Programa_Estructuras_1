@@ -72,17 +72,21 @@ struct AlmacenPrima{
         }
     }
 
-    /*void eliminarPeticiones(QString pMaquina){
-        if(frentePeticiones != NULL){
-            NodoPeticion* nodoActual = frentePeticiones;
+    void eliminarPeticiones(QString pMaquina){
+        NodoPeticion* nodoActual = frentePeticiones;
+        AlmacenPrima* almacenTemporal = new AlmacenPrima();
 
-            while(nodoActual->siguiente != NULL){
-                if(nodoActual->siguiente->maquinaOrigen == pMaquina){
-
-                }
+        while(nodoActual != NULL){
+            if(nodoActual->maquinaOrigen != pMaquina){
+                almacenTemporal->encolarPeticion(nodoActual->tipo,
+                                                 nodoActual->maquinaOrigen,
+                                                 nodoActual->cantidad);
             }
+            nodoActual = nodoActual->siguiente;
         }
-    }*/
+
+        frentePeticiones = almacenTemporal->frentePeticiones;
+    }
 
     QString imprimirLista(bool esRealizada){
         NodoPeticion* nodoActual;

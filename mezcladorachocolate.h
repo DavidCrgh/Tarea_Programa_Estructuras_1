@@ -34,6 +34,12 @@ struct MezcladoraChocolate{
         carrito=pCarrito;
     }
 
+    void apagarMezcladora(){
+        esperandoPeticion = false;
+        almacen->eliminarPeticiones(nombreMaquina);
+        carrito->vaciarCarrito();
+    }
+
     void revisarCarrito(){
         if((carrito->entrega != NULL) && (carrito->estaEntregando) && (carrito->entrega->maquinaOrigen == nombreMaquina)){
             mezclaActual += carrito->entrega->cantidad;

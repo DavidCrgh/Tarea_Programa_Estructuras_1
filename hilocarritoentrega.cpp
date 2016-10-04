@@ -19,6 +19,9 @@ void HiloCarritoEntrega::run(){
             carritoEntrega->realizarEntrega();
         } else {
             msleep(100);
+            if(carritoEntrega->entrega == NULL & carritoEntrega->estaEntregando){
+                carritoEntrega->estaEntregando = false;
+            }
         }
         mute.unlock();
     }

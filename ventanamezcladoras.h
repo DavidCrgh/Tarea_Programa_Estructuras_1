@@ -25,6 +25,10 @@ private slots:
 
     void actualizarVentana();
 
+    void on_apagado_clicked();
+
+    void on_encendido_clicked();
+
 private:
     Ui::VentanaMezcladoras *ui;
     Simulacion* simulacion;
