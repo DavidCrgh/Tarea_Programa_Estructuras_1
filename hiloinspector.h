@@ -8,6 +8,7 @@ class hiloInspector : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     QMutex mute;
     Inspector* inspector;
     hiloInspector(QObject * parent=0,Inspector* pInspector=0);

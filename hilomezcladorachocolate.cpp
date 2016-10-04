@@ -9,8 +9,10 @@ HiloMezcladoraChocolate::HiloMezcladoraChocolate(QObject* parent, MezcladoraChoc
 
 void HiloMezcladoraChocolate::run(){
     while(!stop){
+        seguro = false;
         while(pause){
-            msleep(500);
+            seguro = true;
+            msleep(100);
         }
         mute.lock();
         mezcladoraChocolate->revisarCarrito();

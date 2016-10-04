@@ -9,6 +9,7 @@ class HiloEmpacadora : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     Empacadora* empacadora;
     QMutex mute;
     HiloEmpacadora(QObject* parent=0, Empacadora* pEmpacadora = 0);

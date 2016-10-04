@@ -10,6 +10,7 @@ class HiloMezcladoraChocolate : public QThread
 public:
     bool stop;
     bool pause;
+    bool seguro;
     QMutex mute;
     MezcladoraChocolate* mezcladoraChocolate;
     HiloMezcladoraChocolate(QObject* parent = 0, MezcladoraChocolate* pMezcladora = 0);

@@ -9,7 +9,9 @@ HiloAlmacenTerminal::HiloAlmacenTerminal(QObject* parent, AlmacenTerminal* pAlma
 
 void HiloAlmacenTerminal::run(){
     while(!stop){
+        seguro = false;
         while(pause){
+            seguro = true;
             msleep(100);
         }
         almacen->actualizarTotales();

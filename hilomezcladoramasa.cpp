@@ -9,7 +9,9 @@ HiloMezcladoraMasa::HiloMezcladoraMasa(QObject* parent, MezcladoraMasa* pMezclad
 
 void HiloMezcladoraMasa::run(){
     while(!stop){
+        seguro = false;
         while(pause){
+            seguro = true;
             msleep(100);
         }
         mute.lock();

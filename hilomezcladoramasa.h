@@ -10,6 +10,7 @@ class HiloMezcladoraMasa : public QThread
 public:
     bool stop;
     bool pause;
+    bool seguro;
     QMutex mute;
     MezcladoraMasa* mezcladoraMasa;
     HiloMezcladoraMasa(QObject* parent = 0, MezcladoraMasa* pMezcladora = 0);

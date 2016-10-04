@@ -79,33 +79,12 @@ void Simulacion::iniciarHilos(){
 }
 
 void Simulacion::resetearSimulacion(){
-    hiloCarritoEntrega->stop=true;
-    for(int i = 0; i < 2; i++){
-        hilosMezcladorasMasa[i]->stop=true;
+    pausarHilos();
+    while(!hilosSeguros()){
+        continue;
     }
-    hiloMezcladoraChocolate->stop=true;
-    hiloEnsambladora->stop=true;
-    hiloHorno->stop=true;
-    for(int i = 0; i < 6; i++){
-        hilosBandeja[i]->stop=true;
-    }
-    hiloInspector1->stop=true;
-    hiloInspector2->stop=true;
-    hiloEmpacadora->stop=true;
-    hiloAlmacenTerminal->stop=true;
-    if(hilosCarritoSalida!=NULL){
-
-        for(int i=0;i<listaGalletas->largoListaGalletas();i++){
-
-            hilosCarritoSalida[i]->stop=true;
-        }
-    }
-
-    for(int i =0;i<listaGalletas->largoListaGalletas();i++){
-
-            carritosSalida[i]->resetearCarritoSalida();
-
-    }
+    carritosSalida = NULL;
+    hilosCarritoSalida = NULL;
     bandaMasa->resetearBanda();
     bandaChocolate->resetearBanda();
     bandaGalletasCrudas->resetearBanda();
@@ -164,4 +143,27 @@ void Simulacion::crearHilosCarritoSalida(){
         actualEmpacadora = actualEmpacadora->siguiente;
         actualAlmacen = actualAlmacen->siguiente;
     }
+}
+
+bool Simulacion::hilosSeguros(){
+    bool seguroBandejas = true;
+    for(int i = 0; i < 6; i++){
+        seguroBandejas = seguroBandejas & hilosBandeja[i]->seguro;
+    }
+
+    bool seguroMezcladoras = true;
+    for(int i = 0; i < 2; i++){
+        seguroMezcladoras = seguroBandejas & hilosMezcladorasMasa[i]->seguro;
+    }
+
+    bool seguroCarritosSalida = true;
+    for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
+        seguroCarritosSalida = seguroCarritosSalida & hilosCarritoSalida[i]->seguro;
+    }
+
+    return hiloAlmacenTerminal->seguro && hiloCarritoEntrega->seguro && hiloEmpacadora->seguro &&
+            hiloEnsambladora->seguro && hiloHorno->seguro && hiloInspector1->seguro &&
+            hiloInspector2->seguro && hiloMezcladoraChocolate->seguro && seguroBandejas &&
+            seguroMezcladoras && seguroCarritosSalida;
+
 }

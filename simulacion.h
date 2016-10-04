@@ -55,6 +55,7 @@ struct Simulacion{
     void pausarHilos();
     void crearHilosCarritoSalida();
     void resetearSimulacion();
+    bool hilosSeguros();
 };
 
 #endif // SIMULACION_H

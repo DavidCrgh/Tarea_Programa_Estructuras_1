@@ -9,8 +9,10 @@ HiloBandeja::HiloBandeja(QObject* parent, Bandeja* pBandeja)
 
 void HiloBandeja::run(){
     while(!stop){
+        seguro = false;
         while(pause){
-            msleep(500);
+            seguro = true;
+            msleep(100);
         }
         mute.lock();
         if(bandeja->contenidoActual==bandeja->capacidad & bandeja->capacidad != 0){

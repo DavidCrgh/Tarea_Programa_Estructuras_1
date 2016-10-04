@@ -9,6 +9,7 @@ class HiloEnsambladora : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     Ensambladora* ensambladora;
     QMutex mute;
     HiloEnsambladora(QObject* parent = 0, Ensambladora* pEnsambladora = 0);

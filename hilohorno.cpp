@@ -10,7 +10,9 @@ HiloHorno::HiloHorno(QObject* parent, Horno* pHorno)
 void HiloHorno::run(){
 
     while(!stop){
+        seguro = false;
         while(pause){
+            seguro = true;
             msleep(100);
         }
         mute.lock();

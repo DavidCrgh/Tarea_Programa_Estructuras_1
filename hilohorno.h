@@ -9,6 +9,7 @@ class HiloHorno : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     Horno* horno;
     QMutex mute;
     HiloHorno(QObject *parent = 0, Horno* pHorno = 0);

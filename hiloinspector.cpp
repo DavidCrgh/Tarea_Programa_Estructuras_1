@@ -9,7 +9,9 @@ hiloInspector::hiloInspector(QObject* parent,Inspector* pInspector)
 
 void hiloInspector::run(){
     while(!stop){
+        seguro = false;
         while(pause){
+            seguro = true;
             msleep(100);
         }
         mute.lock();

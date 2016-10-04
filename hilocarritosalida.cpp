@@ -9,8 +9,10 @@ HiloCarritoSalida::HiloCarritoSalida(QObject* parent, CarritoSalida* pCarrito)
 
 void HiloCarritoSalida::run(){
     while(!stop){
+        seguro = false;
         while(pause){
-            msleep(3000);
+            seguro = true;
+            msleep(100);
         }
         mute.lock();
         carritoSalida->cargarCarrito();

@@ -9,6 +9,7 @@ class HiloCarritoSalida : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     CarritoSalida* carritoSalida;
     QMutex mute;
     HiloCarritoSalida(QObject* parent=0, CarritoSalida* pCarrito = 0);

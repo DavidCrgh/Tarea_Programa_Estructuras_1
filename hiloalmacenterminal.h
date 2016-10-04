@@ -9,6 +9,7 @@ class HiloAlmacenTerminal : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     AlmacenTerminal* almacen;
     QMutex mute;
     HiloAlmacenTerminal(QObject* parent = 0, AlmacenTerminal* pAlmacen = 0);

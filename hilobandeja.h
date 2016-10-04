@@ -9,6 +9,7 @@ class HiloBandeja : public QThread
 public:
     bool pause;
     bool stop;
+    bool seguro;
     Bandeja* bandeja;
     QMutex mute;
     HiloBandeja(QObject *parent=0, Bandeja* pBandeja = 0);
