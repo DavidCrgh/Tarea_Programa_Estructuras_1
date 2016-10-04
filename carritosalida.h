@@ -26,8 +26,6 @@ struct CarritoSalida{
         estaEntregando = false;
         monticuloEmpacadora = pMonticuloEmpacadora;
         monticuloAlmacen = pMonticuloAlmacen;
-        //monticuloEmpacadora = empacadora->monticulosEmpacadora->buscarMonticulo(nombrePaquete);
-        //monticuloAlmacen = almacen->depositos->buscarMonticulo(nombrePaquete);
     }
 
     void cargarCarrito(){

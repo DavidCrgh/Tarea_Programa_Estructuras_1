@@ -26,7 +26,7 @@
    <string>Empacadora</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="imagenes.qrc">
     <normaloff>:/imagenes/Imagenes/iconoEmpacadora.png</normaloff>:/imagenes/Imagenes/iconoEmpacadora.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -44,6 +44,20 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="procesando">
+         <property name="text">
+          <string>Procesando:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="procesandoValor">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QRadioButton" name="encendido">
          <property name="text">
@@ -80,6 +94,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

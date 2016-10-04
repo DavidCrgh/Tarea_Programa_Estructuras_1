@@ -21,6 +21,7 @@ HiloInterfaz::HiloInterfaz(QObject* parent, Simulacion* pSimulacion, VentanaPrin
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaChocolate,SLOT(actualizarBandas()));
     connect(this, SIGNAL(actualizarBandas()), ventanaPrincipal->ventanaBandaCrudas, SLOT(actualizarBandas()));
     connect(this,SIGNAL(actualizarEnsambladora()),ventanaPrincipal->ventanaEnsambladoraSimulador, SLOT(actualizarVentana()));
+    connect(this, SIGNAL(actualizarHorno()), ventanaPrincipal->ventanaHorno, SLOT(actualizarVentana()));
     for(int i = 0; i < 6; i++){
         connect(this, SIGNAL(actualizarBandejas()), ventanaPrincipal->ventanaHorno->ventanasBandeja[i], SLOT(actualizarVentana()));
     connect(this,SIGNAL(actualizarBandas()),ventanaPrincipal->ventanaBandaInspectores,SLOT(actualizarBandas()));
@@ -36,20 +37,14 @@ void HiloInterfaz::run(){
         while(pause){
             msleep(100);
         }
-        //mute.lock();
-        msleep(1000);
+        msleep(500);
 
-
-
-        //qDebug("");
         emit actualizarAlmacenPrima(simulacion->almacenPrima->imprimirAlmacen());
-        //qDebug("");
         emit actualizarVentanaCarrito(simulacion->carritoEntrega->imprimirCarrito());
-        //qDebug("");
         emit actualizarMezcladoras();
-        //qDebug("");
         emit actualizarBandas();
         emit actualizarEnsambladora();
+        emit actualizarHorno();
         emit actualizarBandejas();
         emit actualizarInspectores();
         emit actualizarEmpacadora();
@@ -58,12 +53,5 @@ void HiloInterfaz::run(){
             emit actualizarCarritosSalida();
         }
         emit actualizarAlmacenTerminal();
-        //QString contenidoBandeja1 = QString::number(simulacion->bandaMasa->contenidoActual());
-        //qDebug("");
-        // QString contenidoBandeja2 = QString::number(simulacion->bandaChocolate->contenidoActual());
-        //qDebug("BMasa: " + contenidoBandeja1.toLatin1());
-        //qDebug("BChocolate: " + contenidoBandeja2.toLatin1());
-        //mute.unlock();
-        //QString contenidoBandaInspectores =
     }
 }

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "carritoentrega.h"
+#include "simulacion.h"
 
 namespace Ui {
 class VentanaCarritoEntrega;
@@ -14,7 +14,7 @@ class VentanaCarritoEntrega : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaCarritoEntrega(QWidget *parent = 0, CarritoEntrega* pCarrito = 0);
+    explicit VentanaCarritoEntrega(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaCarritoEntrega();
 
 private slots:
@@ -24,8 +24,13 @@ private slots:
 
     void actualizarVentana(QStringList pMensaje);
 
+    void on_apagado_clicked();
+
+    void on_encendido_clicked();
+
 private:
     Ui::VentanaCarritoEntrega *ui;
+    Simulacion* simulacion;
     CarritoEntrega* carrito;
 };
 

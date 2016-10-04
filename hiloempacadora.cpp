@@ -10,13 +10,17 @@ HiloEmpacadora::HiloEmpacadora(QObject* parent, Empacadora* pEmpacadora)
 void HiloEmpacadora::run(){
     while(!stop){
         while(pause){
-            msleep(1000);
+            msleep(500);
         }
         NodoEmpaque* empaqueActual =  empacadora->elegirPaquete();
 
-        if(empacadora->galletasActuales >= (empaqueActual->galletasxEmpaque * empaqueActual->cantidadxTiempo)){
-            msleep((empaqueActual->tiempoProduccion) * 1000);
-            empacadora->empacarGalletas(empaqueActual);
+        if(empaqueActual != NULL){
+            if(empacadora->galletasActuales >= (empaqueActual->galletasxEmpaque * empaqueActual->cantidadxTiempo)){
+                msleep((empaqueActual->tiempoProduccion) * 1000);
+                empacadora->empacarGalletas(empaqueActual);
+            } else {
+                msleep(100);
+            }
         } else {
             msleep(100);
         }

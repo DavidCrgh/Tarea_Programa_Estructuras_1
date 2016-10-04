@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "ensambladora.h"
+#include "simulacion.h"
 
 namespace Ui {
 class ventanaEnsambladora;
@@ -14,7 +14,7 @@ class ventanaEnsambladora : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ventanaEnsambladora(QWidget *parent = 0, Ensambladora* pEnsambladora = 0);
+    explicit ventanaEnsambladora(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~ventanaEnsambladora();
 
 private slots:
@@ -24,8 +24,13 @@ private slots:
 
     void actualizarVentana();
 
+    void on_apagado_clicked();
+
+    void on_encendido_clicked();
+
 private:
     Ui::ventanaEnsambladora *ui;
+    Simulacion* simulacion;
     Ensambladora* ensambladora;
 };
 

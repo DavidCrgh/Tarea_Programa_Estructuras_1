@@ -3,13 +3,13 @@
 
 #include "prototipos.h"
 #include "listagalletas.h"
-//#include "monticulosempaques.h"
 
 struct Empacadora{
     float galletasActuales;
     ListaGalletas* listaGalletas;
     ListaRangos* listaRangos;
     bool estaEmpacando;
+    bool estaActiva;
 
     MonticulosEmpaques* monticulosEmpacadora;
 
@@ -17,8 +17,9 @@ struct Empacadora{
         galletasActuales = 0.0;
         listaGalletas = pListaGalletas;
         monticulosEmpacadora = listaGalletas->generarMonticulos();
-        listaRangos = NULL;
+        listaRangos = listaGalletas->construirRangos();
         estaEmpacando = false;
+        estaActiva = false;
     }
 
     NodoEmpaque* elegirPaquete(){
@@ -34,7 +35,6 @@ struct Empacadora{
     }
 
     void empacarGalletas(NodoEmpaque* empaque){
-        //if(galletasActuales >= (empaque->galletasxEmpaque * empaque->cantidadxTiempo)){
         galletasActuales -= (empaque->galletasxEmpaque * empaque->cantidadxTiempo);
         NodoMonticulo* monticulo = monticulosEmpacadora->buscarMonticulo(empaque->tipoEmpaque);
         monticulo->cantidadPaquetes += empaque->cantidadxTiempo;

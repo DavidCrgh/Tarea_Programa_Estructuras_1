@@ -10,7 +10,7 @@ HiloEnsambladora::HiloEnsambladora(QObject* parent, Ensambladora* pEnsambladora)
 void HiloEnsambladora::run(){
     while(!stop){
         while(pause){
-            msleep(1000);
+            msleep(500);
         }
         mute.lock();
         ensambladora->alimentarEnsambladora();

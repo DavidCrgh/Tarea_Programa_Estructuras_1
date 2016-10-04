@@ -12,7 +12,6 @@ void hiloInspector::run(){
         while(pause){
             msleep(100);
         }
-
         mute.lock();
         inspector->inspeccionar();
         msleep(5000);

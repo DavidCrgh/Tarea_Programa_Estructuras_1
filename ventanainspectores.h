@@ -2,7 +2,7 @@
 #define VENTANAINSPECTORES_H
 
 #include <QMainWindow>
-#include "bandainspectores.h"
+#include "simulacion.h"
 
 namespace Ui {
 class ventanaInspectores;
@@ -13,7 +13,7 @@ class ventanaInspectores : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ventanaInspectores(QWidget *parent = 0,Inspector* pInspector=0);
+    explicit ventanaInspectores(QWidget *parent = 0, Inspector* pInspector = 0, Simulacion* pSimulacion = 0);
     ~ventanaInspectores();
 
 private slots:
@@ -23,8 +23,13 @@ private slots:
 
     void actualizarVentana();
 
+    void on_encendido_clicked();
+
+    void on_apagado_clicked();
+
 private:
     Ui::ventanaInspectores *ui;
+    Simulacion* simulacion;
     Inspector* inspector;
 
 };

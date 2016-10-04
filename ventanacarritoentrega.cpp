@@ -1,12 +1,13 @@
 #include "ventanacarritoentrega.h"
 #include "ui_ventanacarritoentrega.h"
 
-VentanaCarritoEntrega::VentanaCarritoEntrega(QWidget *parent, CarritoEntrega* pCarrito) :
+VentanaCarritoEntrega::VentanaCarritoEntrega(QWidget *parent, Simulacion* pSimulacion) :
     QMainWindow(parent),
     ui(new Ui::VentanaCarritoEntrega)
 {
     ui->setupUi(this);
-    carrito = pCarrito;
+    simulacion = pSimulacion;
+    carrito = simulacion->carritoEntrega;
 }
 
 VentanaCarritoEntrega::~VentanaCarritoEntrega()
@@ -36,4 +37,16 @@ void VentanaCarritoEntrega::on_aceptar_clicked()
 void VentanaCarritoEntrega::actualizarVentana(QStringList pMensaje){
     ui->maquinaValor->setText(pMensaje[0]);
     ui->contenidoValor->setText(pMensaje[1]);
+    ui->encendido->setChecked(!(simulacion->hiloCarritoEntrega->pause));
+    ui->apagado->setChecked(simulacion->hiloCarritoEntrega->pause);
+}
+
+void VentanaCarritoEntrega::on_apagado_clicked()
+{
+    simulacion->hiloCarritoEntrega->pause = true;
+}
+
+void VentanaCarritoEntrega::on_encendido_clicked()
+{
+    simulacion->hiloCarritoEntrega->pause = false;
 }

@@ -12,24 +12,24 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     simulacion = pSimulacion;
     ui->setupUi(this);
     ventanaAlmacen = new VentanaAlmacenPrima(NULL, simulacion->almacenPrima);
-    ventanaCarrito = new VentanaCarritoEntrega(NULL, simulacion->carritoEntrega);
-    ventanaMezcladora1 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[0]);
-    ventanaMezcladora2 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[1]);
-    ventanaMezcladoraChocolate = new VentanaMezcladoras(NULL, simulacion->mezcladoraChocolate);
+    ventanaCarrito = new VentanaCarritoEntrega(NULL, simulacion);
+    ventanaMezcladora1 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[0], simulacion);
+    ventanaMezcladora2 = new VentanaMezcladoras(NULL, simulacion->mezcladorasMasa[1], simulacion);
+    ventanaMezcladoraChocolate = new VentanaMezcladoras(NULL, simulacion->mezcladoraChocolate, simulacion);
     ventanaBandaMasa = new VentanaBanda(NULL, simulacion->bandaMasa);
     ventanaBandaChocolate = new VentanaBanda(NULL, simulacion->bandaChocolate);
-    ventanaEnsambladoraSimulador = new ventanaEnsambladora(NULL, simulacion->ensambladora);
+    ventanaEnsambladoraSimulador = new ventanaEnsambladora(NULL, simulacion);
     ventanaBandaCrudas = new VentanaBanda(NULL, simulacion->bandaGalletasCrudas);
-    ventanaHorno = new VentanaHorno(NULL, simulacion->horno);
-    ventanaBandaInspectores= new VentanaBanda(NULL,simulacion->bandaInspectores);
-    ventanaInspector1 = new ventanaInspectores(NULL,simulacion->inspector1);
-    ventanaInspector2 = new ventanaInspectores(NULL,simulacion->inspector2);
+    ventanaHorno = new VentanaHorno(NULL, simulacion);
+    ventanaBandaInspectores = new VentanaBanda(NULL,simulacion->bandaInspectores);
+    ventanaInspector1 = new ventanaInspectores(NULL,simulacion->inspector1, simulacion);
+    ventanaInspector2 = new ventanaInspectores(NULL,simulacion->inspector2, simulacion);
     ventanaPlanificador = new VentanaPlanificador(NULL, simulacion->listaGalletas, simulacion->empacadora,
                                                   simulacion->almacenTerminal);
-    ventanaEmpacadora = new VentanaEmpacadora(NULL, simulacion->empacadora);
+    ventanaEmpacadora = new VentanaEmpacadora(NULL, simulacion);
     connect(ventanaPlanificador, SIGNAL(inicializarCarritos()), this, SLOT(crearCarritos()));
     ventanaCarritosSalida = NULL;
-    ventanaAlmacenTerminal = new VentanaAlmacenTerminal(NULL, simulacion->almacenTerminal);
+    ventanaAlmacenTerminal = new VentanaAlmacenTerminal(NULL, simulacion);
 }
 
 VentanaPrincipal::~VentanaPrincipal()
@@ -78,11 +78,13 @@ void VentanaPrincipal::on_botonHorno_clicked()
 void VentanaPrincipal::on_botonPlay_clicked()
 {
     simulacion->iniciarHilos();
+    ventanaHorno->toggleVentana(true);
 }
 
 void VentanaPrincipal::on_botonPausa_clicked()
 {
     simulacion->pausarHilos();
+    ventanaHorno->toggleVentana(false);
 }
 
 void VentanaPrincipal::on_botonBandaMasa_clicked()

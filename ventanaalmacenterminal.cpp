@@ -1,12 +1,13 @@
 #include "ventanaalmacenterminal.h"
 #include "ui_ventanaalmacenterminal.h"
 
-VentanaAlmacenTerminal::VentanaAlmacenTerminal(QWidget *parent, AlmacenTerminal* pAlmacen) :
+VentanaAlmacenTerminal::VentanaAlmacenTerminal(QWidget *parent, Simulacion* pSimulacion) :
     QWidget(parent),
     ui(new Ui::VentanaAlmacenTerminal)
 {
     ui->setupUi(this);
-    almacenTerminal = pAlmacen;
+    simulacion = pSimulacion;
+    almacenTerminal = simulacion->almacenTerminal;
 }
 
 VentanaAlmacenTerminal::~VentanaAlmacenTerminal()

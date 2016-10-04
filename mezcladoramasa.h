@@ -35,18 +35,12 @@ struct MezcladoraMasa{
     }
 
     void revisarCarrito(){
-        //qDebug("1");
         if((carrito->entrega != NULL) && (carrito->estaEntregando) &&(carrito->entrega->maquinaOrigen == nombreMaquina)){
-           // qDebug("2");
             masaActual += carrito->entrega->cantidad;
-           // qDebug("3");
             almacen->insertarRealizada(almacen->desencolarPeticion());
-          //  qDebug("4");
             carrito->vaciarCarrito();
-         //   qDebug("5");
             esperandoPeticion = false;
         }
-       // qDebug("6");
     }
 
     void realizarPeticion(){

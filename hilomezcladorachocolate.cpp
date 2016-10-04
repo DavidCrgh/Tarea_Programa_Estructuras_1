@@ -21,12 +21,6 @@ void HiloMezcladoraChocolate::run(){
         } else {
             msleep(100);
         }
-        /*if(mezcladoraChocolate->banda->estaLlena()){
-            pause=true;
-            mezcladoraChocolate->carrito->vaciarCarrito();
-            mezcladoraChocolate->almacen->desencolarPeticion();
-            mezcladoraChocolate->esperandoPeticion = false;
-        }*/
         mute.unlock();
 
     }

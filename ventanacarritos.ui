@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>336</width>
+    <width>324</width>
     <height>139</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>336</width>
+    <width>324</width>
     <height>139</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>336</width>
+    <width>324</width>
     <height>139</height>
    </size>
   </property>
@@ -29,7 +29,7 @@
    <iconset resource="imagenes.qrc">
     <normaloff>:/imagenes/Imagenes/iconoCarritoS.png</normaloff>:/imagenes/Imagenes/iconoCarritoS.png</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
@@ -51,7 +51,7 @@
        <item>
         <widget class="QLabel" name="tiempo">
          <property name="text">
-          <string>Tiempo</string>
+          <string>Tiempo (s)</string>
          </property>
         </widget>
        </item>
@@ -91,6 +91,27 @@
        </item>
        <item>
         <widget class="QLineEdit" name="editorCapacidad"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QRadioButton" name="encendido">
+         <property name="text">
+          <string>Encendido</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="apagado">
+         <property name="text">
+          <string>Apagado</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>

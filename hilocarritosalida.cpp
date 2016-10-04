@@ -10,7 +10,7 @@ HiloCarritoSalida::HiloCarritoSalida(QObject* parent, CarritoSalida* pCarrito)
 void HiloCarritoSalida::run(){
     while(!stop){
         while(pause){
-            msleep(100);
+            msleep(3000);
         }
         mute.lock();
         carritoSalida->cargarCarrito();
@@ -18,7 +18,7 @@ void HiloCarritoSalida::run(){
             msleep((carritoSalida->tiempoViaje) * 1000);
             carritoSalida->realizarEntrega();
         } else {
-            msleep(100);
+            msleep(1000);
         }
         mute.unlock();
     }

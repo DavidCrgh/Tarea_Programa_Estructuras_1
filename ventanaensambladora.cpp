@@ -1,12 +1,13 @@
 #include "ventanaensambladora.h"
 #include "ui_ventanaensambladora.h"
 
-ventanaEnsambladora::ventanaEnsambladora(QWidget *parent, Ensambladora* pEnsambladora) :
+ventanaEnsambladora::ventanaEnsambladora(QWidget *parent, Simulacion* pSimulacion) :
     QMainWindow(parent),
     ui(new Ui::ventanaEnsambladora)
 {
     ui->setupUi(this);
-    ensambladora = pEnsambladora;
+    simulacion = pSimulacion;
+    ensambladora = simulacion->ensambladora;
 }
 
 ventanaEnsambladora::~ventanaEnsambladora()
@@ -44,5 +45,16 @@ void ventanaEnsambladora::on_aceptar_clicked()
 
 void ventanaEnsambladora::actualizarVentana(){
     ui->totalGalletasValor->setText(QString::number(ensambladora->cantidadProcesada));
+    ui->apagado->setChecked(simulacion->hiloEnsambladora->pause);
+    ui->encendido->setChecked(!(simulacion->hiloEnsambladora->pause));
+}
 
+void ventanaEnsambladora::on_apagado_clicked()
+{
+    simulacion->hiloEnsambladora->pause = true;
+}
+
+void ventanaEnsambladora::on_encendido_clicked()
+{
+    simulacion->hiloEnsambladora->pause = false;
 }

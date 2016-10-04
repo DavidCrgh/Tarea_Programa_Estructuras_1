@@ -182,23 +182,27 @@ struct ListaGalletas{
     }
 
     ListaRangos* construirRangos(){
-       ListaRangos* listaRangos= new ListaRangos();
-       int largoLista = largoListaGalletas();
-       float *probabilidades = new float[largoLista];
-       QString *tipoEmpaques = new QString[largoLista];
-       crearArregloProbabilidades(probabilidades);
-       crearArregloNombres(tipoEmpaques);
-       insertion_sort(probabilidades,tipoEmpaques,largoLista);
-       float minimo = 0;
-       float maximo = probabilidades[0];
-       listaRangos->insertarRango(minimo, maximo-1, tipoEmpaques[0]);
+        if(primerEmpaque == NULL){
+            return new ListaRangos();
+        } else{
+            ListaRangos* listaRangos= new ListaRangos();
+            int largoLista = largoListaGalletas();
+            float *probabilidades = new float[largoLista];
+            QString *tipoEmpaques = new QString[largoLista];
+            crearArregloProbabilidades(probabilidades);
+            crearArregloNombres(tipoEmpaques);
+            insertion_sort(probabilidades,tipoEmpaques,largoLista);
+            float minimo = 0;
+            float maximo = probabilidades[0];
+            listaRangos->insertarRango(minimo, maximo-1, tipoEmpaques[0]);
 
-       for(int i=1;i<largoLista;i++){
-           minimo=maximo;
-           maximo=probabilidades[i]+minimo;
-           listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[i]);
-       }
-       return listaRangos;
+            for(int i=1;i<largoLista;i++){
+                minimo=maximo;
+                maximo=probabilidades[i]+minimo;
+                listaRangos->insertarRango(minimo,maximo-1,tipoEmpaques[i]);
+            }
+            return listaRangos;
+        }
     }
 
     QString imprimirLista(){

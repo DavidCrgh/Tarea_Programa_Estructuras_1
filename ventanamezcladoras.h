@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 
-#include "mezcladoramasa.h"
-#include "mezcladorachocolate.h"
+#include "simulacion.h"
 
 namespace Ui {
 class VentanaMezcladoras;
@@ -15,8 +14,8 @@ class VentanaMezcladoras : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaMezcladoras(QWidget *parent = 0, MezcladoraMasa* pMezcladora = 0);
-    explicit VentanaMezcladoras(QWidget *parent = 0, MezcladoraChocolate* pMezcladora = 0);
+    explicit VentanaMezcladoras(QWidget *parent = 0, MezcladoraMasa* pMezcladora = 0, Simulacion* pSimulacion = 0);
+    explicit VentanaMezcladoras(QWidget *parent = 0, MezcladoraChocolate* pMezcladora = 0, Simulacion* pSimulacion = 0);
     ~VentanaMezcladoras();
 
 private slots:
@@ -28,6 +27,7 @@ private slots:
 
 private:
     Ui::VentanaMezcladoras *ui;
+    Simulacion* simulacion;
     MezcladoraMasa* mezcladoraMasa;
     MezcladoraChocolate* mezcladoraChocolate;
 };

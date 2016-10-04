@@ -6,8 +6,6 @@
 #include "simulacion.h"
 #include "ventanabandeja.h"
 
-//#include "horno.h"
-
 namespace Ui {
 class VentanaHorno;
 }
@@ -17,10 +15,14 @@ class VentanaHorno : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaHorno(QWidget *parent = 0, Horno* pHorno = 0);
+    explicit VentanaHorno(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaHorno();
 
-private slots:
+public slots:
+    void actualizarVentana();
+
+    void toggleVentana(bool encender);
+
     void on_encendido_clicked();
 
     void on_apagado_clicked();
@@ -51,6 +53,7 @@ private slots:
 
 public:
     Ui::VentanaHorno *ui;
+    Simulacion* simulacion;
     Horno* horno;
     VentanaBandeja* ventanasBandeja[6];
 

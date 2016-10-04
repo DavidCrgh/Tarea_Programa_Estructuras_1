@@ -1,6 +1,6 @@
 #include "simulacion.h"
 
-Simulacion::Simulacion(/*VentanaPrincipal *pInterfaz*/){
+Simulacion::Simulacion(){
     //Bandas
     bandaMasa = new Banda("Masa");
     bandaChocolate = new Banda("Chocolate");
@@ -68,6 +68,7 @@ void Simulacion::iniciarHilos(){
     }
     hiloInspector1->pause=false;
     hiloInspector2->pause=false;
+    empacadora->estaActiva = true;
     hiloEmpacadora->pause=false;
     if(hilosCarritoSalida != NULL){
         for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
@@ -90,6 +91,7 @@ void Simulacion::pausarHilos(){
     }
     hiloInspector1->pause = true;
     hiloInspector2->pause = true;
+    empacadora->estaActiva = false;
     hiloEmpacadora->pause = true;
     if(hilosCarritoSalida != NULL){
         for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){

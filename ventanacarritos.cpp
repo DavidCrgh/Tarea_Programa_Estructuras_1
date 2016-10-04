@@ -53,6 +53,8 @@ void VentanaCarritos::on_flechaIzquierda_clicked()
     } else {
         ui->flechaDerecha->setEnabled(true);
     }
+    ui->apagado->setChecked(simulacion->hilosCarritoSalida[indiceCarrito]->pause);
+    ui->encendido->setChecked(!(simulacion->hilosCarritoSalida[indiceCarrito]->pause));
 }
 
 void VentanaCarritos::on_flechaDerecha_clicked()
@@ -81,10 +83,21 @@ void VentanaCarritos::on_flechaDerecha_clicked()
         ui->flechaIzquierda->setEnabled(true);
     } else {
         ui->flechaIzquierda->setEnabled(true);
-
     }
+    ui->apagado->setChecked(simulacion->hilosCarritoSalida[indiceCarrito]->pause);
+    ui->encendido->setChecked(!(simulacion->hilosCarritoSalida[indiceCarrito]->pause));
 }
 
 void VentanaCarritos::actualizarVentana(){
     ui->valorCantidad->setText(QString::number(carritosSalida[indiceCarrito]->cantidadTransportada));
+}
+
+void VentanaCarritos::on_apagado_clicked()
+{
+    simulacion->hilosCarritoSalida[indiceCarrito]->pause = true;
+}
+
+void VentanaCarritos::on_encendido_clicked()
+{
+    simulacion->hilosCarritoSalida[indiceCarrito]->pause = false;
 }

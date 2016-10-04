@@ -10,7 +10,7 @@ HiloCarritoEntrega::HiloCarritoEntrega(QObject* parent, CarritoEntrega* pCarrito
 void HiloCarritoEntrega::run(){
     while(!stop){
         while(pause){
-            msleep(100);
+            msleep(500);
         }
         mute.lock();
         carritoEntrega->cargarCarrito();

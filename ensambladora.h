@@ -15,13 +15,7 @@ struct Ensambladora{
     float actualChocolate;
 
     float cantidadProcesada;
-    /*
-     * nvlsActuales > req
-     * estaEnsamblando = true
-     * sleep(tiempo)
-     * ensamblar();
-     *
-     * */
+
     Banda* bandaMasa;
     Banda* bandaChocolate;
     Banda* bandaSalida;

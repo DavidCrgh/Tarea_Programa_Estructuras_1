@@ -14,7 +14,6 @@ void HiloMezcladoraMasa::run(){
         }
         mute.lock();
         mezcladoraMasa->revisarCarrito();
-
         mezcladoraMasa->realizarPeticion();
         if((mezcladoraMasa->masaActual >= mezcladoraMasa->masaMinima) & (mezcladoraMasa->masaActual >= mezcladoraMasa->cantidadxTanda)){ //cambiar
             msleep((mezcladoraMasa->tiempo) * 1000);
@@ -22,12 +21,6 @@ void HiloMezcladoraMasa::run(){
         } else {
             msleep(1000);
         }
-        /*if(mezcladoraMasa->banda->estaLlena()){
-            pause=true;
-            mezcladoraMasa->carrito->vaciarCarrito();
-            mezcladoraMasa->almacen->desencolarPeticion();
-            mezcladoraMasa->esperandoPeticion = false;
-        }*/
         mute.unlock();
     }
 }

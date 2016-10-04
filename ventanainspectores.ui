@@ -111,14 +111,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QRadioButton" name="radioButton">
+         <widget class="QRadioButton" name="encendido">
           <property name="text">
            <string>Encendido</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_2">
+         <widget class="QRadioButton" name="apagado">
           <property name="text">
            <string>Apagado</string>
           </property>

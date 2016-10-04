@@ -18,8 +18,6 @@
 
 struct Simulacion{
 
-    //VentanaPrincipal* interfaz;
-
     AlmacenPrima* almacenPrima;
     CarritoEntrega* carritoEntrega;
     MezcladoraMasa* mezcladorasMasa[2];

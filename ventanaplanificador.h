@@ -2,7 +2,7 @@
 #define VENTANAPLANIFICADOR_H
 
 #include <QWidget>
-//#include "listagalletas.h"
+
 #include "empacadora.h"
 #include "almacenterminal.h"
 #include "ventanapaquete.h"

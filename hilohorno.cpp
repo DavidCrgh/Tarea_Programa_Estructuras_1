@@ -15,7 +15,7 @@ void HiloHorno::run(){
         }
         mute.lock();
         horno->alimentarHorno();
-        msleep(100);
+        msleep(1000);
         mute.unlock();
     }
 }

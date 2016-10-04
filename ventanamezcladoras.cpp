@@ -1,20 +1,22 @@
 #include "ventanamezcladoras.h"
 #include "ui_ventanamezcladoras.h"
 
-VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraMasa* pMezcladora) :
+VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraMasa* pMezcladora, Simulacion* pSimulacion) :
     QMainWindow(parent),
     ui(new Ui::VentanaMezcladoras)
 {
     ui->setupUi(this);
+    simulacion = pSimulacion;
     mezcladoraMasa = pMezcladora;
     mezcladoraChocolate = NULL;
 }
 
-VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraChocolate* pMezcladora) :
+VentanaMezcladoras::VentanaMezcladoras(QWidget *parent, MezcladoraChocolate* pMezcladora, Simulacion* pSimulacion) :
     QMainWindow(parent),
     ui(new Ui::VentanaMezcladoras)
 {
     ui->setupUi(this);
+    simulacion = pSimulacion;
     mezcladoraMasa = NULL;
     mezcladoraChocolate = pMezcladora;
 }
@@ -69,4 +71,16 @@ void VentanaMezcladoras::actualizarVentana(){
     }
     ui->procesandoValor->setText(informacion[0]);
     ui->procesadoValor->setText(informacion[1]);
+
+    if(mezcladoraMasa == simulacion->mezcladorasMasa[0]){
+        ui->encendido->setChecked(!(simulacion->hilosMezcladorasMasa[0]->pause));
+        ui->apagado->setChecked(simulacion->hilosMezcladorasMasa[0]->pause);
+    } else if(mezcladoraMasa == simulacion->mezcladorasMasa[1]){
+        ui->encendido->setChecked(!(simulacion->hilosMezcladorasMasa[1]->pause));
+        ui->apagado->setChecked(simulacion->hilosMezcladorasMasa[1]->pause);
+    } else {
+        ui->encendido->setChecked(!(simulacion->hiloMezcladoraChocolate->pause));
+        ui->apagado->setChecked(simulacion->hiloMezcladoraChocolate->pause);
+    }
+
 }

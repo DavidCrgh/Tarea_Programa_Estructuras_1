@@ -21,6 +21,7 @@ signals:
     void actualizarMezcladoras();
     void actualizarBandas();
     void actualizarEnsambladora();
+    void actualizarHorno();
     void actualizarBandejas();
     void actualizarInspectores();
     void actualizarEmpacadora();

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "empacadora.h"
+#include "simulacion.h"
 
 namespace Ui {
 class VentanaEmpacadora;
@@ -14,14 +14,20 @@ class VentanaEmpacadora : public QWidget
     Q_OBJECT
 
 public:
-    explicit VentanaEmpacadora(QWidget *parent = 0, Empacadora* pEmpacadora = 0);
+    explicit VentanaEmpacadora(QWidget *parent = 0,  Simulacion* pSimulacion = 0);
     ~VentanaEmpacadora();
 
 public slots:
     void actualizarVentana();
 
+private slots:
+    void on_apagado_clicked();
+
+    void on_encendido_clicked();
+
 private:
     Ui::VentanaEmpacadora *ui;
+    Simulacion* simulacion;
     Empacadora* empacadora;
 };
 

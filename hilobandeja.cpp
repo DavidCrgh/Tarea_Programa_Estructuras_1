@@ -10,11 +10,11 @@ HiloBandeja::HiloBandeja(QObject* parent, Bandeja* pBandeja)
 void HiloBandeja::run(){
     while(!stop){
         while(pause){
-            msleep(100);
+            msleep(500);
         }
         mute.lock();
-        if(bandeja->contenidoActual==bandeja->capacidad & bandeja->capacidad!=0){
-            msleep((bandeja->tiempo)*1000);
+        if(bandeja->contenidoActual==bandeja->capacidad & bandeja->capacidad != 0){
+            msleep((bandeja->tiempo) * 1000);
             bandeja->hornear();
         }
         else{

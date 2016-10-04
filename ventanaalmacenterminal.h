@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "almacenterminal.h"
+#include "simulacion.h"
 
 namespace Ui {
 class VentanaAlmacenTerminal;
@@ -14,7 +14,7 @@ class VentanaAlmacenTerminal : public QWidget
     Q_OBJECT
 
 public:
-    explicit VentanaAlmacenTerminal(QWidget *parent = 0, AlmacenTerminal* pAlmacen = 0);
+    explicit VentanaAlmacenTerminal(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaAlmacenTerminal();
 
 public slots:
@@ -22,6 +22,7 @@ public slots:
 
 private:
     Ui::VentanaAlmacenTerminal *ui;
+    Simulacion* simulacion;
     AlmacenTerminal* almacenTerminal;
 };
 

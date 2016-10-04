@@ -10,6 +10,7 @@ struct Bandeja{
     float contenidoActual;
     float tiempo;
     float cantidadProcesada;
+    bool estaActiva;
     Banda* bandaSalida;
 
     Bandeja(Banda* pBanda){
@@ -17,6 +18,7 @@ struct Bandeja{
         contenidoActual = 0.0;
         tiempo = 0.0;
         cantidadProcesada = 0.0;
+        estaActiva = false;
         bandaSalida = pBanda;
     }
 
@@ -48,9 +50,9 @@ struct Horno{
 
     bool tieneCamposDisponibles(){
         Bandeja* bandejaActual;
-        for(int i = 0; i < bandejasPrendidas; i++){
+        for(int i = 0; i < 6; i++){
             bandejaActual = bandejas[i];
-            if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+            if(bandejaActual->estaActiva && bandejaActual->contenidoActual < bandejaActual->capacidad){
                 return true;
             }
         }
@@ -63,10 +65,10 @@ struct Horno{
             if(tandaGalletas != NULL){
                 float galletas = tandaGalletas->cantidad;
                 Bandeja* bandejaActual;
-                for(int i = 0; i < bandejasPrendidas; i++){
+                for(int i = 0; i < 6; i++){
                     bandejaActual =bandejas[i];
 
-                    if(bandejaActual->contenidoActual < bandejaActual->capacidad){
+                    if(bandejaActual->estaActiva && bandejaActual->contenidoActual < bandejaActual->capacidad){
                         if(bandejaActual->contenidoActual + galletas > bandejaActual->capacidad){
                             float cantidad = bandejaActual->capacidad - bandejaActual->contenidoActual;
                             galletas -= cantidad;
