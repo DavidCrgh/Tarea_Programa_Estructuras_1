@@ -20,6 +20,9 @@ struct CarritoEntrega{
         almacen = pAlmacen;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearCarritoEntrega(){
 
         tiempoViaje = 0.0;

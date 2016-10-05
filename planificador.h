@@ -18,6 +18,9 @@ struct Planificador{
         empacadora = pEmpacadora;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearPlanificador(){
 
         probabilidades = 0;

@@ -28,6 +28,9 @@ struct CarritoSalida{
         monticuloAlmacen = pMonticuloAlmacen;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearCarritoSalida(){
 
         tiempoViaje = 0.0;

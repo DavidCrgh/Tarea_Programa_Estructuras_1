@@ -54,6 +54,9 @@ struct ListaGalletas{
         }
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearListaGalletas(){
 
          primerEmpaque = NULL;

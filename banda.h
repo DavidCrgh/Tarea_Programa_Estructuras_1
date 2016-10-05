@@ -27,6 +27,9 @@ struct Banda{
         tipo=pTipo;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearBanda(){
         limite=0.0;
         frenteBanda=NULL;

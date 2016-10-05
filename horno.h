@@ -22,6 +22,9 @@ struct Bandeja{
         bandaSalida = pBanda;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearBandeja(){
 
         capacidad = 0.0;

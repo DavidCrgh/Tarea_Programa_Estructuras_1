@@ -33,6 +33,9 @@ struct Ensambladora{
         bandaChocolate = pBandaChocolate;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearEnsambladora(){
 
         producidoxTanda = 0.0;

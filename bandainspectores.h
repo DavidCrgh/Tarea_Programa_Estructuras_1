@@ -20,6 +20,9 @@ struct Inspector{
         aprobadas = 0.0;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearInspector(){
 
         probabilidadRechazo = 0.0;

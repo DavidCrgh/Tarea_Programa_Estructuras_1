@@ -40,6 +40,9 @@ struct MezcladoraChocolate{
         carrito->vaciarCarrito();
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearChocolate(){
         tiempo = 0.0;
         cantidadxTanda = 0.0;
@@ -47,7 +50,7 @@ struct MezcladoraChocolate{
         mezclaMaxima = 0.0;
         mezclaActual = 0.0;
         cantidadProcesada = 0.0;
-         esperandoPeticion = false;
+        esperandoPeticion = false;
 
 
     }

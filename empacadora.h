@@ -22,6 +22,9 @@ struct Empacadora{
         estaActiva = false;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearEmpacadora(){
         galletasActuales = 0.0;
         monticulosEmpacadora = listaGalletas->generarMonticulos();

@@ -40,6 +40,9 @@ struct MezcladoraMasa{
         carrito->vaciarCarrito();
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearMasa(){
 
         tiempo = 0.0;

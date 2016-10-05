@@ -39,6 +39,9 @@ struct ListaRangos{
         }
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearListaRangos(){
 
         primerRango = NULL;
