@@ -109,3 +109,16 @@ void VentanaMezcladoras::on_encendido_clicked()
         simulacion->hiloMezcladoraChocolate->pause = false;
     }
 }
+
+void VentanaMezcladoras::resetearVentana(){
+
+    ui->editorMinimo->setText("");
+    ui->editorMaximo->setText("");
+    ui->editorCantidad->setText("");
+    ui->editorTiempo->setText("");
+    ui->procesandoValor->setText("0");
+    ui->procesadoValor->setText("0");
+
+
+
+}

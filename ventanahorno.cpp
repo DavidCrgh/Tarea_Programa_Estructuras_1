@@ -172,3 +172,14 @@ void VentanaHorno::on_checkBandeja6_toggled(bool checked)
         qDebug("Bandeja 6 apagada");
     }
 }
+
+void VentanaHorno::resetearVentana(){
+
+    ui->checkBandeja1->setEnabled(false);
+    ui->checkBandeja2->setEnabled(false);
+    ui->checkBandeja3->setEnabled(false);
+    ui->checkBandeja4->setEnabled(false);
+    ui->checkBandeja5->setEnabled(false);
+    ui->checkBandeja6->setEnabled(false);
+
+}

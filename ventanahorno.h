@@ -18,7 +18,12 @@ public:
     explicit VentanaHorno(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaHorno();
 
+
+
 public slots:
+
+    void resetearVentana();
+
     void actualizarVentana();
 
     void toggleVentana(bool encender);

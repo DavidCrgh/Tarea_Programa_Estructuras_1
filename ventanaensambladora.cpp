@@ -58,3 +58,13 @@ void ventanaEnsambladora::on_encendido_clicked()
 {
     simulacion->hiloEnsambladora->pause = false;
 }
+
+void ventanaEnsambladora::resetearVentana(){
+
+    ui->editorMasa->setText("");
+    ui->editorCantidad->setText("");
+    ui->editorChocolate->setText("");
+    ui->editorTiempo->setText("");
+
+
+}

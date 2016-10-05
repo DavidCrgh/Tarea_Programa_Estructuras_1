@@ -61,3 +61,11 @@ void ventanaInspectores::on_apagado_clicked()
         simulacion->hiloInspector2->pause = true;
     }
 }
+
+void ventanaInspectores::resetearVentana(){
+
+    ui->editorProbabilidad->setText("");
+    ui->desechadasValor->setText("");
+    ui->aprobadasValor->setText("");
+
+}

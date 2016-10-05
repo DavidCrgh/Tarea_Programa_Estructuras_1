@@ -18,6 +18,10 @@ public:
     explicit VentanaMezcladoras(QWidget *parent = 0, MezcladoraChocolate* pMezcladora = 0, Simulacion* pSimulacion = 0);
     ~VentanaMezcladoras();
 
+
+public slots:
+       void resetearVentana();
+
 private slots:
     void on_configurar_clicked();
 

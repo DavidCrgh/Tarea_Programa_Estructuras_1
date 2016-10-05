@@ -16,6 +16,10 @@ public:
     explicit ventanaInspectores(QWidget *parent = 0, Inspector* pInspector = 0, Simulacion* pSimulacion = 0);
     ~ventanaInspectores();
 
+
+public slots:
+    void resetearVentana();
+
 private slots:
     void on_Aceptar_clicked();
 

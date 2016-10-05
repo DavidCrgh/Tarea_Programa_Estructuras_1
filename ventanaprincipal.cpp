@@ -150,4 +150,12 @@ void VentanaPrincipal::on_botonStop_clicked()
     simulacion->resetearSimulacion();
     ui->botonCarritoSalida->setEnabled(false);
     ventanaPlanificador->resetearVentana();
-}
+     ventanaEnsambladoraSimulador->resetearVentana();
+     ventanaHorno->resetearVentana();
+     ventanaInspector1->resetearVentana();
+     ventanaInspector2->resetearVentana();
+    ventanaMezcladora1->resetearVentana();
+    ventanaMezcladora2->resetearVentana();
+    ventanaMezcladoraChocolate->resetearVentana();
+ }
+  }

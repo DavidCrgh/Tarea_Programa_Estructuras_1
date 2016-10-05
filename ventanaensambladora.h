@@ -17,6 +17,11 @@ public:
     explicit ventanaEnsambladora(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~ventanaEnsambladora();
 
+
+public slots:
+
+  void  resetearVentana();
+
 private slots:
     void on_configurar_clicked();
 
@@ -27,6 +32,8 @@ private slots:
     void on_apagado_clicked();
 
     void on_encendido_clicked();
+
+
 
 private:
     Ui::ventanaEnsambladora *ui;
