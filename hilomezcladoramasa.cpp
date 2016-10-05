@@ -23,6 +23,10 @@ void HiloMezcladoraMasa::run(){
         } else {
             msleep(1000);
         }
+        if(mezcladoraMasa->banda->estaLlena()){
+            pause = true;
+            mezcladoraMasa->apagarMezcladora();
+        }
         mute.unlock();
     }
 }

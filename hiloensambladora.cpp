@@ -22,6 +22,9 @@ void HiloEnsambladora::run(){
         } else {
             msleep(100);
         }
+        if(ensambladora->bandaSalida->estaLlena()){
+            pause = true;
+        }
         mute.unlock();
     }
 }

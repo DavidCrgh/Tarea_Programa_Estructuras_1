@@ -23,6 +23,10 @@ void HiloMezcladoraChocolate::run(){
         } else {
             msleep(100);
         }
+        if(mezcladoraChocolate->banda->estaLlena()){
+            pause = true;
+            mezcladoraChocolate->apagarMezcladora();
+        }
         mute.unlock();
 
     }

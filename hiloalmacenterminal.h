@@ -14,6 +14,9 @@ public:
     QMutex mute;
     HiloAlmacenTerminal(QObject* parent = 0, AlmacenTerminal* pAlmacen = 0);
     void run();
+
+signals:
+    void deternerSimulacion();
 };
 
 #endif // HILOALMACENTERMINAL_H

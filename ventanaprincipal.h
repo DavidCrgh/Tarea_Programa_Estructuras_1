@@ -2,7 +2,6 @@
 #define VENTANAPRINCIPAL_H
 
 #include <QMainWindow>
-#include <QMovie>
 
 #include "prototipos.h"
 
@@ -91,7 +90,6 @@ public:
     VentanaBanda* ventanaBandaMasa;
     VentanaBanda* ventanaBandaChocolate;
     VentanaBanda* ventanaBandaCrudas;
-    //VentanaBanda* ventanaBandaCocinadas;
     VentanaBanda* ventanaBandaInspectores;
     ventanaInspectores* ventanaInspector1;
     ventanaInspectores* ventanaInspector2;

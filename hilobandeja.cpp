@@ -22,6 +22,10 @@ void HiloBandeja::run(){
         else{
             msleep(100);
         }
+        if(bandeja->bandaSalida->estaLlena()){
+            pause = true;
+            bandeja->estaActiva = false;
+        }
         mute.unlock();
     }
 }

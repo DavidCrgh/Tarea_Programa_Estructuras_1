@@ -14,6 +14,9 @@ void HiloAlmacenTerminal::run(){
             seguro = true;
             msleep(100);
         }
+        if(almacen->almacenLleno()){
+            emit deternerSimulacion();
+        }
         almacen->actualizarTotales();
         almacen->actualizarEstaLleno();
     }

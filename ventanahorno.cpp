@@ -21,6 +21,12 @@ VentanaHorno::~VentanaHorno()
 void VentanaHorno::actualizarVentana(){
     ui->encendido->setChecked(!(simulacion->hiloHorno->pause));
     ui->apagado->setChecked(simulacion->hiloHorno->pause);
+    ui->checkBandeja1->setChecked(!(simulacion->hilosBandeja[0]->pause));
+    ui->checkBandeja2->setChecked(!(simulacion->hilosBandeja[1]->pause));
+    ui->checkBandeja3->setChecked(!(simulacion->hilosBandeja[2]->pause));
+    ui->checkBandeja4->setChecked(!(simulacion->hilosBandeja[3]->pause));
+    ui->checkBandeja5->setChecked(!(simulacion->hilosBandeja[4]->pause));
+    ui->checkBandeja6->setChecked(!(simulacion->hilosBandeja[5]->pause));
 }
 
 void VentanaHorno::toggleVentana(bool encender){

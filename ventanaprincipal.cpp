@@ -30,6 +30,8 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent, Simulacion* pSimulacion) :
     connect(ventanaPlanificador, SIGNAL(inicializarCarritos()), this, SLOT(crearCarritos()));
     ventanaCarritosSalida = NULL;
     ventanaAlmacenTerminal = new VentanaAlmacenTerminal(NULL, simulacion);
+
+    connect(simulacion->hiloAlmacenTerminal, SIGNAL(deternerSimulacion()), this, SLOT(on_botonPausa_clicked()));
 }
 
 VentanaPrincipal::~VentanaPrincipal()
