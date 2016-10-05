@@ -22,7 +22,7 @@ struct Banda{
     NodoContenido* frenteBanda;
 
     Banda(QString pTipo){
-        limite = 0;//10000.0;
+        limite = 0;
         frenteBanda = NULL;
         tipo=pTipo;
     }

@@ -88,14 +88,10 @@ void VentanaHorno::on_checkBandeja1_toggled(bool checked)
     if(checked){
         horno->bandejas[0]->estaActiva = true;
         simulacion->hilosBandeja[0]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 1 prendida");
     }
    else{
         horno->bandejas[0]->estaActiva = false;
         simulacion->hilosBandeja[0]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 1 apagada");
     }
 }
 
@@ -104,14 +100,10 @@ void VentanaHorno::on_checkBandeja2_toggled(bool checked)
     if(checked){
         horno->bandejas[1]->estaActiva = true;
         simulacion->hilosBandeja[1]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 2 prendida");
     }
    else{
         horno->bandejas[1]->estaActiva = false;
         simulacion->hilosBandeja[1]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 2 apagada");
     }
 }
 
@@ -120,14 +112,10 @@ void VentanaHorno::on_checkBandeja3_toggled(bool checked)
     if(checked){
         horno->bandejas[2]->estaActiva = true;
         simulacion->hilosBandeja[2]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 3 prendida");
     }
    else{
         horno->bandejas[2]->estaActiva = false;
         simulacion->hilosBandeja[2]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 3 apagada");
     }
 }
 
@@ -136,14 +124,10 @@ void VentanaHorno::on_checkBandeja4_toggled(bool checked)
     if(checked){
         horno->bandejas[3]->estaActiva = true;
         simulacion->hilosBandeja[3]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 4 prendida");
     }
    else{
         horno->bandejas[3]->estaActiva = false;
         simulacion->hilosBandeja[3]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 4 apagada");
     }
 }
 
@@ -152,14 +136,10 @@ void VentanaHorno::on_checkBandeja5_toggled(bool checked)
     if(checked){
         horno->bandejas[4]->estaActiva = true;
         simulacion->hilosBandeja[4]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 5 prendida");
     }
    else{
         horno->bandejas[4]->estaActiva = false;
         simulacion->hilosBandeja[4]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 5 apagada");
     }
 }
 
@@ -168,24 +148,18 @@ void VentanaHorno::on_checkBandeja6_toggled(bool checked)
     if(checked){
         horno->bandejas[5]->estaActiva = true;
         simulacion->hilosBandeja[5]->pause = false;
-        //horno->bandejasPrendidas+=1;
-        qDebug("Bandeja 6 prendida");
     }
    else{
         horno->bandejas[5]->estaActiva = false;
         simulacion->hilosBandeja[5]->pause = true;
-        //horno->bandejasPrendidas-=1;
-        qDebug("Bandeja 6 apagada");
     }
 }
 
 void VentanaHorno::resetearVentana(){
-
     ui->checkBandeja1->setEnabled(false);
     ui->checkBandeja2->setEnabled(false);
     ui->checkBandeja3->setEnabled(false);
     ui->checkBandeja4->setEnabled(false);
     ui->checkBandeja5->setEnabled(false);
     ui->checkBandeja6->setEnabled(false);
-
 }

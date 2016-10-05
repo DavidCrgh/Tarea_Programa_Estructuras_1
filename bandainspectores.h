@@ -24,11 +24,9 @@ struct Inspector{
      * Reestablece los parametros por defecto de la estructura.
      */
     void resetearInspector(){
-
         probabilidadRechazo = 0.0;
         desechadas = 0.0;
         aprobadas = 0.0;
-
     }
 
     /*
