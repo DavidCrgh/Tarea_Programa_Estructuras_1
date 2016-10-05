@@ -24,6 +24,7 @@ struct Empacadora{
 
     void resetearEmpacadora(){
         galletasActuales = 0.0;
+        monticulosEmpacadora = listaGalletas->generarMonticulos();
         estaEmpacando = false;
         estaActiva = false;
     }

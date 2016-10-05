@@ -20,6 +20,8 @@ public:
 public slots:
     void actualizarVentana();
 
+    void resetearVentana();
+
 private:
     Ui::VentanaAlmacenTerminal *ui;
     Simulacion* simulacion;

@@ -65,6 +65,5 @@ void ventanaEnsambladora::resetearVentana(){
     ui->editorCantidad->setText("");
     ui->editorChocolate->setText("");
     ui->editorTiempo->setText("");
-
-
+    ui->totalGalletasValor->setText("");
 }

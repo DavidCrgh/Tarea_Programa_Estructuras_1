@@ -15,6 +15,11 @@ VentanaCarritoEntrega::~VentanaCarritoEntrega()
     delete ui;
 }
 
+void VentanaCarritoEntrega::resetearVentana(){
+    ui->editorCapacidad->setText("");
+    ui->editorTiempo->setText("");
+}
+
 void VentanaCarritoEntrega::on_configurar_clicked()
 {
     ui->editorCapacidad->setEnabled(true);

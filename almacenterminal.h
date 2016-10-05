@@ -13,6 +13,10 @@ struct AlmacenTerminal{
         depositos = listaGalletas->generarMonticulos();
     }
 
+    void resetearAlmacen(){
+        depositos = listaGalletas->generarMonticulos();
+    }
+
     void actualizarTotales(){
         NodoMonticulo* monticuloActual = depositos->primerNodo;
 

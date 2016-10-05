@@ -17,12 +17,14 @@ public:
     explicit VentanaBandeja(QWidget *parent = 0, Bandeja* pBandeja = 0);
     ~VentanaBandeja();
 
-private slots:
+public slots:
     void on_configurar_clicked();
 
     void on_aceptar_clicked();
 
     void actualizarVentana();
+
+    void resetearVentana();
 
 private:
     Ui::VentanaBandeja *ui;

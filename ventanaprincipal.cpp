@@ -149,13 +149,22 @@ void VentanaPrincipal::on_botonStop_clicked()
 {
     simulacion->resetearSimulacion();
     ui->botonCarritoSalida->setEnabled(false);
+    ventanaCarrito->resetearVentana();
     ventanaPlanificador->resetearVentana();
-     ventanaEnsambladoraSimulador->resetearVentana();
-     ventanaHorno->resetearVentana();
-     ventanaInspector1->resetearVentana();
-     ventanaInspector2->resetearVentana();
+    ventanaEnsambladoraSimulador->resetearVentana();
+    ventanaHorno->resetearVentana();
+    ventanaInspector1->resetearVentana();
+    ventanaInspector2->resetearVentana();
     ventanaMezcladora1->resetearVentana();
     ventanaMezcladora2->resetearVentana();
     ventanaMezcladoraChocolate->resetearVentana();
- }
-  }
+    ventanaBandaMasa->resetearVentana();
+    ventanaBandaChocolate->resetearVentana();
+    ventanaBandaCrudas->resetearVentana();
+    ventanaBandaInspectores->resetearVentana();
+    for(int i = 0; i < 6; i ++){
+        ventanaHorno->ventanasBandeja[i]->resetearVentana();
+    }
+    ventanaEmpacadora->resetearVentana();
+    ventanaAlmacenTerminal->resetearVentana();
+}

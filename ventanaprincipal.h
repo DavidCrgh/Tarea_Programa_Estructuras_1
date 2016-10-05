@@ -91,7 +91,7 @@ public:
     VentanaBanda* ventanaBandaMasa;
     VentanaBanda* ventanaBandaChocolate;
     VentanaBanda* ventanaBandaCrudas;
-    VentanaBanda* ventanaBandaCocinadas;
+    //VentanaBanda* ventanaBandaCocinadas;
     VentanaBanda* ventanaBandaInspectores;
     ventanaInspectores* ventanaInspector1;
     ventanaInspectores* ventanaInspector2;

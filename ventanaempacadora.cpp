@@ -15,6 +15,10 @@ VentanaEmpacadora::~VentanaEmpacadora()
     delete ui;
 }
 
+void VentanaEmpacadora::resetearVentana(){
+    ui->cuadroMonticulos->setText("");
+}
+
 void VentanaEmpacadora::actualizarVentana(){
     ui->cuadroMonticulos->setText(empacadora->monticulosEmpacadora->imprimirMonticulos());
     ui->procesandoValor->setText(QString::number(empacadora->galletasActuales));

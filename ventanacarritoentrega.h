@@ -17,7 +17,7 @@ public:
     explicit VentanaCarritoEntrega(QWidget *parent = 0, Simulacion* pSimulacion = 0);
     ~VentanaCarritoEntrega();
 
-private slots:
+public slots:
     void on_configurar_clicked();
 
     void on_aceptar_clicked();
@@ -27,6 +27,8 @@ private slots:
     void on_apagado_clicked();
 
     void on_encendido_clicked();
+
+    void resetearVentana();
 
 private:
     Ui::VentanaCarritoEntrega *ui;

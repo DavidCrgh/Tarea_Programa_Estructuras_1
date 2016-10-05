@@ -99,10 +99,11 @@ void Simulacion::resetearSimulacion(){
     for(int j = 0; j < 6; j++){
         bandejas[j]->resetearBandeja();
     }
-    empacadora->resetearEmpacadora();
     inspector1->resetearInspector();
     inspector2->resetearInspector();
     listaGalletas->resetearListaGalletas();
+    empacadora->resetearEmpacadora();
+    almacenTerminal->resetearAlmacen();
 }
 
 void Simulacion::pausarHilos(){

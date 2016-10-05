@@ -14,6 +14,11 @@ VentanaBandeja::~VentanaBandeja()
     delete ui;
 }
 
+void VentanaBandeja::resetearVentana(){
+    ui->editorTiempo->setText("");
+    ui->editorCapacidad->setText("");
+}
+
 void VentanaBandeja::on_configurar_clicked()
 {
     ui->configurar->setEnabled(false);

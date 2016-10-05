@@ -20,6 +20,8 @@ public:
 public slots:
     void actualizarVentana();
 
+    void resetearVentana();
+
 private slots:
     void on_apagado_clicked();
 

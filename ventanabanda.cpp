@@ -14,6 +14,10 @@ VentanaBanda::~VentanaBanda()
     delete ui;
 }
 
+void VentanaBanda::resetearVentana(){
+    ui->editorMaximo->setText("");
+}
+
 void VentanaBanda::on_configurar_clicked()
 {
     ui->editorMaximo->setEnabled(true);
