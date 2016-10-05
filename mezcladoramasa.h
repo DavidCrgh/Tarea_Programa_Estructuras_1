@@ -34,6 +34,10 @@ struct MezcladoraMasa{
         carrito=pCarrito;
     }
 
+    /*
+     *Apaga la mezcladora de masa y vacia el carrito
+     */
+
     void apagarMezcladora(){
         esperandoPeticion = false;
         almacen->eliminarPeticiones(nombreMaquina);
@@ -55,6 +59,10 @@ struct MezcladoraMasa{
 
     }
 
+    /*
+     *La mezcladora verifica que el carrito no se encuentre entregando, y que la peticion a entregar corresponda con la peticion solicitada por la máquina
+     */
+
     void revisarCarrito(){
         if((carrito->entrega != NULL) && (carrito->estaEntregando) &&(carrito->entrega->maquinaOrigen == nombreMaquina)){
             masaActual += carrito->entrega->cantidad;
@@ -63,6 +71,10 @@ struct MezcladoraMasa{
             esperandoPeticion = false;
         }
     }
+
+    /*
+     * Realiza una peticion al almacen solicitando la cantidad necesaria para poder alcanzar el maximo establecido
+     */
 
     void realizarPeticion(){
         if(!esperandoPeticion && masaActual <= masaMinima){
@@ -76,6 +88,10 @@ struct MezcladoraMasa{
         }
     }
 
+    /*
+     *La mezcladora de masa verifica que la cantidad actual sea mayor que la pedida por tanda, la disminuye de la mezcladora y la encola en la banda hacia la ensambladora
+     */
+
     void procesarMasa(){
         masaActual -= cantidadxTanda;
         if(!(banda->estaLlena())){
@@ -88,6 +104,10 @@ struct MezcladoraMasa{
             }
         }
     }
+
+    /*
+     * Retorna una lista con la informacion de la cantidad de masa trabajada por la mezcladora
+     */
 
     QStringList imprimirMezcladora(){
         QStringList mensaje;

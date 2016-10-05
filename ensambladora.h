@@ -48,23 +48,36 @@ struct Ensambladora{
 
     }
 
+    /*
+     * Desencola de la banda de la mezcla de masa e incrementa la cantidad de masa en la piscina
+     */
     void recibirMasa(){
         if(bandaMasa->frenteBanda != NULL){
             actualMasa += (bandaMasa->desencolarBanda())->cantidad;
         }
     }
 
+    /*
+     * Desencola de la banda de la mezcla de masa e incrementa la cantidad de masa en la piscina
+     */
     void recibirChocolate(){
         if(bandaChocolate->frenteBanda != NULL){
             actualChocolate += (bandaChocolate->desencolarBanda())->cantidad;
         }
     }
 
+    /*
+     * Pone a trabajar la ensambladora
+     */
+
     void alimentarEnsambladora(){
         recibirMasa();
         recibirChocolate();
     }
 
+    /*
+     * Revisa en la receta de la ensambladora si las cantidades son las optimas para crear la tanda de galletas especificadas
+     */
     void ensamblarGalletas(){
         actualMasa -= masaRequerida;
         actualChocolate -= chocolateRequerido;

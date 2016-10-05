@@ -30,6 +30,12 @@ struct Inspector{
         aprobadas = 0.0;
 
     }
+
+    /*
+     *
+     * El inspector desencola una tanda de galletas encolada previamente en la banda de galletas cocinadas, para poder determinar cuales galletas se van a desechar o aprobar
+     *
+     */
     void inspeccionar(){
         if(!(empacadora->estaEmpacando) & (empacadora->estaActiva)){
 
@@ -49,6 +55,9 @@ struct Inspector{
         }
     }
 
+    /*
+     * Retorna un true en caso de que el numero random coincida con la probabilidad de desecho del inspector
+     */
     bool seDesecha(){
         int random = rand()% 101;
         return random <= probabilidadRechazo;

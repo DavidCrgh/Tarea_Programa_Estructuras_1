@@ -40,6 +40,10 @@ struct CarritoSalida{
 
     }
 
+    /*
+     * Carga el carrito con el correspondiente paquete de galletas y reduce la cantidad generada en los monticulos de la empacadora
+     */
+
     void cargarCarrito(){
         if(monticuloEmpacadora->cantidadPaquetes + cantidadTransportada > capacidadMaxima){
             cantidadTransportada += capacidadMaxima - cantidadTransportada;
@@ -49,6 +53,10 @@ struct CarritoSalida{
             monticuloEmpacadora->cantidadPaquetes = 0;
         }
     }
+
+    /*
+     * Permite al carrito descargar su capacidad en el correspondiente monticulo del almacen terminal
+     */
 
     void realizarEntrega(){
         if(!monticuloEmpacadora->estaLleno){

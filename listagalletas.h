@@ -37,6 +37,18 @@ struct ListaGalletas{
         primerEmpaque = NULL;
     }
 
+    /*
+     * Entradas:
+     * Tipo: Tipo de empaque
+     * Galletas por Empaque: Cantidad que irá en cada empaque
+     * Cantidad Producidas por Tiempo: Cantidad de empaques generados por el tiempo especificado del usuario
+     * Tiempo de Produccion: Cuanto durara en empacarse dicho tipo
+     * Probabilidad: Probabildiad de que el empaque sea empacado
+     * Cantidad Requerida: Cuantosse requieren para alcanzar el objetivo
+     *
+     *Inserta en la lista de galletas, un empaque de galleta con la informacion correspondiente
+     */
+
     void insertarTipoGalleta(QString pTipo, int pGalletasxEmpaque, int pCantidadxTiempo,
                              float pTiempoProduccion, float pProbabilidad, int pCantidadRequerida){
         NodoEmpaque* empaqueGalleta = new NodoEmpaque(pTipo, pGalletasxEmpaque, pCantidadxTiempo,
@@ -74,7 +86,9 @@ struct ListaGalletas{
         }
     }
 
-
+    /*
+     * Crea un arreglo con los nombres de cada paquete de galletas
+     */
     void crearArregloNombres(QString tipoEmpaques[]){
          NodoEmpaque* nodoActual=primerEmpaque;
          int largoGalletas= largoListaGalletas();
@@ -105,7 +119,12 @@ struct ListaGalletas{
         }
     }
 
-
+    /*
+     *Entradas:
+     *Tipo: Nombre del empaque
+     *Salidas: El empaque buscado
+     *  Busca en la lista de galletas, el empaque con el nombre correspondiente y lo retorna
+     */
     NodoEmpaque* buscarEmpaque(QString pTipo){
         if(primerEmpaque == NULL){
             return NULL;
@@ -141,6 +160,10 @@ struct ListaGalletas{
         }
     }
 
+    /*
+     *Retorna la suma de los valores de probabilidades establecidos en cada uno de los paquetes de galletas
+     */
+
     float contarProbabilidades(){
         if(primerEmpaque == NULL){
             return 0;
@@ -172,6 +195,10 @@ struct ListaGalletas{
             return sumatoria;
         }
     }
+
+    /*
+     * Se utiliza la lista de galletas generada por el planificador para poder determinar la cantidad de monticulos que se generará en la empacadora y en el almacén terminal
+     */
 
     MonticulosEmpaques* generarMonticulos(){
         if(primerEmpaque == NULL){
@@ -213,6 +240,10 @@ struct ListaGalletas{
             return listaRangos;
         }
     }
+
+    /*
+     * Retorna un String con toda la informacion correspondiente a la lsita de galletas
+     */
 
     QString imprimirLista(){
         if(primerEmpaque == NULL){

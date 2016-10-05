@@ -34,6 +34,10 @@ struct MezcladoraChocolate{
         carrito=pCarrito;
     }
 
+    /*
+     *Apaga la mezcladora de chocolate y vacia el carrito
+     */
+
     void apagarMezcladora(){
         esperandoPeticion = false;
         almacen->eliminarPeticiones(nombreMaquina);
@@ -55,6 +59,10 @@ struct MezcladoraChocolate{
 
     }
 
+    /*
+     *La mezcladora verifica que el carrito no se encuentre entregando, y que la peticion a entregar corresponda con la peticion solicitada por la máquina
+     */
+
     void revisarCarrito(){
         if((carrito->entrega != NULL) && (carrito->estaEntregando) && (carrito->entrega->maquinaOrigen == nombreMaquina)){
             mezclaActual += carrito->entrega->cantidad;
@@ -63,6 +71,10 @@ struct MezcladoraChocolate{
             esperandoPeticion = false;
         }
     }
+
+    /*
+     * Realiza una peticion al almacen solicitando la cantidad necesaria para poder alcanzar el maximo establecido
+     */
 
     void realizarPeticion(){
         if(!esperandoPeticion && mezclaActual <= mezclaMinima){
@@ -75,6 +87,9 @@ struct MezcladoraChocolate{
         }
     }
 
+/*
+ *La mezcladora de chocolate verifica que la cantidad actual sea mayor que la pedida por tanda, la disminuye de la mezcladora y la encola en la banda hacia la ensambladora
+ */
     void procesarChocolate(){
         mezclaActual -= cantidadxTanda;
         if(!(banda->estaLlena())){
@@ -88,6 +103,9 @@ struct MezcladoraChocolate{
         }
     }
 
+    /*
+     * Retorna una lista con la informacion de la cantidad de chocolate trabajada por la mezcladora
+     */
     QStringList imprimirMezcladora(){
         QStringList mensaje;
 
