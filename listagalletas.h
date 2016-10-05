@@ -75,6 +75,13 @@ struct ListaGalletas{
 
     }
 
+    /*
+     * Entradas:
+     * Arreglo de las probabilidades de todos los nodos empaque de la lista.
+     *
+     * Itera sobre la lista de galletas y agrega sus probabilidades de empaque
+     * a un arreglo que despues es retornado.
+     */
     void crearArregloProbabilidades(float probabilidades[]){
         NodoEmpaque* nodoActual = primerEmpaque;
         int largoGalletas= largoListaGalletas();
@@ -102,6 +109,18 @@ struct ListaGalletas{
     }
 
 
+    /*
+     *
+     * Entradas:
+     * Arreglo de probabilidades generado por crearArregloProbabilidades
+     * Arreglo de tipos de empaque generado por crearArregloNombres
+     * Largo de los arreglos, es correspondiente al largo de la lista de
+     * galletas.
+     *
+     * Utiliza el algoritmo de insertion sort para ordenar el arreglo de probabilidades
+     * de menor a mayor y paralelamente ordena el arreglo de tipos para que sus posiciones
+     * correspondan.
+     */
     void insertion_sort(float arregloProbabilidades[],QString arregloTipoEmpaques[], int largoArreglo) {
         int i, j ,temporal1;
         QString temporal2;
@@ -144,6 +163,13 @@ struct ListaGalletas{
         }
     }
 
+    /*
+     * Salidas:
+     * Largo de la lista de galletas
+     *
+     * Itera sobre la lista de galletas y en cada iteracion suma 1
+     * a un contador que es retornado al final.
+     */
     int largoListaGalletas(){
         if(primerEmpaque == NULL){
             return 0;
@@ -180,6 +206,14 @@ struct ListaGalletas{
         }
     }
 
+    /*
+     * Salidas:
+     * Total de cantidades de galletas requeridas por la simulacion
+     *
+     * Itera sobre la lista de galletas y suma el producto de la cantidad
+     * requerida de empaques de cada nodo por las galletas de cada empaque.
+     * Al final retorna la sumatoria.
+     */
     int contarTotalRequerido(){
         if(primerEmpaque == NULL){
             return 0;
@@ -217,6 +251,18 @@ struct ListaGalletas{
         }
     }
 
+    /*
+     * Salidas:
+     * Lista simple con los rangos entre 0 y 99 de las probabilidades de
+     * los empaques de la lista.
+     *
+     * Bota las probabilidades y los tipos en dos arreglos, los ordena con un insertion
+     * sort, y despues itera sobre estos arreglos para crear los rangos de probabilidad
+     * de cada emopaque.
+     * El minimo del primer rango siempre es  y el maximo es el primer elemento del arreglo
+     * menos 1, a partir de este, el minimo es igual al maximo del rango anterior y el
+     * maximo es igual al elemento actual del arreglo mas el minimo menos 1.
+     */
     ListaRangos* construirRangos(){
         if(primerEmpaque == NULL){
             return new ListaRangos();

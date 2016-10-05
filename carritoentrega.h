@@ -32,21 +32,39 @@ struct CarritoEntrega{
 
     }
 
+    /*
+     * Toma la direccion de memoria del primer nodo peticion del almacen
+     * y se lo setea a la variable entrega.
+     */
     void cargarCarrito(){
         if((entrega == NULL) & !estaEntregando){
             entrega = almacen->peek();
         }
     }
 
+    /*
+     * Pone la bandera de estaEntregando en true. Esto hace que la mezcladora correspondiente,
+     * sepa que ya puede llamar a vaciarCarrito().
+     */
     void realizarEntrega(){
         estaEntregando = true;
     }
 
+    /*
+     * Pone la entrega en NULL y pone la bandera estaEntregando en false. Esto hace que el carrito
+     * este listo para cargar una nueva peticion.
+     */
     void vaciarCarrito(){
         entrega = NULL;
         estaEntregando = false;
     }
 
+    /*
+     * Salidas:
+     * Lista de QStrings con la informacion actual del carrito.
+     *
+     * Utilizada para actualizar la interfaz con la informacion del carrito.
+     */
     QStringList imprimirCarrito(){
         QStringList mensaje;
 

@@ -35,6 +35,9 @@ struct Bandeja{
 
     }
 
+    /*
+     * Suma la cantidad que tiene cargada la bandeja actualmente a la banda de salida.
+     */
     void hornear(){
         float contenidoActualBanda= bandaSalida->contenidoActual();
         if(contenidoActual + contenidoActualBanda > bandaSalida->limite){
@@ -61,12 +64,23 @@ struct Horno{
         bandejasPrendidas = 0.0;
     }
 
+    /*
+     * Reestablece los parametros por defecto de la estructura.
+     */
     void resetearHorno(){
 
         bandejasPrendidas = 0.0;
 
     }
 
+    /*
+     * Salidas:
+     * True si alguna de las seis bandejas ACTIVAS tienen campo disponible,
+     * falso de lo contrario.
+     *
+     * Itera sobre el arreglo de bandejas para revisar si alguna se ellas
+     * estan activas y tienen campo.
+     */
     bool tieneCamposDisponibles(){
         Bandeja* bandejaActual;
         for(int i = 0; i < 6; i++){
@@ -78,6 +92,11 @@ struct Horno{
         return false;
     }
 
+    /*
+     * Revisa si el horno tiene campos disponibles y desencola un nodo de la banda de
+     * entrada. Despues itera sobre las bandejas para meter galletas hasta que la can-
+     * tidad que se habia desencolado llega a 0.
+     */
     void alimentarHorno(){
         if(tieneCamposDisponibles()){
             NodoContenido* tandaGalletas = bandaEntrada->desencolarBanda();

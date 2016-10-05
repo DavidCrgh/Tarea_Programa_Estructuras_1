@@ -36,6 +36,13 @@ struct Banda{
 
     }
 
+    /*
+     * Entradas:
+     * Cantidad que se desea encolar.
+     * Tipo de lo que se va a encolar.
+     *
+     * Encola un nodo en la banda (cola) correspondiente.
+     */
     void encolarBanda(float pCantidad, QString pTipo){
         NodoContenido* nodoNuevo = new NodoContenido(pCantidad, pTipo);
 
@@ -52,6 +59,12 @@ struct Banda{
         }
     }
 
+    /*
+     * Salidas:
+     * Nodo que se ha borrado (desencolado)
+     *
+     * Desencola un nodo de la banda (cola) y retorna su direccion de memoria.
+     */
     NodoContenido* desencolarBanda(){
         if(frenteBanda == NULL){
             return NULL;
@@ -67,6 +80,13 @@ struct Banda{
         return contenidoActual() >= limite;
     }
 
+    /*
+     * Salidas:
+     * Suma de todas las cantidades de todos los nodos de la cola.
+     *
+     * Itera sobre la banda y suma sus variables cantidad a una variable de
+     * sumatoria que despues es retornadas.
+     */
     float contenidoActual(){
         NodoContenido* nodoActual = frenteBanda;
         float sumatoria = 0.0;

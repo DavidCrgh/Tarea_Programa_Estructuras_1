@@ -32,6 +32,13 @@ struct Empacadora{
         estaActiva = false;
     }
 
+    /*
+     * Salidas:
+     * NodoEmpaque con el paquete que se selecciono alaeatoriamente
+     *
+     * Genera un numero aleatorio y emplea la estructura que contiene los rangos,
+     * listaRangos, para determinar cual paquete se ha seleccionado.
+     */
     NodoEmpaque* elegirPaquete(){
        int random= rand()%100;
        NodoRango* nodoActual = listaRangos->primerRango;
@@ -44,6 +51,13 @@ struct Empacadora{
        }
     }
 
+    /*
+     * Entradas:
+     * Nodo empaque que la empacadora va a utlizar.
+     *
+     * Utiliza las variables del nodo empaque para determinar en cual monticulo,
+     * se van a depositar los empaques creados.
+     */
     void empacarGalletas(NodoEmpaque* empaque){
         galletasActuales -= (empaque->galletasxEmpaque * empaque->cantidadxTiempo);
         NodoMonticulo* monticulo = monticulosEmpacadora->buscarMonticulo(empaque->tipoEmpaque);

@@ -27,6 +27,12 @@ struct MonticulosEmpaques{
         primerNodo = NULL;
     }
 
+    /*
+     * Entradas:
+     * Tipo de paquete que esta asociado al monticulo
+     *
+     * Inserta un monticulo a la lista.
+     */
     void insertarMonticulo(QString pTipo){
         if(primerNodo == NULL){
             primerNodo = new NodoMonticulo(pTipo);
@@ -38,6 +44,16 @@ struct MonticulosEmpaques{
     }
 
 
+    /*
+     * Entradas:
+     * Tipo/Nombre del empaque cuyo monticulo se desea buscar.
+     * Salidas:
+     * Monticulo encontrado
+     *
+     * Itera sobre la lista y pregunta si el nombre encontrado es igual
+     * al monticulo actual. Si se cumple la condicion se retorna el nodo
+     * actual.
+     */
     NodoMonticulo* buscarMonticulo(QString pNombre){
         if(primerNodo == NULL){
             return NULL;
@@ -54,6 +70,13 @@ struct MonticulosEmpaques{
         }
     }
 
+    /*
+     * Salidas:
+     * QString con la informacion de todos los monticulos.
+     *
+     * Itera sobre la lista de monticulos y agrega sus datos a un QString
+     * que despues es retornado.
+     */
     QString imprimirMonticulos(){
         if(primerNodo == NULL){
             return "";

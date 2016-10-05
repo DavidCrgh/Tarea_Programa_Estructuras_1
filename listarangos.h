@@ -29,6 +29,14 @@ struct ListaRangos{
         primerRango = NULL;
     }
 
+    /*
+     * Entradas:
+     * Valor minimo del rango (inclusivo)
+     * Valor maximo del rango (inclusivo)
+     * Nombre del empaque al cual pertenece el rango de probabilidad
+     *
+     * Agrega un rango a la lista.
+     */
     void insertarRango(float minimo,float maximo,QString nombre){
         if(primerRango == NULL){
             primerRango = new NodoRango(minimo,maximo,nombre);
@@ -43,11 +51,16 @@ struct ListaRangos{
      * Reestablece los parametros por defecto de la estructura.
      */
     void resetearListaRangos(){
-
         primerRango = NULL;
-
     }
 
+    /*
+     * Salidas:
+     * QString con la informacion de todos los nodos de la lista
+     *
+     * Itera sobre la lista de rangos y agrega sus datos a un QString que despues
+     * es retornado.
+     */
     QString imprimirRangos(){
         if(primerRango == NULL){
             return "Vacio";

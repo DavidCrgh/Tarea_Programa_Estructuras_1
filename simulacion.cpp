@@ -55,6 +55,10 @@ Simulacion::Simulacion(){
     hiloAlmacenTerminal->start();
 }
 
+/*
+ * Pone las banderas de pausa de todos los hilos en falso para iniciar o
+ * reanudar la simulacion.
+ */
 void Simulacion::iniciarHilos(){
     hiloCarritoEntrega->pause = false;
     for(int i = 0; i < 2; i++){
@@ -78,6 +82,38 @@ void Simulacion::iniciarHilos(){
     hiloAlmacenTerminal->pause = false;
 }
 
+/*
+ * Pone las banderas de pausa de todos los hilos en verdadero para detener
+ * temporalmente la simulacion.
+ */
+void Simulacion::pausarHilos(){
+    hiloCarritoEntrega->pause = true;
+    for(int i = 0; i < 2; i++){
+        hilosMezcladorasMasa[i]->pause = true;
+    }
+    hiloMezcladoraChocolate->pause = true;
+    hiloEnsambladora->pause = true;
+    hiloHorno->pause = true;
+    for(int i = 0; i < 6; i++){
+        hilosBandeja[i]->pause = true;
+    }
+    hiloInspector1->pause = true;
+    hiloInspector2->pause = true;
+    empacadora->estaActiva = false;
+    hiloEmpacadora->pause = true;
+    if(hilosCarritoSalida != NULL){
+        for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
+            hilosCarritoSalida[i]->pause = true;
+        }
+    }
+    hiloAlmacenTerminal->pause = true;
+}
+
+/*
+ * Pone en pausa todos los hilos, espera a que se sus banderas de seguro se
+ * activen y despues llama a las funciones resetearEstructura() de todas las
+ * maquinas.
+ */
 void Simulacion::resetearSimulacion(){
     pausarHilos();
     while(!hilosSeguros()){
@@ -106,29 +142,12 @@ void Simulacion::resetearSimulacion(){
     almacenTerminal->resetearAlmacen();
 }
 
-void Simulacion::pausarHilos(){
-    hiloCarritoEntrega->pause = true;
-    for(int i = 0; i < 2; i++){
-        hilosMezcladorasMasa[i]->pause = true;
-    }
-    hiloMezcladoraChocolate->pause = true;
-    hiloEnsambladora->pause = true;
-    hiloHorno->pause = true;
-    for(int i = 0; i < 6; i++){
-        hilosBandeja[i]->pause = true;
-    }
-    hiloInspector1->pause = true;
-    hiloInspector2->pause = true;
-    empacadora->estaActiva = false;
-    hiloEmpacadora->pause = true;
-    if(hilosCarritoSalida != NULL){
-        for(int i = 0; i < listaGalletas->largoListaGalletas(); i++){
-            hilosCarritoSalida[i]->pause = true;
-        }
-    }
-    hiloAlmacenTerminal->pause = true;
-}
-
+/*
+ * Crea las estructuras de todos los carritos de salida, crea un hilo para cada carrito
+ * e inicisliza todos los hilos.
+ * Esta funcion se llama despues de se establecen los tipos de empaques de galletas ya
+ * que los carritos son dependientes de estos.
+ */
 void Simulacion::crearHilosCarritoSalida(){
     carritosSalida = new CarritoSalida*[listaGalletas->largoListaGalletas()];
     hilosCarritoSalida = new HiloCarritoSalida*[listaGalletas->largoListaGalletas()];
@@ -146,6 +165,16 @@ void Simulacion::crearHilosCarritoSalida(){
     }
 }
 
+/*
+ * Salidas:
+ * Verdadero si todas las banderas de seguro de los hilos estan en verdadero,
+ * falso de lo contrario.
+ *
+ * Revisa que todas las bandera de seguro esten puestas, estas banderas se ac-
+ * tivan cuando el hilo entra en el ciclo de pausa.
+ * De esta manera se asegura que las estructuras de los hilos no se reseteen
+ * si los hilos no estan pausados.
+ */
 bool Simulacion::hilosSeguros(){
     bool seguroBandejas = true;
     for(int i = 0; i < 6; i++){
