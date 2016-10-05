@@ -18,6 +18,14 @@ VentanaPlanificador::~VentanaPlanificador()
     delete ui;
 }
 
+void VentanaPlanificador::resetearVentana(){
+    ui->agregar->setEnabled(true);
+    ui->barraProbabilidades->setValue(0);
+    ui->aceptar->setEnabled(false);
+    ui->cuadroLista->setText("");
+    ui->valorTotal->setText("0");
+}
+
 void VentanaPlanificador::on_agregar_clicked()
 {
     ventanaPaquete = new VentanaPaquete(NULL, listaGalletas);

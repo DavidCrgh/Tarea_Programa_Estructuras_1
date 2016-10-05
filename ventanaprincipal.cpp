@@ -148,4 +148,6 @@ void VentanaPrincipal::on_botonAlmacenTerminal_clicked()
 void VentanaPrincipal::on_botonStop_clicked()
 {
     simulacion->resetearSimulacion();
+    ui->botonCarritoSalida->setEnabled(false);
+    ventanaPlanificador->resetearVentana();
 }

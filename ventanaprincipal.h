@@ -2,6 +2,7 @@
 #define VENTANAPRINCIPAL_H
 
 #include <QMainWindow>
+#include <QMovie>
 
 #include "prototipos.h"
 

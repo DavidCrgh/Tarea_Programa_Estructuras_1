@@ -26,9 +26,12 @@ signals:
 
 public slots:
     void on_agregar_clicked();
+
     void actualizarVentana();
 
     void on_cancelar_clicked();
+
+    void resetearVentana();
 
 private slots:
     void on_barraProbabilidades_valueChanged(int value);
